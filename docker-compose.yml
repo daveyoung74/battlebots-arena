@@ -1,0 +1,19 @@
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: arena
+      MYSQL_USER: arena
+      MYSQL_PASSWORD: arena_local
+      MYSQL_ROOT_PASSWORD: arena_root_local
+    ports:
+      - "127.0.0.1:3307:3306"
+    volumes:
+      - arena_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-parena_root_local"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+volumes:
+  arena_data:

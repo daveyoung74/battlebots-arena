@@ -1,0 +1,52 @@
+{
+  "name": "battlebots-arena",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server/index.ts",
+    "build": "tsc --noEmit && vite build",
+    "start": "tsx src/server/index.ts",
+    "worker": "tsx src/server/worker.ts",
+    "test": "tsx --test src/**/*.test.ts",
+    "db:migrate": "tsx src/server/migrate.ts",
+    "test:integration": "tsx --test integration/*.test.ts",
+    "format": "prettier --write src integration scripts/*.{ts,mjs} *.json *.ts *.md docs/*.{md,json} .github/workflows/*.yml",
+    "format:check": "prettier --check src integration scripts/*.{ts,mjs} *.json *.ts *.md docs/*.{md,json} .github/workflows/*.yml",
+    "replay:stats": "tsx scripts/replay-stats.ts",
+    "balance": "tsx scripts/balance.ts",
+    "protocol:build": "tsc -p vendor/protocol-v2/tsconfig.json",
+    "predev": "npm run protocol:build",
+    "prebuild": "npm run protocol:build",
+    "pretest": "npm run protocol:build",
+    "prestart": "npm run protocol:build",
+    "test:local-db": "node scripts/test-local-db.mjs",
+    "test:vendor": "node scripts/verify-vendor.mjs",
+    "test:protocol": "tsx --test vendor/protocol-v2/test/*.test.ts"
+  },
+  "dependencies": {
+    "@agentborn/protocol-v2": "file:vendor/protocol-v2",
+    "@vitejs/plugin-react": "6.1.1",
+    "dotenv": "17.4.2",
+    "express": "5.2.1",
+    "music-metadata": "11.15.0",
+    "mysql2": "3.24.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "tsx": "4.23.13",
+    "vite": "8.2.2",
+    "zod": "4.6.2"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.6",
+    "@types/node": "22.20.1",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "prettier": "3.9.6",
+    "typescript": "5.9.3"
+  }
+}

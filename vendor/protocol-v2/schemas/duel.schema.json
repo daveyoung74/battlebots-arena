@@ -1,0 +1,954 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentborn.example/schemas/a3.duel.1/duel.schema.json",
+  "description": "Structural duel-data extension. DUEL.md semantics and trusted execution are additionally required; no deployed endpoint.",
+  "$defs": {
+    "rules": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "a3.duel.1"
+        },
+        "kind": {
+          "type": "string",
+          "const": "duel_rules"
+        },
+        "runtimeId": {
+          "type": "string",
+          "const": "agentborn/duel/1"
+        },
+        "rngId": {
+          "type": "string",
+          "const": "agentborn/keccak256-counter/1"
+        },
+        "health": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000
+        },
+        "maxRounds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1024
+        },
+        "roundMs": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 60000
+        },
+        "recoveryThresholdMax": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "attack": {
+          "type": "object",
+          "properties": {
+            "baseBps": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000
+            },
+            "aggressionBps": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "baseBps",
+            "aggressionBps"
+          ],
+          "additionalProperties": false
+        },
+        "stamina": {
+          "type": "object",
+          "properties": {
+            "max": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "strikeCost": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "feintCost": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "guardGain": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "recoverGain": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            }
+          },
+          "required": [
+            "max",
+            "strikeCost",
+            "feintCost",
+            "guardGain",
+            "recoverGain"
+          ],
+          "additionalProperties": false
+        },
+        "damage": {
+          "type": "object",
+          "properties": {
+            "strike": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            "guardedStrike": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            "feint": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            "guardedFeint": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            "counter": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            }
+          },
+          "required": [
+            "strike",
+            "guardedStrike",
+            "feint",
+            "guardedFeint",
+            "counter"
+          ],
+          "additionalProperties": false
+        },
+        "tieBreak": {
+          "type": "string",
+          "const": "remaining_health_then_damage_then_seeded_coin"
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "kind",
+        "runtimeId",
+        "rngId",
+        "health",
+        "maxRounds",
+        "roundMs",
+        "recoveryThresholdMax",
+        "attack",
+        "stamina",
+        "damage",
+        "tieBreak"
+      ],
+      "additionalProperties": false
+    },
+    "strategy": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "aggression": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "feint_rate": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "recover_below": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        }
+      },
+      "required": [
+        "aggression",
+        "feint_rate",
+        "recover_below"
+      ],
+      "additionalProperties": false
+    },
+    "input": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "a3.duel.1"
+        },
+        "kind": {
+          "type": "string",
+          "const": "duel_input"
+        },
+        "rules": {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "type": "string",
+              "const": "agentborn/2"
+            },
+            "revision": {
+              "type": "string",
+              "const": "a3.duel.1"
+            },
+            "kind": {
+              "type": "string",
+              "const": "duel_rules"
+            },
+            "runtimeId": {
+              "type": "string",
+              "const": "agentborn/duel/1"
+            },
+            "rngId": {
+              "type": "string",
+              "const": "agentborn/keccak256-counter/1"
+            },
+            "health": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000
+            },
+            "maxRounds": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1024
+            },
+            "roundMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 60000
+            },
+            "recoveryThresholdMax": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "attack": {
+              "type": "object",
+              "properties": {
+                "baseBps": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "aggressionBps": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              },
+              "required": [
+                "baseBps",
+                "aggressionBps"
+              ],
+              "additionalProperties": false
+            },
+            "stamina": {
+              "type": "object",
+              "properties": {
+                "max": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1000
+                },
+                "strikeCost": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1000
+                },
+                "feintCost": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1000
+                },
+                "guardGain": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000
+                },
+                "recoverGain": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000
+                }
+              },
+              "required": [
+                "max",
+                "strikeCost",
+                "feintCost",
+                "guardGain",
+                "recoverGain"
+              ],
+              "additionalProperties": false
+            },
+            "damage": {
+              "type": "object",
+              "properties": {
+                "strike": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                "guardedStrike": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                "feint": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                "guardedFeint": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                "counter": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                }
+              },
+              "required": [
+                "strike",
+                "guardedStrike",
+                "feint",
+                "guardedFeint",
+                "counter"
+              ],
+              "additionalProperties": false
+            },
+            "tieBreak": {
+              "type": "string",
+              "const": "remaining_health_then_damage_then_seeded_coin"
+            }
+          },
+          "required": [
+            "protocol",
+            "revision",
+            "kind",
+            "runtimeId",
+            "rngId",
+            "health",
+            "maxRounds",
+            "roundMs",
+            "recoveryThresholdMax",
+            "attack",
+            "stamina",
+            "damage",
+            "tieBreak"
+          ],
+          "additionalProperties": false
+        },
+        "seed": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "entrants": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "object",
+              "properties": {
+                "championId": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                },
+                "strategy": {
+                  "type": "object",
+                  "properties": {
+                    "aggression": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "feint_rate": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "recover_below": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 1000
+                    }
+                  },
+                  "required": [
+                    "aggression",
+                    "feint_rate",
+                    "recover_below"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "championId",
+                "strategy"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "championId": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                },
+                "strategy": {
+                  "type": "object",
+                  "properties": {
+                    "aggression": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "feint_rate": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "recover_below": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 1000
+                    }
+                  },
+                  "required": [
+                    "aggression",
+                    "feint_rate",
+                    "recover_below"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "championId",
+                "strategy"
+              ],
+              "additionalProperties": false
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "kind",
+        "rules",
+        "seed",
+        "entrants"
+      ],
+      "additionalProperties": false
+    },
+    "budget": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "maxRounds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1024
+        },
+        "maxWork": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10000
+        },
+        "maxOutputBytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        }
+      },
+      "required": [
+        "maxRounds",
+        "maxWork",
+        "maxOutputBytes"
+      ],
+      "additionalProperties": false
+    },
+    "event": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "seq": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1023
+        },
+        "atMs": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 61440000
+        },
+        "actions": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "string",
+              "enum": [
+                "strike",
+                "feint",
+                "guard",
+                "recover"
+              ]
+            },
+            {
+              "type": "string",
+              "enum": [
+                "strike",
+                "feint",
+                "guard",
+                "recover"
+              ]
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "fighters": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "object",
+              "properties": {
+                "health": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                "stamina": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000
+                },
+                "damage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                }
+              },
+              "required": [
+                "health",
+                "stamina",
+                "damage"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "health": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                "stamina": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000
+                },
+                "damage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                }
+              },
+              "required": [
+                "health",
+                "stamina",
+                "damage"
+              ],
+              "additionalProperties": false
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "damageReceived": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "forced": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "boolean"
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        }
+      },
+      "required": [
+        "seq",
+        "atMs",
+        "actions",
+        "fighters",
+        "damageReceived",
+        "forced"
+      ],
+      "additionalProperties": false
+    },
+    "output": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "a3.duel.1"
+        },
+        "kind": {
+          "type": "string",
+          "const": "duel_simulation"
+        },
+        "inputHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "rulesHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "winnerId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "placements": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "reason": {
+          "type": "string",
+          "enum": [
+            "knockout",
+            "remaining_health",
+            "damage_dealt",
+            "seeded_tie_break"
+          ]
+        },
+        "rounds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1024
+        },
+        "events": {
+          "minItems": 1,
+          "maxItems": 1024,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "seq": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1023
+              },
+              "atMs": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 61440000
+              },
+              "actions": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "string",
+                    "enum": [
+                      "strike",
+                      "feint",
+                      "guard",
+                      "recover"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "strike",
+                      "feint",
+                      "guard",
+                      "recover"
+                    ]
+                  }
+                ],
+                "items": false,
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "fighters": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "health": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 1000000
+                      },
+                      "stamina": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 1000
+                      },
+                      "damage": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 1000000
+                      }
+                    },
+                    "required": [
+                      "health",
+                      "stamina",
+                      "damage"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "health": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 1000000
+                      },
+                      "stamina": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 1000
+                      },
+                      "damage": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 1000000
+                      }
+                    },
+                    "required": [
+                      "health",
+                      "stamina",
+                      "damage"
+                    ],
+                    "additionalProperties": false
+                  }
+                ],
+                "items": false,
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "damageReceived": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1000000
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1000000
+                  }
+                ],
+                "items": false,
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "forced": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ],
+                "items": false,
+                "minItems": 2,
+                "maxItems": 2
+              }
+            },
+            "required": [
+              "seq",
+              "atMs",
+              "actions",
+              "fighters",
+              "damageReceived",
+              "forced"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "finalState": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "object",
+              "properties": {
+                "health": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                "stamina": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000
+                },
+                "damage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                }
+              },
+              "required": [
+                "health",
+                "stamina",
+                "damage"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "health": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                "stamina": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000
+                },
+                "damage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                }
+              },
+              "required": [
+                "health",
+                "stamina",
+                "damage"
+              ],
+              "additionalProperties": false
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "usage": {
+          "type": "object",
+          "properties": {
+            "work": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000
+            },
+            "randomDraws": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 4097
+            },
+            "hashBlocks": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 513
+            }
+          },
+          "required": [
+            "work",
+            "randomDraws",
+            "hashBlocks"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "kind",
+        "inputHash",
+        "rulesHash",
+        "winnerId",
+        "placements",
+        "reason",
+        "rounds",
+        "events",
+        "finalState",
+        "usage"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

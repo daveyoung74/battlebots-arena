@@ -1,0 +1,374 @@
+{
+  "fixtureOnly": true,
+  "registry": {
+    "version": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "rulesArtifactHash": "0x000000000000000000000000000000000000000000000000000000000000000a",
+      "strategySchemaHash": "0x000000000000000000000000000000000000000000000000000000000000000b",
+      "eventSchemaHash": "0x000000000000000000000000000000000000000000000000000000000000000c",
+      "scoringPolicyHash": "0x000000000000000000000000000000000000000000000000000000000000000d",
+      "runtimeId": "fixture-only",
+      "runtimeHash": "0x000000000000000000000000000000000000000000000000000000000000000e",
+      "rngId": "fixture-only",
+      "rngHash": "0x000000000000000000000000000000000000000000000000000000000000000f",
+      "numericSemantics": "integer fixture data; not an admitted simulator",
+      "supportedRosters": [
+        4
+      ],
+      "reducedRosterPolicyHash": "0x0000000000000000000000000000000000000000000000000000000000000010",
+      "placementRules": [
+        {
+          "qualifiedCount": 2,
+          "sharesBps": [
+            6250,
+            3750
+          ]
+        },
+        {
+          "qualifiedCount": 3,
+          "sharesBps": [
+            5000,
+            3000,
+            2000
+          ]
+        },
+        {
+          "qualifiedCount": 4,
+          "sharesBps": [
+            5000,
+            3000,
+            2000
+          ]
+        }
+      ],
+      "limits": {
+        "maxEntrants": 4,
+        "maxTicks": 1000,
+        "maxFuel": "1000000",
+        "maxMemoryBytes": 16777216,
+        "maxEvents": 1000,
+        "maxEventBytes": 4096,
+        "maxReplayBytes": 1048576,
+        "maxSheetBytes": 4096,
+        "maxRendererAssetBytes": 1048576
+      }
+    },
+    "league": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+      "authorship": "operator",
+      "provenancePolicyHash": "0x0000000000000000000000000000000000000000000000000000000000000014"
+    },
+    "season": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+      "seasonId": "0x0000000000000000000000000000000000000000000000000000000000000003",
+      "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+      "startsAt": "100",
+      "endsAt": "10000"
+    },
+    "tiers": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+      "version": "1",
+      "inheritance": "explicit_only",
+      "token": {
+        "chainId": "4663",
+        "token": "0x000000000000000000000000000000000000005a"
+      },
+      "tokenDecimals": 18,
+      "tiers": [
+        {
+          "tierId": "0x0000000000000000000000000000000000000000000000000000000000000004",
+          "quantityBaseUnits": "1000000000000000000",
+          "benefits": [
+            {
+              "formats": [
+                "percentage",
+                "bounty"
+              ],
+              "rosterSizes": [
+                4
+              ],
+              "minAvailablePurseWei": "0",
+              "maxAvailablePurseWei": null,
+              "minNetEthPrizeWei": "0",
+              "maxNetEthPrizeWei": null
+            }
+          ]
+        }
+      ]
+    },
+    "finality": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "chainId": "4663",
+      "startCheckpoint": "first_finalized_block_at_or_after_start",
+      "commitmentFinality": "finalized",
+      "finalizationFinality": "finalized",
+      "extraSettlementDelaySeconds": 10,
+      "recoveryDeadlineSeconds": 3600
+    },
+    "cancellation": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "disposition": "refund_all",
+      "enrollmentDeadlineSeconds": 600,
+      "recoveryDeadlineSeconds": 3600
+    },
+    "selection": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "version": "1",
+      "kind": "audited_draw",
+      "provisionalLeaseSeconds": 60,
+      "candidateLimit": 100,
+      "evidencePolicyHash": "0x0000000000000000000000000000000000000000000000000000000000000015"
+    },
+    "assets": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "standardTransfersOnly": true,
+      "assets": [
+        {
+          "chainId": "4663",
+          "token": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "chainId": "4663",
+          "token": "0x000000000000000000000000000000000000005b"
+        }
+      ]
+    }
+  },
+  "manifest": {
+    "protocol": "agentborn/2",
+    "revision": "2.0.0-alpha.1",
+    "chainId": "4663",
+    "board": "0x0000000000000000000000000000000000000032",
+    "eventId": "0x000000000000000000000000000000000000000000000000000000000000003c",
+    "matchId": "0x0000000000000000000000000000000000000000000000000000000000000040",
+    "identity": {
+      "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+      "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+      "seasonId": "0x0000000000000000000000000000000000000000000000000000000000000003",
+      "tierConfigHash": "0xf092af74e8ae6f8956d0bc9d89a0b0f52fab3034faf0ddd9eb237fbdf9739a86",
+      "matchmakingPolicyHash": "0x824621493a4dd62836b3223bb1fef19a869dd24f2fac415cfbf9b95c00d7e895"
+    },
+    "schedule": {
+      "enrollmentClosesAt": "900",
+      "startAt": "1000",
+      "resultCommitDeadline": "1100",
+      "revealAt": "1400",
+      "settlementNotBefore": "1410",
+      "playbackSeconds": 300,
+      "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+    },
+    "format": {
+      "kind": "none"
+    },
+    "exposure": "open",
+    "capacity": 4,
+    "doorFeeWei": "0",
+    "tierId": null,
+    "cancellationPolicyHash": "0xa7e22f4bfffeb37e3ee936cfe6a70e66a920d6dd2350440e87780dde786d9ea1",
+    "assetPolicyHash": "0x1ba7a571abe8ce1bad9994e35cbd530407cc09fa2889aefca723a2523a127745",
+    "quoteRecordHash": null,
+    "settlementFeeBps": 100,
+    "treasury": "0x0000000000000000000000000000000000000033",
+    "roster": [
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+        "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000c8",
+        "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012c",
+        "payout": "0x0000000000000000000000000000000000000190",
+        "qualifyingWallet": "0x00000000000000000000000000000000000001f4",
+        "vault": "0x0000000000000000000000000000000000000258",
+        "strategyCommitment": "0x00000000000000000000000000000000000000000000000000000000000002bc",
+        "permissionsHash": "0x6c666428e361c83be6e2d58be3faa0f09594219398cfa4926b99a871e221f29a",
+        "authorizationVersion": "1",
+        "admissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000320",
+        "grossDailyUsedWei": "0",
+        "dayBucket": "1970-01-01"
+      },
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+        "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000c9",
+        "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012d",
+        "payout": "0x0000000000000000000000000000000000000191",
+        "qualifyingWallet": "0x00000000000000000000000000000000000001f5",
+        "vault": "0x0000000000000000000000000000000000000259",
+        "strategyCommitment": "0x00000000000000000000000000000000000000000000000000000000000002bd",
+        "permissionsHash": "0x74034190b55354bd57bfb4a607ea56df3af841f64ba93d805fea21ba68faa4c4",
+        "authorizationVersion": "1",
+        "admissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000321",
+        "grossDailyUsedWei": "0",
+        "dayBucket": "1970-01-01"
+      },
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000066",
+        "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000ca",
+        "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012e",
+        "payout": "0x0000000000000000000000000000000000000192",
+        "qualifyingWallet": "0x00000000000000000000000000000000000001f6",
+        "vault": "0x000000000000000000000000000000000000025a",
+        "strategyCommitment": "0x00000000000000000000000000000000000000000000000000000000000002be",
+        "permissionsHash": "0x44c5223a46bd9862b08b4f67b4ceb116642e8e32c38d445d150ca97623a8cb88",
+        "authorizationVersion": "1",
+        "admissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000322",
+        "grossDailyUsedWei": "0",
+        "dayBucket": "1970-01-01"
+      },
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000067",
+        "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000cb",
+        "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012f",
+        "payout": "0x0000000000000000000000000000000000000193",
+        "qualifyingWallet": "0x00000000000000000000000000000000000001f7",
+        "vault": "0x000000000000000000000000000000000000025b",
+        "strategyCommitment": "0x00000000000000000000000000000000000000000000000000000000000002bf",
+        "permissionsHash": "0x5fc6a7a99fb64888e97c526edac6315aa309a2b17532b5c452fbe91fbe868b9b",
+        "authorizationVersion": "1",
+        "admissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000323",
+        "grossDailyUsedWei": "0",
+        "dayBucket": "1970-01-01"
+      }
+    ],
+    "sources": []
+  },
+  "qualification": {
+    "protocol": "agentborn/2",
+    "revision": "2.0.0-alpha.1",
+    "matchId": "0x0000000000000000000000000000000000000000000000000000000000000040",
+    "manifestHash": "0x1474667b3d6dc4243e3c4a22c72ed8b49dbe69b72abb79797030e17ca0b3583c",
+    "checkpoint": null,
+    "entrants": [
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+        "status": "qualified",
+        "reason": "qualified",
+        "evidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000514"
+      },
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+        "status": "qualified",
+        "reason": "qualified",
+        "evidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000515"
+      },
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000066",
+        "status": "qualified",
+        "reason": "qualified",
+        "evidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000516"
+      },
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000067",
+        "status": "qualified",
+        "reason": "qualified",
+        "evidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000517"
+      }
+    ]
+  },
+  "result": {
+    "protocol": "agentborn/2",
+    "revision": "2.0.0-alpha.1",
+    "matchId": "0x0000000000000000000000000000000000000000000000000000000000000040",
+    "manifestHash": "0x1474667b3d6dc4243e3c4a22c72ed8b49dbe69b72abb79797030e17ca0b3583c",
+    "kind": "played",
+    "qualificationHash": "0xd5879a80aa6438aefcb673cf3ad0dfd2f6e58790502959a435d58e5158c1c4e2",
+    "placements": [
+      "0x0000000000000000000000000000000000000000000000000000000000000067",
+      "0x0000000000000000000000000000000000000000000000000000000000000064",
+      "0x0000000000000000000000000000000000000000000000000000000000000066",
+      "0x0000000000000000000000000000000000000000000000000000000000000065"
+    ],
+    "sharesBps": [
+      5000,
+      3000,
+      2000
+    ],
+    "payments": []
+  },
+  "replay": {
+    "protocol": "agentborn/2",
+    "revision": "2.0.0-alpha.1",
+    "matchId": "0x0000000000000000000000000000000000000000000000000000000000000040",
+    "manifestHash": "0x1474667b3d6dc4243e3c4a22c72ed8b49dbe69b72abb79797030e17ca0b3583c",
+    "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+    "eventSchemaHash": "0x000000000000000000000000000000000000000000000000000000000000000c",
+    "rendererVersion": "fixture/1",
+    "kind": "played",
+    "resultHash": "0x9a3c25ffbb467db7143dff8c7f0c3adef9c08fca37c6c7605aa93dd6fc89b236",
+    "visibleRoster": [
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000067",
+        "name": "Fixture champion 1",
+        "cosmeticRef": "fixture"
+      },
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+        "name": "Fixture champion 2",
+        "cosmeticRef": "fixture"
+      },
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000066",
+        "name": "Fixture champion 3",
+        "cosmeticRef": "fixture"
+      },
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+        "name": "Fixture champion 4",
+        "cosmeticRef": "fixture"
+      }
+    ],
+    "initialState": {
+      "fixtureOnly": true,
+      "caption": "Synthetic public conformance data"
+    },
+    "durationMs": 2000,
+    "events": [
+      {
+        "seq": 0,
+        "atMs": 1000,
+        "type": "action",
+        "payload": {
+          "actor": "0x0000000000000000000000000000000000000000000000000000000000000067",
+          "action": "advance"
+        }
+      },
+      {
+        "seq": 1,
+        "atMs": 2000,
+        "type": "finish",
+        "payload": {
+          "winner": "0x0000000000000000000000000000000000000000000000000000000000000067"
+        }
+      }
+    ]
+  },
+  "seed": "0x0000000000000000000000000000000000000000000000000000000000000708",
+  "signal": {
+    "protocol": "agentborn/2",
+    "revision": "2.0.0-alpha.1",
+    "kind": "casual_result",
+    "keyId": "0x0000000000000000000000000000000000000000000000000000000000000709",
+    "matchId": "0x0000000000000000000000000000000000000000000000000000000000000040",
+    "manifestHash": "0x1474667b3d6dc4243e3c4a22c72ed8b49dbe69b72abb79797030e17ca0b3583c",
+    "resultHash": "0x9a3c25ffbb467db7143dff8c7f0c3adef9c08fca37c6c7605aa93dd6fc89b236",
+    "replayHash": "0xbb21f3d9e045e9123d258ca13afd188f98b445a4931e7b36a94b6e6e56165fd2",
+    "seedCommitment": "0x1d1b1853e7a543f669e7846c40d0eaa5fff2cb9a138ac91ab74a0bd28850d792",
+    "publishedAt": "1400",
+    "signature": "0xe90cbb40900cd551771fc9395ced0691f4db3d203bbec8cc57d6b16be3e3592485f4b4d61236ebdb4fc7dcd22f09302de847d4566720cbb4b7510f676ad8cb01"
+  },
+  "publicKey": "0xd04ab232742bb4ab3a1368bd4615e4e6d0224ab71a016baf8520a332c9778737",
+  "signedMessageHex": "0x7b226b65794964223a22307830303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030373039222c226b696e64223a2263617375616c5f726573756c74222c226d616e696665737448617368223a22307831343734363637623364366463343234336533633461323263373265643862343964626536396237326162623739373937303330653137636130623335383363222c226d617463684964223a22307830303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303430222c2270726f746f636f6c223a226167656e74626f726e2f32222c227075626c69736865644174223a2231343030222c227265706c617948617368223a22307862623231663364396530343565393132336432353863613133616664313838663938623434356134393331653762333661393462366536653536313635666432222c22726573756c7448617368223a22307839613363323566666262343637646237313433646666386337663063336164656639633038666361333763366337363035616139336464366663383962323336222c227265766973696f6e223a22322e302e302d616c7068612e31222c2273656564436f6d6d69746d656e74223a22307831643162313835336537613534336636363965373834366334306430656161356666663263623961313338616339316162373461306264323838353064373932227d"
+}

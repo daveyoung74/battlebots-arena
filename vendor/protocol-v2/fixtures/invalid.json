@@ -1,0 +1,69 @@
+[
+  {
+    "name": "duplicate-key",
+    "layer": "canonical",
+    "json": "{\"a\":1,\"a\":2}"
+  },
+  {
+    "name": "fractional-number",
+    "layer": "canonical",
+    "json": "{\"a\":0.5}"
+  },
+  {
+    "name": "unsafe-number",
+    "layer": "canonical",
+    "json": "{\"a\":9007199254740992}"
+  },
+  {
+    "name": "negative-zero",
+    "layer": "canonical",
+    "json": "{\"a\":-0}"
+  },
+  {
+    "name": "lone-surrogate",
+    "layer": "canonical",
+    "json": "{\"a\":\"\\ud800\"}"
+  },
+  {
+    "name": "wrong-protocol",
+    "layer": "manifest",
+    "path": [
+      "protocol"
+    ],
+    "value": "agentborn/1"
+  },
+  {
+    "name": "underfilled",
+    "layer": "manifest",
+    "path": [
+      "capacity"
+    ],
+    "value": 8
+  },
+  {
+    "name": "fee-change",
+    "layer": "manifest",
+    "path": [
+      "settlementFeeBps"
+    ],
+    "value": 200
+  },
+  {
+    "name": "uncommitted-recipient",
+    "layer": "result",
+    "path": [
+      "payments",
+      0,
+      "beneficiary"
+    ],
+    "value": "0xffffffffffffffffffffffffffffffffffffffff"
+  },
+  {
+    "name": "changed-replay",
+    "layer": "opening",
+    "path": [
+      "replayHash"
+    ],
+    "value": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+  }
+]

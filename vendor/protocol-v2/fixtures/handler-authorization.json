@@ -1,0 +1,19 @@
+{
+  "fixtureOnly": true,
+  "authorization": {
+    "protocol": "agentborn/2",
+    "revision": "2.0.0-alpha.1",
+    "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000c8",
+    "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+    "signer": "0x00000000000000000000000000000000000001f4",
+    "board": "0x0000000000000000000000000000000000000032",
+    "chainId": "4663",
+    "permissionsHash": "0x6c666428e361c83be6e2d58be3faa0f09594219398cfa4926b99a871e221f29a",
+    "version": "1",
+    "nonce": "7",
+    "validAfter": "100",
+    "validUntil": "10000",
+    "signature": "0x00"
+  },
+  "typedDataHash": "0xfbefb2917341861c17f5069c06a7d3d599a02a2043b3d2223a54f424c9042424"
+}

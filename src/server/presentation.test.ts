@@ -1,0 +1,43 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { newMatch } from "./service.ts";
+import { publicMatch } from "./presentation.ts";
+import { simulate } from "../game/engine.ts";
+import { HOUSE } from "../game/fixtures.ts";
+test("spectator projection never exposes future actions, random state or strategy", () => {
+  const m = newMatch("exhibition");
+  m.entrants = structuredClone(HOUSE.slice(0, 2));
+  const r = simulate(9, m.entrants, 1000);
+  m.events = r.events;
+  m.combat = r.state;
+  m.seed = 981234;
+  m.status = "running";
+  const p = publicMatch(m, 1500);
+  assert.equal(p.events.length, 1);
+  const raw = JSON.stringify(p);
+  assert.ok(!raw.includes('"strategy"'));
+  assert.ok(!raw.includes('"seed"'));
+  assert.ok(!raw.includes('"rng"'));
+  assert.ok(!raw.includes('"ownerRef"'));
+  assert.equal(p.result, null);
+});
+test("replay expiry preserves result and disables timeline", () => {
+  const m = newMatch("exhibition");
+  m.entrants = structuredClone(HOUSE.slice(0, 2));
+  const r = simulate(7, m.entrants, 0);
+  m.events = r.events;
+  m.status = "complete";
+  m.endedAt = 24000;
+  m.replayExpiresAt = 25000;
+  m.result = { winner: r.state.winner!, reason: r.state.reason! };
+  const p = publicMatch(m, 30000);
+  assert.equal(p.replayState, "expired");
+  assert.equal(p.events.length, 0);
+  assert.deepEqual(p.result, m.result);
+});
+test("headless matches never advertise a visual replay", () => {
+  const m = newMatch("practice", true);
+  assert.equal(publicMatch(m).replayState, "unsupported");
+  assert.equal(m.rewardPolicy, "none");
+  assert.equal(newMatch("casual").rewardPolicy, "platform");
+});

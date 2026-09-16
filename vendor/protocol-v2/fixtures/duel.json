@@ -1,0 +1,3062 @@
+{
+  "fixtureOnly": true,
+  "revision": "a3.duel.1",
+  "rngSpec": {
+    "id": "agentborn/keccak256-counter/1",
+    "domain": "agentborn.duel.rng.1",
+    "block": "keccak256(canonicalJson({domain,seed,counter}))",
+    "counter": "decimal string starting at 0",
+    "words": "eight big-endian uint32 words per block, left to right",
+    "draws": "four per round; one extra for a final tie"
+  },
+  "rngHash": "0x6e7695a46e385485501dcdfb29cfa54cf10cf32a90e6fdc06fe684cd3c62b218",
+  "rules": {
+    "protocol": "agentborn/2",
+    "revision": "a3.duel.1",
+    "kind": "duel_rules",
+    "runtimeId": "agentborn/duel/1",
+    "rngId": "agentborn/keccak256-counter/1",
+    "health": 100,
+    "maxRounds": 24,
+    "roundMs": 1000,
+    "recoveryThresholdMax": 4,
+    "attack": {
+      "baseBps": 2500,
+      "aggressionBps": 50
+    },
+    "stamina": {
+      "max": 6,
+      "strikeCost": 2,
+      "feintCost": 3,
+      "guardGain": 1,
+      "recoverGain": 3
+    },
+    "damage": {
+      "strike": 12,
+      "guardedStrike": 3,
+      "feint": 6,
+      "guardedFeint": 10,
+      "counter": 6
+    },
+    "tieBreak": "remaining_health_then_damage_then_seeded_coin"
+  },
+  "rulesHash": "0x83b27a0aafdcf7ecab56e7cb2203a089e8339f391d717f2a334fb402e11646be",
+  "rngVectors": [
+    {
+      "seed": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "counter": "0",
+      "hash": "0x58c2dd60d7ed9e05909fae6ef5d0013d11548fe9b8d210b82a098e48e15d3161",
+      "words": [
+        1489165664,
+        3622673925,
+        2426383982,
+        4124049725,
+        290754537,
+        3100774584,
+        705269320,
+        3780981089
+      ]
+    },
+    {
+      "seed": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "counter": "1",
+      "hash": "0x9eed98ebc34d15bf3492590d59fd8eb5a9ad4249633cf176bfa41f659efcd40f",
+      "words": [
+        2666371307,
+        3276608959,
+        882006285,
+        1509789365,
+        2846704201,
+        1664938358,
+        3215204197,
+        2667369487
+      ]
+    },
+    {
+      "seed": "0xabababababababababababababababababababababababababababababababab",
+      "counter": "0",
+      "hash": "0x53b620e1fecc35198cfbad0fcbbb27020739c8abe475816a20168e649342edc9",
+      "words": [
+        1404444897,
+        4274795801,
+        2365304079,
+        3418040066,
+        121227435,
+        3832906090,
+        538349156,
+        2470637001
+      ]
+    },
+    {
+      "seed": "0xabababababababababababababababababababababababababababababababab",
+      "counter": "1",
+      "hash": "0x51c93d9093bc412ca8c65566bd9a0f0cf25410f00cb4e6b4e0180c04b1f7fbfc",
+      "words": [
+        1372142992,
+        2478588204,
+        2831570278,
+        3180990220,
+        4065595632,
+        213182132,
+        3759672324,
+        2985819132
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "name": "sample_tactics",
+      "input": {
+        "protocol": "agentborn/2",
+        "revision": "a3.duel.1",
+        "kind": "duel_input",
+        "rules": {
+          "protocol": "agentborn/2",
+          "revision": "a3.duel.1",
+          "kind": "duel_rules",
+          "runtimeId": "agentborn/duel/1",
+          "rngId": "agentborn/keccak256-counter/1",
+          "health": 100,
+          "maxRounds": 24,
+          "roundMs": 1000,
+          "recoveryThresholdMax": 4,
+          "attack": {
+            "baseBps": 2500,
+            "aggressionBps": 50
+          },
+          "stamina": {
+            "max": 6,
+            "strikeCost": 2,
+            "feintCost": 3,
+            "guardGain": 1,
+            "recoverGain": 3
+          },
+          "damage": {
+            "strike": 12,
+            "guardedStrike": 3,
+            "feint": 6,
+            "guardedFeint": 10,
+            "counter": 6
+          },
+          "tieBreak": "remaining_health_then_damage_then_seeded_coin"
+        },
+        "seed": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "entrants": [
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "strategy": {
+              "aggression": 85,
+              "feint_rate": 10,
+              "recover_below": 1
+            }
+          },
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+            "strategy": {
+              "aggression": 55,
+              "feint_rate": 80,
+              "recover_below": 2
+            }
+          }
+        ]
+      },
+      "output": {
+        "protocol": "agentborn/2",
+        "revision": "a3.duel.1",
+        "kind": "duel_simulation",
+        "inputHash": "0xffe213abc6a65edfa15f374451abaab4fd04af6f678cfbcd47c8938fa9d51b17",
+        "rulesHash": "0x83b27a0aafdcf7ecab56e7cb2203a089e8339f391d717f2a334fb402e11646be",
+        "winnerId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "placements": [
+          "0x0000000000000000000000000000000000000000000000000000000000000002",
+          "0x0000000000000000000000000000000000000000000000000000000000000001"
+        ],
+        "reason": "knockout",
+        "rounds": 22,
+        "events": [
+          {
+            "seq": 0,
+            "atMs": 1000,
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 94,
+                "stamina": 4,
+                "damage": 3
+              },
+              {
+                "health": 97,
+                "stamina": 6,
+                "damage": 6
+              }
+            ],
+            "damageReceived": [
+              6,
+              3
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 1,
+            "atMs": 2000,
+            "actions": [
+              "strike",
+              "strike"
+            ],
+            "fighters": [
+              {
+                "health": 82,
+                "stamina": 2,
+                "damage": 15
+              },
+              {
+                "health": 85,
+                "stamina": 4,
+                "damage": 18
+              }
+            ],
+            "damageReceived": [
+              12,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 2,
+            "atMs": 3000,
+            "actions": [
+              "strike",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 76,
+                "stamina": 0,
+                "damage": 27
+              },
+              {
+                "health": 73,
+                "stamina": 1,
+                "damage": 24
+              }
+            ],
+            "damageReceived": [
+              6,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 3,
+            "atMs": 4000,
+            "actions": [
+              "recover",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 76,
+                "stamina": 3,
+                "damage": 27
+              },
+              {
+                "health": 73,
+                "stamina": 4,
+                "damage": 24
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 4,
+            "atMs": 5000,
+            "actions": [
+              "guard",
+              "strike"
+            ],
+            "fighters": [
+              {
+                "health": 73,
+                "stamina": 4,
+                "damage": 33
+              },
+              {
+                "health": 67,
+                "stamina": 2,
+                "damage": 27
+              }
+            ],
+            "damageReceived": [
+              3,
+              6
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 5,
+            "atMs": 6000,
+            "actions": [
+              "strike",
+              "strike"
+            ],
+            "fighters": [
+              {
+                "health": 61,
+                "stamina": 2,
+                "damage": 45
+              },
+              {
+                "health": 55,
+                "stamina": 0,
+                "damage": 39
+              }
+            ],
+            "damageReceived": [
+              12,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 6,
+            "atMs": 7000,
+            "actions": [
+              "guard",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 61,
+                "stamina": 3,
+                "damage": 45
+              },
+              {
+                "health": 55,
+                "stamina": 3,
+                "damage": 39
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 7,
+            "atMs": 8000,
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 55,
+                "stamina": 1,
+                "damage": 48
+              },
+              {
+                "health": 52,
+                "stamina": 4,
+                "damage": 45
+              }
+            ],
+            "damageReceived": [
+              6,
+              3
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 8,
+            "atMs": 9000,
+            "actions": [
+              "recover",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 49,
+                "stamina": 4,
+                "damage": 48
+              },
+              {
+                "health": 52,
+                "stamina": 1,
+                "damage": 51
+              }
+            ],
+            "damageReceived": [
+              6,
+              0
+            ],
+            "forced": [
+              true,
+              false
+            ]
+          },
+          {
+            "seq": 9,
+            "atMs": 10000,
+            "actions": [
+              "strike",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 49,
+                "stamina": 2,
+                "damage": 60
+              },
+              {
+                "health": 40,
+                "stamina": 4,
+                "damage": 51
+              }
+            ],
+            "damageReceived": [
+              0,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 10,
+            "atMs": 11000,
+            "actions": [
+              "guard",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 49,
+                "stamina": 3,
+                "damage": 60
+              },
+              {
+                "health": 40,
+                "stamina": 5,
+                "damage": 51
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 11,
+            "atMs": 12000,
+            "actions": [
+              "strike",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 43,
+                "stamina": 1,
+                "damage": 72
+              },
+              {
+                "health": 28,
+                "stamina": 2,
+                "damage": 57
+              }
+            ],
+            "damageReceived": [
+              6,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 12,
+            "atMs": 13000,
+            "actions": [
+              "recover",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 43,
+                "stamina": 4,
+                "damage": 72
+              },
+              {
+                "health": 28,
+                "stamina": 3,
+                "damage": 57
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              true,
+              false
+            ]
+          },
+          {
+            "seq": 13,
+            "atMs": 14000,
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 37,
+                "stamina": 2,
+                "damage": 75
+              },
+              {
+                "health": 25,
+                "stamina": 4,
+                "damage": 63
+              }
+            ],
+            "damageReceived": [
+              6,
+              3
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 14,
+            "atMs": 15000,
+            "actions": [
+              "guard",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 27,
+                "stamina": 3,
+                "damage": 75
+              },
+              {
+                "health": 25,
+                "stamina": 1,
+                "damage": 73
+              }
+            ],
+            "damageReceived": [
+              10,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 15,
+            "atMs": 16000,
+            "actions": [
+              "guard",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 27,
+                "stamina": 4,
+                "damage": 75
+              },
+              {
+                "health": 25,
+                "stamina": 4,
+                "damage": 73
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 16,
+            "atMs": 17000,
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 21,
+                "stamina": 2,
+                "damage": 78
+              },
+              {
+                "health": 22,
+                "stamina": 5,
+                "damage": 79
+              }
+            ],
+            "damageReceived": [
+              6,
+              3
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 17,
+            "atMs": 18000,
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 15,
+                "stamina": 0,
+                "damage": 81
+              },
+              {
+                "health": 19,
+                "stamina": 6,
+                "damage": 85
+              }
+            ],
+            "damageReceived": [
+              6,
+              3
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 18,
+            "atMs": 19000,
+            "actions": [
+              "recover",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 9,
+                "stamina": 3,
+                "damage": 81
+              },
+              {
+                "health": 19,
+                "stamina": 3,
+                "damage": 91
+              }
+            ],
+            "damageReceived": [
+              6,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 19,
+            "atMs": 20000,
+            "actions": [
+              "strike",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 3,
+                "stamina": 1,
+                "damage": 93
+              },
+              {
+                "health": 7,
+                "stamina": 0,
+                "damage": 97
+              }
+            ],
+            "damageReceived": [
+              6,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 20,
+            "atMs": 21000,
+            "actions": [
+              "guard",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 3,
+                "stamina": 2,
+                "damage": 93
+              },
+              {
+                "health": 7,
+                "stamina": 3,
+                "damage": 97
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 21,
+            "atMs": 22000,
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 0,
+                "stamina": 0,
+                "damage": 96
+              },
+              {
+                "health": 4,
+                "stamina": 4,
+                "damage": 100
+              }
+            ],
+            "damageReceived": [
+              3,
+              3
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          }
+        ],
+        "finalState": [
+          {
+            "health": 0,
+            "stamina": 0,
+            "damage": 96
+          },
+          {
+            "health": 4,
+            "stamina": 4,
+            "damage": 100
+          }
+        ],
+        "usage": {
+          "work": 121,
+          "randomDraws": 88,
+          "hashBlocks": 11
+        }
+      },
+      "outputHash": "0xc720fcbfb991b4d5e575f7c1b2a30fb50765d2c0c2eec31c6a7ab97cf25b66d3"
+    },
+    {
+      "name": "full_seed",
+      "input": {
+        "protocol": "agentborn/2",
+        "revision": "a3.duel.1",
+        "kind": "duel_input",
+        "rules": {
+          "protocol": "agentborn/2",
+          "revision": "a3.duel.1",
+          "kind": "duel_rules",
+          "runtimeId": "agentborn/duel/1",
+          "rngId": "agentborn/keccak256-counter/1",
+          "health": 100,
+          "maxRounds": 24,
+          "roundMs": 1000,
+          "recoveryThresholdMax": 4,
+          "attack": {
+            "baseBps": 2500,
+            "aggressionBps": 50
+          },
+          "stamina": {
+            "max": 6,
+            "strikeCost": 2,
+            "feintCost": 3,
+            "guardGain": 1,
+            "recoverGain": 3
+          },
+          "damage": {
+            "strike": 12,
+            "guardedStrike": 3,
+            "feint": 6,
+            "guardedFeint": 10,
+            "counter": 6
+          },
+          "tieBreak": "remaining_health_then_damage_then_seeded_coin"
+        },
+        "seed": "0xabababababababababababababababababababababababababababababababab",
+        "entrants": [
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "strategy": {
+              "aggression": 85,
+              "feint_rate": 10,
+              "recover_below": 1
+            }
+          },
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+            "strategy": {
+              "aggression": 55,
+              "feint_rate": 80,
+              "recover_below": 2
+            }
+          }
+        ]
+      },
+      "output": {
+        "protocol": "agentborn/2",
+        "revision": "a3.duel.1",
+        "kind": "duel_simulation",
+        "inputHash": "0xf4d6d801194276957cba98a01a63b22981cb6542468bc9f361afda98a107c6e5",
+        "rulesHash": "0x83b27a0aafdcf7ecab56e7cb2203a089e8339f391d717f2a334fb402e11646be",
+        "winnerId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "placements": [
+          "0x0000000000000000000000000000000000000000000000000000000000000002",
+          "0x0000000000000000000000000000000000000000000000000000000000000001"
+        ],
+        "reason": "knockout",
+        "rounds": 22,
+        "events": [
+          {
+            "seq": 0,
+            "atMs": 1000,
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 94,
+                "stamina": 4,
+                "damage": 3
+              },
+              {
+                "health": 97,
+                "stamina": 6,
+                "damage": 6
+              }
+            ],
+            "damageReceived": [
+              6,
+              3
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 1,
+            "atMs": 2000,
+            "actions": [
+              "strike",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 88,
+                "stamina": 2,
+                "damage": 15
+              },
+              {
+                "health": 85,
+                "stamina": 3,
+                "damage": 12
+              }
+            ],
+            "damageReceived": [
+              6,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 2,
+            "atMs": 3000,
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 82,
+                "stamina": 0,
+                "damage": 18
+              },
+              {
+                "health": 82,
+                "stamina": 4,
+                "damage": 18
+              }
+            ],
+            "damageReceived": [
+              6,
+              3
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 3,
+            "atMs": 4000,
+            "actions": [
+              "recover",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 82,
+                "stamina": 3,
+                "damage": 18
+              },
+              {
+                "health": 82,
+                "stamina": 5,
+                "damage": 18
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 4,
+            "atMs": 5000,
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 76,
+                "stamina": 1,
+                "damage": 21
+              },
+              {
+                "health": 79,
+                "stamina": 6,
+                "damage": 24
+              }
+            ],
+            "damageReceived": [
+              6,
+              3
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 5,
+            "atMs": 6000,
+            "actions": [
+              "recover",
+              "strike"
+            ],
+            "fighters": [
+              {
+                "health": 64,
+                "stamina": 4,
+                "damage": 21
+              },
+              {
+                "health": 79,
+                "stamina": 4,
+                "damage": 36
+              }
+            ],
+            "damageReceived": [
+              12,
+              0
+            ],
+            "forced": [
+              true,
+              false
+            ]
+          },
+          {
+            "seq": 6,
+            "atMs": 7000,
+            "actions": [
+              "guard",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 54,
+                "stamina": 5,
+                "damage": 21
+              },
+              {
+                "health": 79,
+                "stamina": 1,
+                "damage": 46
+              }
+            ],
+            "damageReceived": [
+              10,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 7,
+            "atMs": 8000,
+            "actions": [
+              "strike",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 54,
+                "stamina": 3,
+                "damage": 33
+              },
+              {
+                "health": 67,
+                "stamina": 4,
+                "damage": 46
+              }
+            ],
+            "damageReceived": [
+              0,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 8,
+            "atMs": 9000,
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 48,
+                "stamina": 1,
+                "damage": 36
+              },
+              {
+                "health": 64,
+                "stamina": 5,
+                "damage": 52
+              }
+            ],
+            "damageReceived": [
+              6,
+              3
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 9,
+            "atMs": 10000,
+            "actions": [
+              "recover",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 48,
+                "stamina": 4,
+                "damage": 36
+              },
+              {
+                "health": 64,
+                "stamina": 6,
+                "damage": 52
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              true,
+              false
+            ]
+          },
+          {
+            "seq": 10,
+            "atMs": 11000,
+            "actions": [
+              "strike",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 42,
+                "stamina": 2,
+                "damage": 48
+              },
+              {
+                "health": 52,
+                "stamina": 3,
+                "damage": 58
+              }
+            ],
+            "damageReceived": [
+              6,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 11,
+            "atMs": 12000,
+            "actions": [
+              "strike",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 36,
+                "stamina": 0,
+                "damage": 60
+              },
+              {
+                "health": 40,
+                "stamina": 0,
+                "damage": 64
+              }
+            ],
+            "damageReceived": [
+              6,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 12,
+            "atMs": 13000,
+            "actions": [
+              "recover",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 36,
+                "stamina": 3,
+                "damage": 60
+              },
+              {
+                "health": 40,
+                "stamina": 3,
+                "damage": 64
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 13,
+            "atMs": 14000,
+            "actions": [
+              "guard",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 36,
+                "stamina": 4,
+                "damage": 60
+              },
+              {
+                "health": 40,
+                "stamina": 4,
+                "damage": 64
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 14,
+            "atMs": 15000,
+            "actions": [
+              "guard",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 26,
+                "stamina": 5,
+                "damage": 60
+              },
+              {
+                "health": 40,
+                "stamina": 1,
+                "damage": 74
+              }
+            ],
+            "damageReceived": [
+              10,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 15,
+            "atMs": 16000,
+            "actions": [
+              "strike",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 26,
+                "stamina": 3,
+                "damage": 72
+              },
+              {
+                "health": 28,
+                "stamina": 4,
+                "damage": 74
+              }
+            ],
+            "damageReceived": [
+              0,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 16,
+            "atMs": 17000,
+            "actions": [
+              "strike",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 20,
+                "stamina": 1,
+                "damage": 84
+              },
+              {
+                "health": 16,
+                "stamina": 1,
+                "damage": 80
+              }
+            ],
+            "damageReceived": [
+              6,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 17,
+            "atMs": 18000,
+            "actions": [
+              "recover",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 20,
+                "stamina": 4,
+                "damage": 84
+              },
+              {
+                "health": 16,
+                "stamina": 4,
+                "damage": 80
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              true,
+              false
+            ]
+          },
+          {
+            "seq": 18,
+            "atMs": 19000,
+            "actions": [
+              "guard",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 10,
+                "stamina": 5,
+                "damage": 84
+              },
+              {
+                "health": 16,
+                "stamina": 1,
+                "damage": 90
+              }
+            ],
+            "damageReceived": [
+              10,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 19,
+            "atMs": 20000,
+            "actions": [
+              "feint",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 10,
+                "stamina": 2,
+                "damage": 90
+              },
+              {
+                "health": 10,
+                "stamina": 4,
+                "damage": 90
+              }
+            ],
+            "damageReceived": [
+              0,
+              6
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 20,
+            "atMs": 21000,
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 4,
+                "stamina": 0,
+                "damage": 93
+              },
+              {
+                "health": 7,
+                "stamina": 5,
+                "damage": 96
+              }
+            ],
+            "damageReceived": [
+              6,
+              3
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 21,
+            "atMs": 22000,
+            "actions": [
+              "recover",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 0,
+                "stamina": 3,
+                "damage": 93
+              },
+              {
+                "health": 7,
+                "stamina": 2,
+                "damage": 100
+              }
+            ],
+            "damageReceived": [
+              4,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          }
+        ],
+        "finalState": [
+          {
+            "health": 0,
+            "stamina": 3,
+            "damage": 93
+          },
+          {
+            "health": 7,
+            "stamina": 2,
+            "damage": 100
+          }
+        ],
+        "usage": {
+          "work": 121,
+          "randomDraws": 88,
+          "hashBlocks": 11
+        }
+      },
+      "outputHash": "0x11ccb44ac439aba3dba76d07f93fcd7cbc58f1bde749b3f5f41cfb9b131d0f6a"
+    },
+    {
+      "name": "exhaustion",
+      "input": {
+        "protocol": "agentborn/2",
+        "revision": "a3.duel.1",
+        "kind": "duel_input",
+        "rules": {
+          "protocol": "agentborn/2",
+          "revision": "a3.duel.1",
+          "kind": "duel_rules",
+          "runtimeId": "agentborn/duel/1",
+          "rngId": "agentborn/keccak256-counter/1",
+          "health": 100,
+          "maxRounds": 24,
+          "roundMs": 1000,
+          "recoveryThresholdMax": 4,
+          "attack": {
+            "baseBps": 2500,
+            "aggressionBps": 50
+          },
+          "stamina": {
+            "max": 6,
+            "strikeCost": 2,
+            "feintCost": 3,
+            "guardGain": 1,
+            "recoverGain": 3
+          },
+          "damage": {
+            "strike": 12,
+            "guardedStrike": 3,
+            "feint": 6,
+            "guardedFeint": 10,
+            "counter": 6
+          },
+          "tieBreak": "remaining_health_then_damage_then_seeded_coin"
+        },
+        "seed": "0x0000000000000000000000000000000000000000000000000000000000000019",
+        "entrants": [
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "strategy": {
+              "aggression": 100,
+              "feint_rate": 100,
+              "recover_below": 0
+            }
+          },
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+            "strategy": {
+              "aggression": 100,
+              "feint_rate": 100,
+              "recover_below": 0
+            }
+          }
+        ]
+      },
+      "output": {
+        "protocol": "agentborn/2",
+        "revision": "a3.duel.1",
+        "kind": "duel_simulation",
+        "inputHash": "0x7926c4148c358c9e7d01a58619e07ec4d5395f572ecfd92737f9875bb2be5498",
+        "rulesHash": "0x83b27a0aafdcf7ecab56e7cb2203a089e8339f391d717f2a334fb402e11646be",
+        "winnerId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "placements": [
+          "0x0000000000000000000000000000000000000000000000000000000000000002",
+          "0x0000000000000000000000000000000000000000000000000000000000000001"
+        ],
+        "reason": "remaining_health",
+        "rounds": 24,
+        "events": [
+          {
+            "seq": 0,
+            "atMs": 1000,
+            "actions": [
+              "feint",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 100,
+                "stamina": 3,
+                "damage": 10
+              },
+              {
+                "health": 90,
+                "stamina": 6,
+                "damage": 0
+              }
+            ],
+            "damageReceived": [
+              0,
+              10
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 1,
+            "atMs": 2000,
+            "actions": [
+              "feint",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 94,
+                "stamina": 0,
+                "damage": 16
+              },
+              {
+                "health": 84,
+                "stamina": 3,
+                "damage": 6
+              }
+            ],
+            "damageReceived": [
+              6,
+              6
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 2,
+            "atMs": 3000,
+            "actions": [
+              "recover",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 88,
+                "stamina": 3,
+                "damage": 16
+              },
+              {
+                "health": 84,
+                "stamina": 0,
+                "damage": 12
+              }
+            ],
+            "damageReceived": [
+              6,
+              0
+            ],
+            "forced": [
+              true,
+              false
+            ]
+          },
+          {
+            "seq": 3,
+            "atMs": 4000,
+            "actions": [
+              "feint",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 88,
+                "stamina": 0,
+                "damage": 22
+              },
+              {
+                "health": 78,
+                "stamina": 3,
+                "damage": 12
+              }
+            ],
+            "damageReceived": [
+              0,
+              6
+            ],
+            "forced": [
+              false,
+              true
+            ]
+          },
+          {
+            "seq": 4,
+            "atMs": 5000,
+            "actions": [
+              "recover",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 82,
+                "stamina": 3,
+                "damage": 22
+              },
+              {
+                "health": 78,
+                "stamina": 0,
+                "damage": 18
+              }
+            ],
+            "damageReceived": [
+              6,
+              0
+            ],
+            "forced": [
+              true,
+              false
+            ]
+          },
+          {
+            "seq": 5,
+            "atMs": 6000,
+            "actions": [
+              "feint",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 82,
+                "stamina": 0,
+                "damage": 32
+              },
+              {
+                "health": 68,
+                "stamina": 1,
+                "damage": 18
+              }
+            ],
+            "damageReceived": [
+              0,
+              10
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 6,
+            "atMs": 7000,
+            "actions": [
+              "recover",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 82,
+                "stamina": 3,
+                "damage": 32
+              },
+              {
+                "health": 68,
+                "stamina": 4,
+                "damage": 18
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              true,
+              true
+            ]
+          },
+          {
+            "seq": 7,
+            "atMs": 8000,
+            "actions": [
+              "guard",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 72,
+                "stamina": 4,
+                "damage": 32
+              },
+              {
+                "health": 68,
+                "stamina": 1,
+                "damage": 28
+              }
+            ],
+            "damageReceived": [
+              10,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 8,
+            "atMs": 9000,
+            "actions": [
+              "feint",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 72,
+                "stamina": 1,
+                "damage": 38
+              },
+              {
+                "health": 62,
+                "stamina": 4,
+                "damage": 28
+              }
+            ],
+            "damageReceived": [
+              0,
+              6
+            ],
+            "forced": [
+              false,
+              true
+            ]
+          },
+          {
+            "seq": 9,
+            "atMs": 10000,
+            "actions": [
+              "recover",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 66,
+                "stamina": 4,
+                "damage": 38
+              },
+              {
+                "health": 62,
+                "stamina": 1,
+                "damage": 34
+              }
+            ],
+            "damageReceived": [
+              6,
+              0
+            ],
+            "forced": [
+              true,
+              false
+            ]
+          },
+          {
+            "seq": 10,
+            "atMs": 11000,
+            "actions": [
+              "feint",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 66,
+                "stamina": 1,
+                "damage": 44
+              },
+              {
+                "health": 56,
+                "stamina": 4,
+                "damage": 34
+              }
+            ],
+            "damageReceived": [
+              0,
+              6
+            ],
+            "forced": [
+              false,
+              true
+            ]
+          },
+          {
+            "seq": 11,
+            "atMs": 12000,
+            "actions": [
+              "recover",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 60,
+                "stamina": 4,
+                "damage": 44
+              },
+              {
+                "health": 56,
+                "stamina": 1,
+                "damage": 40
+              }
+            ],
+            "damageReceived": [
+              6,
+              0
+            ],
+            "forced": [
+              true,
+              false
+            ]
+          },
+          {
+            "seq": 12,
+            "atMs": 13000,
+            "actions": [
+              "feint",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 60,
+                "stamina": 1,
+                "damage": 50
+              },
+              {
+                "health": 50,
+                "stamina": 4,
+                "damage": 40
+              }
+            ],
+            "damageReceived": [
+              0,
+              6
+            ],
+            "forced": [
+              false,
+              true
+            ]
+          },
+          {
+            "seq": 13,
+            "atMs": 14000,
+            "actions": [
+              "recover",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 60,
+                "stamina": 4,
+                "damage": 50
+              },
+              {
+                "health": 50,
+                "stamina": 5,
+                "damage": 40
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              true,
+              false
+            ]
+          },
+          {
+            "seq": 14,
+            "atMs": 15000,
+            "actions": [
+              "guard",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 50,
+                "stamina": 5,
+                "damage": 50
+              },
+              {
+                "health": 50,
+                "stamina": 2,
+                "damage": 50
+              }
+            ],
+            "damageReceived": [
+              10,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 15,
+            "atMs": 16000,
+            "actions": [
+              "feint",
+              "strike"
+            ],
+            "fighters": [
+              {
+                "health": 38,
+                "stamina": 2,
+                "damage": 56
+              },
+              {
+                "health": 44,
+                "stamina": 0,
+                "damage": 62
+              }
+            ],
+            "damageReceived": [
+              12,
+              6
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 16,
+            "atMs": 17000,
+            "actions": [
+              "guard",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 38,
+                "stamina": 3,
+                "damage": 56
+              },
+              {
+                "health": 44,
+                "stamina": 1,
+                "damage": 62
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 17,
+            "atMs": 18000,
+            "actions": [
+              "feint",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 38,
+                "stamina": 0,
+                "damage": 62
+              },
+              {
+                "health": 38,
+                "stamina": 4,
+                "damage": 62
+              }
+            ],
+            "damageReceived": [
+              0,
+              6
+            ],
+            "forced": [
+              false,
+              true
+            ]
+          },
+          {
+            "seq": 18,
+            "atMs": 19000,
+            "actions": [
+              "recover",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 32,
+                "stamina": 3,
+                "damage": 62
+              },
+              {
+                "health": 38,
+                "stamina": 1,
+                "damage": 68
+              }
+            ],
+            "damageReceived": [
+              6,
+              0
+            ],
+            "forced": [
+              true,
+              false
+            ]
+          },
+          {
+            "seq": 19,
+            "atMs": 20000,
+            "actions": [
+              "feint",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 32,
+                "stamina": 0,
+                "damage": 68
+              },
+              {
+                "health": 32,
+                "stamina": 4,
+                "damage": 68
+              }
+            ],
+            "damageReceived": [
+              0,
+              6
+            ],
+            "forced": [
+              false,
+              true
+            ]
+          },
+          {
+            "seq": 20,
+            "atMs": 21000,
+            "actions": [
+              "guard",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 22,
+                "stamina": 1,
+                "damage": 68
+              },
+              {
+                "health": 32,
+                "stamina": 1,
+                "damage": 78
+              }
+            ],
+            "damageReceived": [
+              10,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 21,
+            "atMs": 22000,
+            "actions": [
+              "recover",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 22,
+                "stamina": 4,
+                "damage": 68
+              },
+              {
+                "health": 32,
+                "stamina": 4,
+                "damage": 78
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              true,
+              true
+            ]
+          },
+          {
+            "seq": 22,
+            "atMs": 23000,
+            "actions": [
+              "feint",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 16,
+                "stamina": 1,
+                "damage": 74
+              },
+              {
+                "health": 26,
+                "stamina": 1,
+                "damage": 84
+              }
+            ],
+            "damageReceived": [
+              6,
+              6
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 23,
+            "atMs": 24000,
+            "actions": [
+              "recover",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 16,
+                "stamina": 4,
+                "damage": 74
+              },
+              {
+                "health": 26,
+                "stamina": 4,
+                "damage": 84
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              true,
+              true
+            ]
+          }
+        ],
+        "finalState": [
+          {
+            "health": 16,
+            "stamina": 4,
+            "damage": 74
+          },
+          {
+            "health": 26,
+            "stamina": 4,
+            "damage": 84
+          }
+        ],
+        "usage": {
+          "work": 132,
+          "randomDraws": 96,
+          "hashBlocks": 12
+        }
+      },
+      "outputHash": "0xa5b7c731ad75b1b50b82bfc096e89d1ac2fb915a306f1a99b134d9dc22b74c08"
+    },
+    {
+      "name": "simultaneous_knockout",
+      "input": {
+        "protocol": "agentborn/2",
+        "revision": "a3.duel.1",
+        "kind": "duel_input",
+        "rules": {
+          "protocol": "agentborn/2",
+          "revision": "a3.duel.1",
+          "kind": "duel_rules",
+          "runtimeId": "agentborn/duel/1",
+          "rngId": "agentborn/keccak256-counter/1",
+          "health": 1,
+          "maxRounds": 24,
+          "roundMs": 1000,
+          "recoveryThresholdMax": 4,
+          "attack": {
+            "baseBps": 10000,
+            "aggressionBps": 0
+          },
+          "stamina": {
+            "max": 6,
+            "strikeCost": 2,
+            "feintCost": 3,
+            "guardGain": 1,
+            "recoverGain": 3
+          },
+          "damage": {
+            "strike": 12,
+            "guardedStrike": 3,
+            "feint": 6,
+            "guardedFeint": 10,
+            "counter": 6
+          },
+          "tieBreak": "remaining_health_then_damage_then_seeded_coin"
+        },
+        "seed": "0x0000000000000000000000000000000000000000000000000000000000000021",
+        "entrants": [
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "strategy": {
+              "aggression": 100,
+              "feint_rate": 0,
+              "recover_below": 0
+            }
+          },
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+            "strategy": {
+              "aggression": 100,
+              "feint_rate": 0,
+              "recover_below": 0
+            }
+          }
+        ]
+      },
+      "output": {
+        "protocol": "agentborn/2",
+        "revision": "a3.duel.1",
+        "kind": "duel_simulation",
+        "inputHash": "0x3a6b7a09bdebd5d6ebc35019ee54fe7a576f8719ffe000e5f06a9aae0666c65e",
+        "rulesHash": "0xb4954463fead701f9d18d8dcb4708d4e0663caa836dbd84c12b2a47af1389efe",
+        "winnerId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "placements": [
+          "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "0x0000000000000000000000000000000000000000000000000000000000000002"
+        ],
+        "reason": "seeded_tie_break",
+        "rounds": 1,
+        "events": [
+          {
+            "seq": 0,
+            "atMs": 1000,
+            "actions": [
+              "strike",
+              "strike"
+            ],
+            "fighters": [
+              {
+                "health": 0,
+                "stamina": 4,
+                "damage": 1
+              },
+              {
+                "health": 0,
+                "stamina": 4,
+                "damage": 1
+              }
+            ],
+            "damageReceived": [
+              1,
+              1
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          }
+        ],
+        "finalState": [
+          {
+            "health": 0,
+            "stamina": 4,
+            "damage": 1
+          },
+          {
+            "health": 0,
+            "stamina": 4,
+            "damage": 1
+          }
+        ],
+        "usage": {
+          "work": 7,
+          "randomDraws": 5,
+          "hashBlocks": 1
+        }
+      },
+      "outputHash": "0xc5dd2e0f36441e2713053636393f7f735bc1d829b3f7893726b085e0c859d6b5"
+    },
+    {
+      "name": "time_limit_tie",
+      "input": {
+        "protocol": "agentborn/2",
+        "revision": "a3.duel.1",
+        "kind": "duel_input",
+        "rules": {
+          "protocol": "agentborn/2",
+          "revision": "a3.duel.1",
+          "kind": "duel_rules",
+          "runtimeId": "agentborn/duel/1",
+          "rngId": "agentborn/keccak256-counter/1",
+          "health": 100,
+          "maxRounds": 3,
+          "roundMs": 1000,
+          "recoveryThresholdMax": 4,
+          "attack": {
+            "baseBps": 2500,
+            "aggressionBps": 50
+          },
+          "stamina": {
+            "max": 6,
+            "strikeCost": 2,
+            "feintCost": 3,
+            "guardGain": 1,
+            "recoverGain": 3
+          },
+          "damage": {
+            "strike": 0,
+            "guardedStrike": 0,
+            "feint": 0,
+            "guardedFeint": 0,
+            "counter": 0
+          },
+          "tieBreak": "remaining_health_then_damage_then_seeded_coin"
+        },
+        "seed": "0x0000000000000000000000000000000000000000000000000000000000000032",
+        "entrants": [
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "strategy": {
+              "aggression": 85,
+              "feint_rate": 10,
+              "recover_below": 1
+            }
+          },
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+            "strategy": {
+              "aggression": 55,
+              "feint_rate": 80,
+              "recover_below": 2
+            }
+          }
+        ]
+      },
+      "output": {
+        "protocol": "agentborn/2",
+        "revision": "a3.duel.1",
+        "kind": "duel_simulation",
+        "inputHash": "0x9f859f31b7e1e89c257e5cbc1507337ce8eb4ee3f74041543c4f626e6c11407c",
+        "rulesHash": "0x964e9b586600d3c2bfadd11b78ad76005729cd70c29d22c38c51e6f37d35f331",
+        "winnerId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "placements": [
+          "0x0000000000000000000000000000000000000000000000000000000000000002",
+          "0x0000000000000000000000000000000000000000000000000000000000000001"
+        ],
+        "reason": "seeded_tie_break",
+        "rounds": 3,
+        "events": [
+          {
+            "seq": 0,
+            "atMs": 1000,
+            "actions": [
+              "guard",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 100,
+                "stamina": 6,
+                "damage": 0
+              },
+              {
+                "health": 100,
+                "stamina": 3,
+                "damage": 0
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 1,
+            "atMs": 2000,
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 100,
+                "stamina": 4,
+                "damage": 0
+              },
+              {
+                "health": 100,
+                "stamina": 4,
+                "damage": 0
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 2,
+            "atMs": 3000,
+            "actions": [
+              "strike",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 100,
+                "stamina": 2,
+                "damage": 0
+              },
+              {
+                "health": 100,
+                "stamina": 1,
+                "damage": 0
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          }
+        ],
+        "finalState": [
+          {
+            "health": 100,
+            "stamina": 2,
+            "damage": 0
+          },
+          {
+            "health": 100,
+            "stamina": 1,
+            "damage": 0
+          }
+        ],
+        "usage": {
+          "work": 18,
+          "randomDraws": 13,
+          "hashBlocks": 2
+        }
+      },
+      "outputHash": "0xcc6f38a5f82e57b3f53a023ba4ca7a076ca622f48e38335cc8d53262f421c3d8"
+    },
+    {
+      "name": "changed_counter_rules",
+      "input": {
+        "protocol": "agentborn/2",
+        "revision": "a3.duel.1",
+        "kind": "duel_input",
+        "rules": {
+          "protocol": "agentborn/2",
+          "revision": "a3.duel.1",
+          "kind": "duel_rules",
+          "runtimeId": "agentborn/duel/1",
+          "rngId": "agentborn/keccak256-counter/1",
+          "health": 100,
+          "maxRounds": 24,
+          "roundMs": 1000,
+          "recoveryThresholdMax": 4,
+          "attack": {
+            "baseBps": 2500,
+            "aggressionBps": 50
+          },
+          "stamina": {
+            "max": 6,
+            "strikeCost": 2,
+            "feintCost": 3,
+            "guardGain": 1,
+            "recoverGain": 3
+          },
+          "damage": {
+            "strike": 12,
+            "guardedStrike": 3,
+            "feint": 6,
+            "guardedFeint": 10,
+            "counter": 20
+          },
+          "tieBreak": "remaining_health_then_damage_then_seeded_coin"
+        },
+        "seed": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "entrants": [
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "strategy": {
+              "aggression": 85,
+              "feint_rate": 10,
+              "recover_below": 1
+            }
+          },
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+            "strategy": {
+              "aggression": 55,
+              "feint_rate": 80,
+              "recover_below": 2
+            }
+          }
+        ]
+      },
+      "output": {
+        "protocol": "agentborn/2",
+        "revision": "a3.duel.1",
+        "kind": "duel_simulation",
+        "inputHash": "0x7d36024ad8496d81a9a3fe2300729ca2d8310d9b9e41f3b00e16d9d15df9b0e5",
+        "rulesHash": "0x93c678afdce96a1e5405a3a4e2bb0215a66ea82da13cb877d931767fee6e703c",
+        "winnerId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "placements": [
+          "0x0000000000000000000000000000000000000000000000000000000000000002",
+          "0x0000000000000000000000000000000000000000000000000000000000000001"
+        ],
+        "reason": "knockout",
+        "rounds": 14,
+        "events": [
+          {
+            "seq": 0,
+            "atMs": 1000,
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 80,
+                "stamina": 4,
+                "damage": 3
+              },
+              {
+                "health": 97,
+                "stamina": 6,
+                "damage": 20
+              }
+            ],
+            "damageReceived": [
+              20,
+              3
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 1,
+            "atMs": 2000,
+            "actions": [
+              "strike",
+              "strike"
+            ],
+            "fighters": [
+              {
+                "health": 68,
+                "stamina": 2,
+                "damage": 15
+              },
+              {
+                "health": 85,
+                "stamina": 4,
+                "damage": 32
+              }
+            ],
+            "damageReceived": [
+              12,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 2,
+            "atMs": 3000,
+            "actions": [
+              "strike",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 62,
+                "stamina": 0,
+                "damage": 27
+              },
+              {
+                "health": 73,
+                "stamina": 1,
+                "damage": 38
+              }
+            ],
+            "damageReceived": [
+              6,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 3,
+            "atMs": 4000,
+            "actions": [
+              "recover",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 62,
+                "stamina": 3,
+                "damage": 27
+              },
+              {
+                "health": 73,
+                "stamina": 4,
+                "damage": 38
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 4,
+            "atMs": 5000,
+            "actions": [
+              "guard",
+              "strike"
+            ],
+            "fighters": [
+              {
+                "health": 59,
+                "stamina": 4,
+                "damage": 47
+              },
+              {
+                "health": 53,
+                "stamina": 2,
+                "damage": 41
+              }
+            ],
+            "damageReceived": [
+              3,
+              20
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 5,
+            "atMs": 6000,
+            "actions": [
+              "strike",
+              "strike"
+            ],
+            "fighters": [
+              {
+                "health": 47,
+                "stamina": 2,
+                "damage": 59
+              },
+              {
+                "health": 41,
+                "stamina": 0,
+                "damage": 53
+              }
+            ],
+            "damageReceived": [
+              12,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 6,
+            "atMs": 7000,
+            "actions": [
+              "guard",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 47,
+                "stamina": 3,
+                "damage": 59
+              },
+              {
+                "health": 41,
+                "stamina": 3,
+                "damage": 53
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 7,
+            "atMs": 8000,
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 27,
+                "stamina": 1,
+                "damage": 62
+              },
+              {
+                "health": 38,
+                "stamina": 4,
+                "damage": 73
+              }
+            ],
+            "damageReceived": [
+              20,
+              3
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 8,
+            "atMs": 9000,
+            "actions": [
+              "recover",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 21,
+                "stamina": 4,
+                "damage": 62
+              },
+              {
+                "health": 38,
+                "stamina": 1,
+                "damage": 79
+              }
+            ],
+            "damageReceived": [
+              6,
+              0
+            ],
+            "forced": [
+              true,
+              false
+            ]
+          },
+          {
+            "seq": 9,
+            "atMs": 10000,
+            "actions": [
+              "strike",
+              "recover"
+            ],
+            "fighters": [
+              {
+                "health": 21,
+                "stamina": 2,
+                "damage": 74
+              },
+              {
+                "health": 26,
+                "stamina": 4,
+                "damage": 79
+              }
+            ],
+            "damageReceived": [
+              0,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 10,
+            "atMs": 11000,
+            "actions": [
+              "guard",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 21,
+                "stamina": 3,
+                "damage": 74
+              },
+              {
+                "health": 26,
+                "stamina": 5,
+                "damage": 79
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 11,
+            "atMs": 12000,
+            "actions": [
+              "strike",
+              "feint"
+            ],
+            "fighters": [
+              {
+                "health": 15,
+                "stamina": 1,
+                "damage": 86
+              },
+              {
+                "health": 14,
+                "stamina": 2,
+                "damage": 85
+              }
+            ],
+            "damageReceived": [
+              6,
+              12
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          },
+          {
+            "seq": 12,
+            "atMs": 13000,
+            "actions": [
+              "recover",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 15,
+                "stamina": 4,
+                "damage": 86
+              },
+              {
+                "health": 14,
+                "stamina": 3,
+                "damage": 85
+              }
+            ],
+            "damageReceived": [
+              0,
+              0
+            ],
+            "forced": [
+              true,
+              false
+            ]
+          },
+          {
+            "seq": 13,
+            "atMs": 14000,
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "fighters": [
+              {
+                "health": 0,
+                "stamina": 2,
+                "damage": 89
+              },
+              {
+                "health": 11,
+                "stamina": 4,
+                "damage": 100
+              }
+            ],
+            "damageReceived": [
+              15,
+              3
+            ],
+            "forced": [
+              false,
+              false
+            ]
+          }
+        ],
+        "finalState": [
+          {
+            "health": 0,
+            "stamina": 2,
+            "damage": 89
+          },
+          {
+            "health": 11,
+            "stamina": 4,
+            "damage": 100
+          }
+        ],
+        "usage": {
+          "work": 77,
+          "randomDraws": 56,
+          "hashBlocks": 7
+        }
+      },
+      "outputHash": "0xd5c6cf1e1b67a7c8206d89150dcebb3de5ac1904f197250be38d819090122860"
+    }
+  ]
+}

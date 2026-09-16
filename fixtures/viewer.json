@@ -1,0 +1,1682 @@
+{
+  "description": "Synthetic AgentBorn-owned duel output; fixture receipts are not real chain evidence. No rewards or training credit.",
+  "policy": {
+    "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+    "gameVersionHash": "0x5c3b2f1f6dd1fe895772a37afac05134bcca1a75f7df91aee35e48ddadf26b53",
+    "registryHash": "0x9ce9ee8ea93fb260789647959b5dfaa4481a7aa411d8214d99881774ff3b10c4",
+    "chainId": "4663",
+    "board": "0x0000000000000000000000000000000000000032",
+    "rules": {
+      "protocol": "agentborn/2",
+      "revision": "a3.duel.1",
+      "kind": "duel_rules",
+      "runtimeId": "agentborn/duel/1",
+      "rngId": "agentborn/keccak256-counter/1",
+      "health": 100,
+      "maxRounds": 24,
+      "roundMs": 1000,
+      "recoveryThresholdMax": 4,
+      "attack": {
+        "baseBps": 2500,
+        "aggressionBps": 50
+      },
+      "stamina": {
+        "max": 6,
+        "strikeCost": 2,
+        "feintCost": 3,
+        "guardGain": 1,
+        "recoverGain": 3
+      },
+      "damage": {
+        "strike": 12,
+        "guardedStrike": 3,
+        "feint": 6,
+        "guardedFeint": 10,
+        "counter": 6
+      },
+      "tieBreak": "remaining_health_then_damage_then_seeded_coin"
+    }
+  },
+  "played": {
+    "version": 1,
+    "kind": "replay",
+    "manifest": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "chainId": "4663",
+      "board": "0x0000000000000000000000000000000000000032",
+      "eventId": "0x00000000000000000000000000000000000000000000000000000000000d6d81",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d82",
+      "identity": {
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "gameVersionHash": "0x5c3b2f1f6dd1fe895772a37afac05134bcca1a75f7df91aee35e48ddadf26b53",
+        "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "seasonId": "0x0000000000000000000000000000000000000000000000000000000000000003",
+        "tierConfigHash": "0xf092af74e8ae6f8956d0bc9d89a0b0f52fab3034faf0ddd9eb237fbdf9739a86",
+        "matchmakingPolicyHash": "0x824621493a4dd62836b3223bb1fef19a869dd24f2fac415cfbf9b95c00d7e895"
+      },
+      "schedule": {
+        "enrollmentClosesAt": "900",
+        "startAt": "1000",
+        "resultCommitDeadline": "1100",
+        "revealAt": "1400",
+        "settlementNotBefore": "1410",
+        "playbackSeconds": 300,
+        "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+      },
+      "format": {
+        "kind": "none"
+      },
+      "exposure": "open",
+      "capacity": 2,
+      "doorFeeWei": "0",
+      "tierId": null,
+      "cancellationPolicyHash": "0xa7e22f4bfffeb37e3ee936cfe6a70e66a920d6dd2350440e87780dde786d9ea1",
+      "assetPolicyHash": "0x1ba7a571abe8ce1bad9994e35cbd530407cc09fa2889aefca723a2523a127745",
+      "quoteRecordHash": null,
+      "settlementFeeBps": 100,
+      "treasury": "0x0000000000000000000000000000000000000033",
+      "roster": [
+        {
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+          "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000c8",
+          "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012c",
+          "payout": "0x0000000000000000000000000000000000000190",
+          "qualifyingWallet": "0x00000000000000000000000000000000000001f4",
+          "vault": "0x0000000000000000000000000000000000000258",
+          "strategyCommitment": "0x94566525aba73c7183a5b679e4a8dc32aef2b3eb84eaba5e958b5d67c1091965",
+          "permissionsHash": "0x6c666428e361c83be6e2d58be3faa0f09594219398cfa4926b99a871e221f29a",
+          "authorizationVersion": "1",
+          "admissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000320",
+          "grossDailyUsedWei": "0",
+          "dayBucket": "1970-01-01"
+        },
+        {
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+          "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000c9",
+          "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012d",
+          "payout": "0x0000000000000000000000000000000000000191",
+          "qualifyingWallet": "0x00000000000000000000000000000000000001f5",
+          "vault": "0x0000000000000000000000000000000000000259",
+          "strategyCommitment": "0xdef89402924ff863694dd77888a10770bba503f4b4c2522f74f4278e76ef0335",
+          "permissionsHash": "0x74034190b55354bd57bfb4a607ea56df3af841f64ba93d805fea21ba68faa4c4",
+          "authorizationVersion": "1",
+          "admissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000321",
+          "grossDailyUsedWei": "0",
+          "dayBucket": "1970-01-01"
+        }
+      ],
+      "sources": []
+    },
+    "registry": {
+      "version": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "rulesArtifactHash": "0x83b27a0aafdcf7ecab56e7cb2203a089e8339f391d717f2a334fb402e11646be",
+        "strategySchemaHash": "0x1f5cc628ec35f1feae25fefce74dd25d3b24f17da8ab4fe06449eae4ff2c3121",
+        "eventSchemaHash": "0x9d81089ffe16492946b41f9f4dfd72e586ed4bffa46fa3aa0fdc4f9de0dee7b7",
+        "scoringPolicyHash": "0x0e99e3573148cfe325f358d75de6eba47cefc1fa2f5557462215fde3699ea297",
+        "runtimeId": "agentborn/duel/1",
+        "runtimeHash": "0x000000000000000000000000000000000000000000000000000000000000fde8",
+        "rngId": "agentborn/keccak256-counter/1",
+        "rngHash": "0x6e7695a46e385485501dcdfb29cfa54cf10cf32a90e6fdc06fe684cd3c62b218",
+        "numericSemantics": "safe integer duel/1; uint32 Keccak counter words; simultaneous capped damage; logical elapsed milliseconds",
+        "supportedRosters": [
+          2
+        ],
+        "reducedRosterPolicyHash": "0x8918ddad892591eedb53de1591e9c4ac74ef3c065b2cd698fc82d92fe4f07fca",
+        "placementRules": [
+          {
+            "qualifiedCount": 2,
+            "sharesBps": [
+              6250,
+              3750
+            ]
+          }
+        ],
+        "limits": {
+          "maxEntrants": 2,
+          "maxTicks": 1000,
+          "maxFuel": "1000000",
+          "maxMemoryBytes": 16777216,
+          "maxEvents": 1000,
+          "maxEventBytes": 4096,
+          "maxReplayBytes": 1048576,
+          "maxSheetBytes": 4096,
+          "maxRendererAssetBytes": 1048576
+        }
+      },
+      "league": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "authorship": "operator",
+        "provenancePolicyHash": "0x0000000000000000000000000000000000000000000000000000000000000014"
+      },
+      "season": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "seasonId": "0x0000000000000000000000000000000000000000000000000000000000000003",
+        "gameVersionHash": "0x5c3b2f1f6dd1fe895772a37afac05134bcca1a75f7df91aee35e48ddadf26b53",
+        "startsAt": "100",
+        "endsAt": "10000"
+      },
+      "tiers": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "version": "1",
+        "inheritance": "explicit_only",
+        "token": {
+          "chainId": "4663",
+          "token": "0x000000000000000000000000000000000000005a"
+        },
+        "tokenDecimals": 18,
+        "tiers": [
+          {
+            "tierId": "0x0000000000000000000000000000000000000000000000000000000000000004",
+            "quantityBaseUnits": "1000000000000000000",
+            "benefits": [
+              {
+                "formats": [
+                  "percentage",
+                  "bounty"
+                ],
+                "rosterSizes": [
+                  4
+                ],
+                "minAvailablePurseWei": "0",
+                "maxAvailablePurseWei": null,
+                "minNetEthPrizeWei": "0",
+                "maxNetEthPrizeWei": null
+              }
+            ]
+          }
+        ]
+      },
+      "finality": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "chainId": "4663",
+        "startCheckpoint": "first_finalized_block_at_or_after_start",
+        "commitmentFinality": "finalized",
+        "finalizationFinality": "finalized",
+        "extraSettlementDelaySeconds": 10,
+        "recoveryDeadlineSeconds": 3600
+      },
+      "cancellation": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "disposition": "refund_all",
+        "enrollmentDeadlineSeconds": 600,
+        "recoveryDeadlineSeconds": 3600
+      },
+      "selection": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "version": "1",
+        "kind": "audited_draw",
+        "provisionalLeaseSeconds": 60,
+        "candidateLimit": 100,
+        "evidencePolicyHash": "0x0000000000000000000000000000000000000000000000000000000000000015"
+      },
+      "assets": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "standardTransfersOnly": true,
+        "assets": [
+          {
+            "chainId": "4663",
+            "token": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": "4663",
+            "token": "0x000000000000000000000000000000000000005b"
+          }
+        ]
+      }
+    },
+    "qualification": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d82",
+      "manifestHash": "0x359f2750430c468c46ec37391fb3ae63cec41668dc1dc2062107df5c32185da5",
+      "checkpoint": {
+        "chainId": "4663",
+        "number": "10",
+        "hash": "0x000000000000000000000000000000000000000000000000000000000000fde9",
+        "timestamp": "1001",
+        "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+      },
+      "entrants": [
+        {
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+          "status": "qualified",
+          "reason": "qualified",
+          "evidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000514"
+        },
+        {
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+          "status": "qualified",
+          "reason": "qualified",
+          "evidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000515"
+        }
+      ]
+    },
+    "envelope": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d82",
+      "manifestHash": "0x359f2750430c468c46ec37391fb3ae63cec41668dc1dc2062107df5c32185da5",
+      "algorithm": "AES-256-GCM",
+      "iv": "0x000000000000000000000001",
+      "aadHash": "0x5db157a386e9f7a56da147b05ddf1e792c2e3f1c545096c9e7dd550264b2798a",
+      "ciphertext": "0x1ce4653a41c6d610c58a015b9a8fad2d4756ca4f99926d095185dfc083f1244e2ed85dd8e36f4eb3927d47bddadaf1830586ac5d6e1e843999d4c08d9eba07f8467ee4db611166ccba6f4e71ffd02cf95536a88a1febcea89313f98a95b5fe2b306070cb74a07d4fa90db582d8cac970110faafb5b82cef04152fb01390f38daeaae36b750bcaa9dc35a55ff48fd40d42f40e1fb9d8a5b984ecd9b7d7d577a82cfac8157714885c846c7806b0af229e05726bdaaba3ded2bf1e3661d835db8db4a2f0803403b51799fc58181b8ccdd14064ccf1fe75b7fbb7c5f4e36507d3a0e83e06b986fb3b8f036a4d81d5ccc5778e7df1c5d4bf72c47515fcffd73ad33644fef921ef270127c8a1ab6f03c127257dd528b62124d76a73b0383ad4bcc80653844cfa544af841343b029750452044a0ba18883ef943f913f6a8093590899a582d9d1ebef11aa3a82400d81faa5d10b0b52f37107532b8f155d9678acd67f7785e3c36e7a7a79bbcedf145211b00d7042381c65df286a4a1dc61d07e11f34e6ba1bef4185f91bbe2b66e9717d2ad8836e1d59fa5797470d95db59e67fb96ea55bd5910e400b65c4e4887b324f87b8b306d5492faa8c7bf3f1d68b62d18afef231604a4d3672732fe7ce44fbcaf507c843ef2c0fa5925d9dfcca88222aa409618d910c356b41d03497c76a4abb53d7720a63efc920fc0d43c34730053ae8da4a72b454623326b635dea4b52763f2758d0db63da5fe7943af967f4140aa28dacbaa4719ce82ed5a1fefad2818a5306ed33790c293ec70570cc873c4d26ea553032f2f9b2a5696e85316af346d05751bf02cbd1b6f51c52b4a1841af278810588e1cc312ce2921a69aee16748afd353d8f84bc885b823f87511c97a06cdf1d5b59a4a1562c734dca8d92c2a267c2ec87acee427c86f1d04fbd6ce3c365b5ca4c474a8c2cc074828819abf7988477d35a3ad6fdc7243deb07bbe5b12de5824364085f047f76002cdcffa6f8323529fc045a5b3ebfbf4d793ca735e6941e9f0e732c4785e61ee6e6e57bf75aad522f4d21e828dbf1923a3d6c22f70e9f5c439f0cfd88a7927af44f2cb0773717a7089e0163063351703c9ccbd91d2afe9d4f9f1f284e7c9cdb5407e4638f8c6eadc0164e7e99642db763c2415ecf1bbbf779830807ba1210acb8fca7ce51e533e1d24f7f19a9e6202b56053133b6fea141c5755f40bc577cbd636a7672b57c6bcc31fe8a6062488d0e3d9753de236de076234068523f6ef11c410ed5f4c482fb83da37caae7c830ad4d85e45611fcbc5525a2dab664c4628d8babfc51824b2e9442196baeaa0cffb18e499e8b5d4e7528bb81e4facc9528a279ee335fb1b6f9ff532fa8328592b4e08bbe486dc5b24d0d474288e560d2e25ffc3934bd1aa40faea68ca8424607281a3b4f27cff400b1457020a9ae25665065d1345566c1d71d78e0020523d984b57b0c37660bf46f09942c48d986cc543a2eb9a2b25ccc71cd354959e5119e146fa88efd70250f155da98ae02414967e3379175eb0d6e9ed2d81cd1fe331dbfc33fc0777628952f84ba48cb2fb5e414e908065c043ec83d8551834ae2069f6a668f28d5cb7a7ab35dbc0d8ccb5895ba04d9d2ff6425b2dcb765507086a54e0bb578243fb0bc752ab3ec77d384a115cee3416b8cbc42d86186faf6a35ac6540a80a067626f89deb98fa230c052d2db41132c6638d6490e13aef4a75d385093cdea624be1f6e3b0c4793d505cacf1a94fddff26212676bd0b6bdc47e964475a1c009c90d39eef45e128a3e3c2df2dd5c6980f8d8ba7034db0d18d36bb90372d55e2de7e19bcb87430796ab78c08724c1513dc1e71c89b79c43dab9a15e641b0af7f151fc08000cd368d2637e8695bd5799a71c494548e9acb8d4286e39b8fe1be5adcd05959512449afb0a38942f925a623917af2ae8cd09f818f3e8032ef5d383fef62abce06713c3ed4e3131f64e23574d28b8676afec5564fc4b74050bceb3258c8864a3092c998d9eac27a03b9cd483038644c02fee6ccc8a2f59a9375c9ac2b873ea2a1ccfe019acf233e31796216a25720ead296fa93fa6de7850f24a52dc36f365943efe38ec1da1ae2ef975c74c404bf29bb70a89fe7ba500258a846ec01d3b49440b21b39215f548b344c171d590b775058113f2e4f81a514220b99a8cb1b2b15791d256b4d4a7ce1bfb97c1fdbb3033aaa6d9fdf6494bb5555e5f4c06c3da1fa1b885b59b0aa6bc72ab8ed8dc09019741b851ac86980b0fa8f701e9cd0a4bff19e72accff087af8f1355d0b332359f40071738ce83b4b7754725e87b614656a55a314a33bfda1eb4308fe2375061a88e56aa4c9cf790df0d2941d37a3c32dbc75d482857d9632bc7e560ff168045631f2503447c0ba2fa47843d5e649ba18340b9157a6593428eeee88380c69f5fa93e3252b0639fb165875803e34ce30c30d268e71f6aeee8e5e4491d30fc6c0970afef90d5fe46cebbcf8b63e00cf9bcaa86d1f281c540057b3a297b02b814b2c0c515510dfbb01670eecdd456234680100b2e1dfd7afedecd9fc51722ae3dd186c9af9ccc2f3388118ed389c7b226761dee973ae1f4b2bf72c4d54e20f114ac057a72e250c628f67040bde1e8ed092e973c16261c668af008de062640a2b2cfd6e3a0c888a9110d4933b468ed1280b9de2111fbb322dc02994d178eee982d41f41fdf8b02a4a1644fe855a5745ca841af8819b88e2805f64142a4497b2333b3dc502f6bc4a87348d053693e9f126e7bd2f2bd28e50819723e9ca807d58aea6aa1f85d7c9a6673c798675cfe2c905ef38e106a5f5c6231d6e6b573e80d5eb004229a1b6c083edc340e063689aacc19ad74fd0bbe5fe1b8a01a1dc13368a9d154f3aae82ce8ec92ef1530e71e77099f72fcb5bc66da0a8b2d79891e84dbf4744f674671e9a49e5c5a1dbe3f7dbe5f80988a2577dedfcfff40e7536d3ca13a8ba810413fb50a09302e06738d475095f16c9a6834427f9e8ce5d58d70acd009090b6efc1db70f5abce5ecd9f8a0d83c57952fbfa7f66c3e3a2952a58ce0747abe3c56da7323fa24e81fc1e53dc0a177ee0589035339fdac2ccbd449dc8da6224524d513bd705be6fb9aba51ffc53eb8b9d126a08b3c846076e5d578ec9d1974f4cb464ede27ea3c42e59d6ba973352e0645c029932c0a3fb920a6ada49bd5f4ab562ed87d55fac0ea19afb548a1eb68f55a665c16d3a92df950e86801625a8cab5121d150364fe5c065904543d09db76410c412c7fbc0235463fa55a00e21b077511eb2cfdd105560595d87ec845f10f9524ab8f36b40cc9e1a5f22ac4ffdaa91e90198a2e92aa7ea7e5afd52bc9aaeba194baa139c5097e86859ad6481a296ddba0b0f17f893b4f86eebe730f36d8dec56116a8bf61c9963e12214c060e1496b95c5f3f77056bafeedbc9f85c321534a6ba74c09492a6f2e8a4bcc22d0fbf6cf060c87a4495a0fe9641751ac97a632a02c5610b1596e7dfae319288b324dc23de4e8f9a88ec0adf03b6aef3b628be9223f8195ccfa3d3c338c85d5818c838cd9a4a68e18721ebd0c1ad593b05721fd2fb2e72e8fcb31c72abee5195c763c010b9fc54d0aab6792d5eae4adfe70a7c67f40448c98109a6cc4f050a3b34e451d92b055dc845c0d2eeb3073417773710bc5cd08ba2b77f39f7e752298b4ae2b358f6dc8dd857976adfc14cf53665fabe175ba3ec6e4a3f2813b82c21273a80994ade5831166074a871fba789ee4d9f87df97334190c3fa146ba7bbbd0cb740c3e0a1d0cdc68c5a7ec5412642766aabe26458f9dcdd5cff3c76d7c629dcd2eea4c04e55af9266e06adb26b1b87c12787b0e8be27375a5d3a5b7574b2fd5804d0fdd825fbfc0867a976ba85c43fe1b273ab95aeffe36d2aca3f313045dd943800dc68a65d027d46ffb931cec1d07d92e4c1c04f84e6174a03863ff5e6a5dad6239b6711ed9eb9a9dd01607ab12096450b763c06bf85add49c1930c9c585a382f8d45bb381f85ba488ec10f3c74f9418910c59abee05ddc44de337f1257be85abaef8aa772e9acd4ae01274067b55b04531cde24d7d45f42f56975a05cb432a10ceafad2fe91936c335b66ea8565c11e60ebd02c95c3b5aace7334cd081ec31edf7145cda89a69beb7cb6941673460be0ea6a02745a6e92785688eb1684e451fede77f3210750e1bde57ed14cd864ad7906cba81f6cb8a68cd26ea772dbd164d2b9faf1aa66d7474f1f806bdb7f0c69e9cc2479ed9b059e3698789df0795c8e8a8cab39f2ab841913556b78167eeb48782e20c72be41604f16c59029b1311021c3de2c7d8094d0a589b45f0f8742c8a2296cab5d918043e4da7a82a779c212f546ca16a945622594917298598bda0544697aa691b6d3b54d7e9fd9acf3b7e693f8e91d5cb3fe96cc859ff26c2a4ac5e56d81558374e96d9ae0900217fda812b0b2f62bbfcb0a498dc27ac76da62d4918d50f46c5978c368de4404a66380aef6cef56eff6f3a7b30a510a968df05e6f137a2d37bc5e309364bc731cc20eab2d4cf454b15d40dac8c5cfcfba5839e931453beb52c79355a310c166d2bb0302b75e991d34770abed0519ea783700ce5213f6cd3bc2d570232ef14a4aa637cc9b33052e92c06dbdc86be2c27bbaee0e3e4ed21c96e7b607f858b688570fc352dce0a654fe3ed7680cf5a74146b2eb7703521224a4009c639216cc0dc80f7c633fbc079eb336b57d8516df6be28abe835ef982d8bd209810bb77e83f8fe5a2e47ac0fc02319788f1c1e9050b46ee1a4982ab1d2e081e09cdd063b51b2ef62320cc40f7afac5a2cb9d21456f125aac4b0b6f242aeadc078418a1138bfd9cbf7f8e8a80de8e47efc28d46eb9fb626350bdfe3ccf0ec82f83f8807984ea0a9cfd5ab815a18c3bc7cd47d6fe6fcb76dfc3fc5854c376bd8f57dad79b0b8818b6b1d5e725c0543e2feedf361e799a0a9a4e5e885fa8cdbdc2acb0ff0c9f00a147b28a56e95d2ce46bbe5c7c306da01a0f66e58caaaf6fd7cb94109a6568604138ee36473ec6dc36affd75394ce8b98aa8317f09b3afc074cff4160f3e35848357ffb1bcdc48dd31824b7b585d9f9388657983089cc946d23e9665fe819c3c9ac860341a4da95b0ac4e35d1148410f38ab00363622d42f4de68c90770b6ac519e94f6d28b9c0f43abcf2c703e78a52c10a250bfcbc10baf3be6003c845b16f988590e11de0435ad698a133b336ab199d30627f64c65ab3aed56490ff5e2d09ee3143b7f759940fbccc19e45165d4ef8b6cd7f4145ab839e3ddde216b18ed520607135148a5bd39b23e27750d0ba0c7588df62dad7ea4ddda405ca83cd939647d7b82c601919652e4e4a863094714691a53b88acfbe02f586e025ee222689dccfa16650220c0743b68c5dfeec8e1de669938761a22733352dea6bc62de03d382c6d776ae77c00e57bb56bf4cc476374419632b8f94a59fee0028916bec3de66567db2911c5dcd82fa0274111fd7823ecad58e7c987c99835c022574bf03e1c30730c1b11829498d66bfca3a33d13fb6828d05926296905c48074a2009abe4e21736063a4dc944700f17d05869ffe92575f3f68f3ad7c198144cf6065a091fc375fbb761d3e3a785bec99d1865d5f85cd002a19977e1c0446484424d79c1c0ebf9f36baf88decef34f4752e3e39f802b8d5cc092a75dfdee8a3cac054034b686a4f68a2d26a47612d53450245ec4a207e0c7b6923a4507682b978620e915ce0f29add5c1b9c4283038175fd3af09039e0b95d6dd03b9c176dfb9bfbffb43b01e2a754d457b9362332282c434436d916b112563a5fb5a31cdae79155ba1041d88326a6578639c7551e62d1029f013446bced6a53dc6e9a561bbcd2435b6fb907d30c058c1bd5a5dd060a98db6a618a98388aed69c6ac00b2312f9e8fe881397a911370cc117744b991b4d8d1c7abccb33c9fe7ab7ed97073cd66c1e7e7f6a2e8a1db769f3dbc8e917a5cb57932c77ab7308280e24c3c4ecced08ccb8b7d8162c589df2eb302a619decef1d36a741d69094ac00bdbea00aae6e814594fd72ac898ebf60b61132006cd06de5f3e92b57cb0dc17d5e9dec10dc8eff19836bd36620ba931dbccbf7228ca8397990639e9490b86702dcddf88392cb5ddc5ebe49ceb580902d08b233aa2448afef8032db9f7d286be28fc865f7c286cca66e3ba3a1eb48ad6ee52807db77139418b9588dfdd2cb7f8960920df3cd465f29d7333ec05030ec28a72e702b04d7bfc14d8716ca9cf17ac7517425c1437b8655acb34dedf1547676007a18541f2a1ccc158bbce82d8c1df316af9f9931a846f6f6b9e04d123ba9bc36f3e24ba5f9698db2c8e4362eaf553ec6a2b3d0655e72d99a355bfd40e5d033237cb54a6f1f7463f1f53c0ee4bb3582f01254d1a6a0439861d2739e606052f02709a38a840d1137678e31578712ca8d9d4c993141f80877eb3f1c74275e1b54c919fb72a05fa2cc41573dad6caae6111bb6814b23cbf5f821bb30e428a584363e9d02673a160a94ba6bf307b98f30f15bde25db2efe59729fc652d57afabca68e85174dd7e5f3919f9753114f71b24f111883b3369ad6d54a03f5f1bfb8179afb72e0f479375c17e5e8a6cb9589a5caf34a0750c6568b272eeab4ac3ff99ca218312d6e895d63338bf8d4a2127cfa0b74381a0e786d731a3b6d4f0da0da5378da548765752ce7494473be8b4908198f11662a1ab03346c945428ac5b909ae9a02afeb968b264c70a46d5fbb8c582a1533181661504ab4a99eb8e7c52b1a9a942d7491204b0edf86f2acc389acaaac7b09a2e05c31b99506c90538bfbf7fc28018470031146ba6f3ee6d21fab51efb94c1c5d8987299ad6c8b06be64d903212953df5dd060d586f1b6f5ce8fdec033a95b92913bc7a8cc731c114ae4e410e3f53a5d215946f6dcaef78d4e6fd0528d4610c44b0017afadab472f25d19cc2dd92cb10c6f80622440e83968647e58497c519c01914e226b0dd3a929575c7eb10463a2044835c1526a9e317e7103c78cdf37d0ecd70dd7eb8a6816286a95739c28a4b009addb005458c64d00e2bdc00c26511d7d2da0d2063aaaf257a886c566f509f0e5860e47f9c8639baef399de21d488dbc801cba0d1c7c3b6472b2c9f97912a214285fef2396224f9a04e5c1453d1941de09357d399899be47899e541e2bc3b79b2908f9b94e02392517b3d0f9d145ade9693ac397b3dfb270703949cbf5580c9aae7b51ba2dba45a21e2f979d75a860bbbe37668564516c02a4fc343e2ef86f5637ba92dce96d02e74a4277ca42562ab73c71f67b79d2de3107a4de2b7aff1629e59846435f41fb66011a9aab69a050fee50f9e80666dad0364b8053e2122b121a31b77c3fb083696f6fdae7c2f90025ecbc2f0445ca1c64dcdc3c16561ec3d073853eb0decfa6f601e36fe3cf8a0e0c51fbf80c86f5d458a58b927773304d1c30a72fb58a97c5e8bb9f5304b51496f08cfc124be15d7910984d866cee0549922907903062278f0d11a79314a53423aa14b71f0a63a73863603a04c9bf2e1efaf9bb30d765b4bf27bbf96bfd42ddc817eab477eec855770b5a5a9cdb836331a4a94dd20bce4e1c3e094b3bc7725f494fe9e1244f083c66e1a6326f5275dcec5004e7da9b096441bc1dec6f53801f476f299fb145f3bfe69a3f027db023aefa0ea37214767e94e51303abf8757030c8619f20b82b7344c9241614c179830f57b07855a9a558f9db9afad8b5773ff6bfed26e94cf4f47ed8479d1e32c130c1e85024d17a98daf72188541f37bc2bf98eaef499ef8abd2120c481cdf283aa1dd2b1b3533693c9572a90ca5bc8d6151e3716e9964c40a0f1acbca59dad3f443950ab717d0db78868e3e0bcb29ef734503361b1affd89bb552410f1502d81efb2ebfda9ab0b9b8e007f8119eb6169ed78e330b1f5bc05c70cd90316423d2053840a06f5a8f6854baa7ab84641ce1369ed7ab3b19e8cb2f91ca12ee9fb6ec04e6ea8789547f532a4fe2f1fc447b64718065768731d2dd63346e700056f4cffcab292f03d149be07c8413e5476b2b8f2cb007b93876d566e12f38e711c0a9d0a35a6c8549ed251621497de5af92f13002cf4fb99c000cbce6180e0d37f591d87a1d1ea96f504950c1cfef1b106626bb6fa2a4566f4d6cad86f4eb15ff746c158dfa386a5e8ba37f56b644a361b3a051cbaddf73e58a129473ffe67bbfe5844391ec4fa67a7e02e459d2bd9468987255c0767ff9f43a325f2d4c6109ca512323149af4904e95a7a595c7e524226764c97cdd892f77014c2b1688ff101bf83c27bf9a362c0223ab39f09c685faab8603ac0355f51de82320e9630bbd30f73901444524d87c9de57bc8fd9cad589079ec31b3c574364c820033192ff1c4c11cc0ee7ce07728d55f232dab76934da05cf0a05924fb64c9dc14494a466bd2327c4a52778f3476f67837408a51016938e76217ac131e5f90f6c83ce0c260d502c0e16420ba5c99894bebb59ea7bfbf22194756c555d0befb128b2724891f297f54f74658ad0395ae2f58c79eea2370cfce80b02bfaf6d6efb100aeddab52bc8f6dbde041e72dbeb76fd668ed556e3efadb51c29643daf4c94c790340c35bf5dda8cdd2ffbe52cf9a039a301ec651675d7ecc11c0ceb64aabf047acf173e9901980db29086013d3321cdcad1e902f4cc0358773029026320266d2a243a58395b010c7ec1789f38bceca5d7bd33129db4321340dced5ac1bf2a75ba62f6a073c1674b795333aca8ddac093ee7a6fbd4c3cf5aff9c4404ca5936a4b7a8e335c060311e9b16cb098d9cc1b51ff713e2745da8310ba32593937a0a45c94c707b46bfc9e43be1651ac10b5a989aa0031df956738b91e8d13f5182a263393c5e36ded690d6cb848e33b9ed115909db17be5fdb7cbd3c48565ea9a4e6acca7dcf5440143b31d2cede0d20ab2d0f8a4378eaf3fa5f36d4845ea522e94bcb2d01188aca79108b9c784613ebbbdfe5ad0cc3b984c173777d44324da2c89a6e7cb3bbc3035a8ea3d569c2cb84f9ca63bb136a4c30bb5493669855f7b5a05324d2a102db61a28bdc579be43f6ed120e19a96fd3fe970d269548e53ad15abec71762945e0881cf700c11a5ba2fe052d2498fcaf1ff3aac4272a616e7fc6c6729882261a72f7b452230987c85681481faa4cd427d8c9bc8cd795f9a4ff2f9346aefe894da7047e77345afe4e076e609ca7f58503bdc4a6f9580d75cc433aed397c3679fff502ef3fa7605c91d09d76d99b01182631d8550c3c5d243cbcda88a128c51353bb47eae8207d3fed1cd7a7604d22a661f6155646e1ee7cd3fef2bdd3676cbd5ce5199f89784a2b43057fab8047cb95fb7db689711bed9cc8540e2f2e85e51d1e1f094374dcbdfe9a3870df867faf9597f4d1ab4f36117ade657e9f7072e7017f581a7f05ed91a4796d1cf601b0c469942adbd74a15ad103017451629ffbc9ecececc2183636c212f57a9496cf8c126270c60ace9696f9001959bffce7840166db2532b23ba42e043cd8c544df0c2b00fbb23c449dba379511d8c1930622cc29778d744070d635fe89266a9f9ef2bad8d21828d34bf43471cd29ba3d03596e33a83c29b45901a1de16632d0bf0cee26cab8b29682f308106518588241b12c0a879aba36e0e528ef263fa8267ff62507d9d784f4feca20930d52b908993cb9b9a2de535b78ca67b284fcb315c0a346712d1a37ea5250bbd72dee6a3937ef4455d6336a94951e1bdaa9f084e20d59fbf8f5eed2b046592b224e273c2e99debc62119e69e2712a2244c815f08e548a5765686f49fb3f9b21f836b9288097ddafe55cec4f703681a8570f5bbd956b781adeb8bd17fe764f75a1081ae3c8fe341b2f22ad02952520399d754d9e343d5fad8f693d6a195eb915118cdc85f3046916aafc7edd875903cce91cd0177efa65ed9d5c1a64b5770f8f8608f03b660a2353c23233326913765307a44d093da97a7b83348dba7a58cf7bcf825ad4280996c1601ab65ece6aa0b87e973b598abe158a14ab08095d63482541df65179ec1797ac6b79e0759f6baa2b3d4fac753e7a3484c2077aefdac8491ebaff0e6a4ba7c4bbaba3ed7642e77f75b29fecf3f11c61d4233fdea74a0749f475304024cd5832d51b141ee125289ab9657e493436798097b4d9003e1797f96fbecb1b782507846c3b32da50a352007dcef9b192b64a61177bafb973654fa02d01fbce0a9470c"
+    },
+    "replay": {
+      "durationMs": 22000,
+      "eventSchemaHash": "0x9d81089ffe16492946b41f9f4dfd72e586ed4bffa46fa3aa0fdc4f9de0dee7b7",
+      "events": [
+        {
+          "atMs": 1000,
+          "payload": {
+            "actions": [
+              "strike",
+              "feint"
+            ],
+            "atMs": 1000,
+            "damageReceived": [
+              6,
+              12
+            ],
+            "fighters": [
+              {
+                "damage": 12,
+                "health": 94,
+                "stamina": 4
+              },
+              {
+                "damage": 6,
+                "health": 88,
+                "stamina": 3
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 0
+          },
+          "seq": 0,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 2000,
+          "payload": {
+            "actions": [
+              "feint",
+              "guard"
+            ],
+            "atMs": 2000,
+            "damageReceived": [
+              0,
+              10
+            ],
+            "fighters": [
+              {
+                "damage": 22,
+                "health": 94,
+                "stamina": 1
+              },
+              {
+                "damage": 6,
+                "health": 78,
+                "stamina": 4
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 1
+          },
+          "seq": 1,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 3000,
+          "payload": {
+            "actions": [
+              "recover",
+              "feint"
+            ],
+            "atMs": 3000,
+            "damageReceived": [
+              6,
+              0
+            ],
+            "fighters": [
+              {
+                "damage": 22,
+                "health": 88,
+                "stamina": 4
+              },
+              {
+                "damage": 12,
+                "health": 78,
+                "stamina": 1
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 2
+          },
+          "seq": 2,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 4000,
+          "payload": {
+            "actions": [
+              "strike",
+              "recover"
+            ],
+            "atMs": 4000,
+            "damageReceived": [
+              0,
+              12
+            ],
+            "fighters": [
+              {
+                "damage": 34,
+                "health": 88,
+                "stamina": 2
+              },
+              {
+                "damage": 12,
+                "health": 66,
+                "stamina": 4
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 3
+          },
+          "seq": 3,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 5000,
+          "payload": {
+            "actions": [
+              "strike",
+              "strike"
+            ],
+            "atMs": 5000,
+            "damageReceived": [
+              12,
+              12
+            ],
+            "fighters": [
+              {
+                "damage": 46,
+                "health": 76,
+                "stamina": 0
+              },
+              {
+                "damage": 24,
+                "health": 54,
+                "stamina": 2
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 4
+          },
+          "seq": 4,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 6000,
+          "payload": {
+            "actions": [
+              "recover",
+              "recover"
+            ],
+            "atMs": 6000,
+            "damageReceived": [
+              0,
+              0
+            ],
+            "fighters": [
+              {
+                "damage": 46,
+                "health": 76,
+                "stamina": 3
+              },
+              {
+                "damage": 24,
+                "health": 54,
+                "stamina": 5
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 5
+          },
+          "seq": 5,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 7000,
+          "payload": {
+            "actions": [
+              "feint",
+              "feint"
+            ],
+            "atMs": 7000,
+            "damageReceived": [
+              6,
+              6
+            ],
+            "fighters": [
+              {
+                "damage": 52,
+                "health": 70,
+                "stamina": 0
+              },
+              {
+                "damage": 30,
+                "health": 48,
+                "stamina": 2
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 6
+          },
+          "seq": 6,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 8000,
+          "payload": {
+            "actions": [
+              "recover",
+              "recover"
+            ],
+            "atMs": 8000,
+            "damageReceived": [
+              0,
+              0
+            ],
+            "fighters": [
+              {
+                "damage": 52,
+                "health": 70,
+                "stamina": 3
+              },
+              {
+                "damage": 30,
+                "health": 48,
+                "stamina": 5
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 7
+          },
+          "seq": 7,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 9000,
+          "payload": {
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "atMs": 9000,
+            "damageReceived": [
+              6,
+              3
+            ],
+            "fighters": [
+              {
+                "damage": 55,
+                "health": 64,
+                "stamina": 1
+              },
+              {
+                "damage": 36,
+                "health": 45,
+                "stamina": 6
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 8
+          },
+          "seq": 8,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 10000,
+          "payload": {
+            "actions": [
+              "recover",
+              "guard"
+            ],
+            "atMs": 10000,
+            "damageReceived": [
+              0,
+              0
+            ],
+            "fighters": [
+              {
+                "damage": 55,
+                "health": 64,
+                "stamina": 4
+              },
+              {
+                "damage": 36,
+                "health": 45,
+                "stamina": 6
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 9
+          },
+          "seq": 9,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 11000,
+          "payload": {
+            "actions": [
+              "guard",
+              "feint"
+            ],
+            "atMs": 11000,
+            "damageReceived": [
+              10,
+              0
+            ],
+            "fighters": [
+              {
+                "damage": 55,
+                "health": 54,
+                "stamina": 5
+              },
+              {
+                "damage": 46,
+                "health": 45,
+                "stamina": 3
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 10
+          },
+          "seq": 10,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 12000,
+          "payload": {
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "atMs": 12000,
+            "damageReceived": [
+              6,
+              3
+            ],
+            "fighters": [
+              {
+                "damage": 58,
+                "health": 48,
+                "stamina": 3
+              },
+              {
+                "damage": 52,
+                "health": 42,
+                "stamina": 4
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 11
+          },
+          "seq": 11,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 13000,
+          "payload": {
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "atMs": 13000,
+            "damageReceived": [
+              6,
+              3
+            ],
+            "fighters": [
+              {
+                "damage": 61,
+                "health": 42,
+                "stamina": 1
+              },
+              {
+                "damage": 58,
+                "health": 39,
+                "stamina": 5
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 12
+          },
+          "seq": 12,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 14000,
+          "payload": {
+            "actions": [
+              "recover",
+              "guard"
+            ],
+            "atMs": 14000,
+            "damageReceived": [
+              0,
+              0
+            ],
+            "fighters": [
+              {
+                "damage": 61,
+                "health": 42,
+                "stamina": 4
+              },
+              {
+                "damage": 58,
+                "health": 39,
+                "stamina": 6
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 13
+          },
+          "seq": 13,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 15000,
+          "payload": {
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "atMs": 15000,
+            "damageReceived": [
+              6,
+              3
+            ],
+            "fighters": [
+              {
+                "damage": 64,
+                "health": 36,
+                "stamina": 2
+              },
+              {
+                "damage": 64,
+                "health": 36,
+                "stamina": 6
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 14
+          },
+          "seq": 14,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 16000,
+          "payload": {
+            "actions": [
+              "guard",
+              "feint"
+            ],
+            "atMs": 16000,
+            "damageReceived": [
+              10,
+              0
+            ],
+            "fighters": [
+              {
+                "damage": 64,
+                "health": 26,
+                "stamina": 3
+              },
+              {
+                "damage": 74,
+                "health": 36,
+                "stamina": 3
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 15
+          },
+          "seq": 15,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 17000,
+          "payload": {
+            "actions": [
+              "guard",
+              "guard"
+            ],
+            "atMs": 17000,
+            "damageReceived": [
+              0,
+              0
+            ],
+            "fighters": [
+              {
+                "damage": 64,
+                "health": 26,
+                "stamina": 4
+              },
+              {
+                "damage": 74,
+                "health": 36,
+                "stamina": 4
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 16
+          },
+          "seq": 16,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 18000,
+          "payload": {
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "atMs": 18000,
+            "damageReceived": [
+              6,
+              3
+            ],
+            "fighters": [
+              {
+                "damage": 67,
+                "health": 20,
+                "stamina": 2
+              },
+              {
+                "damage": 80,
+                "health": 33,
+                "stamina": 5
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 17
+          },
+          "seq": 17,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 19000,
+          "payload": {
+            "actions": [
+              "guard",
+              "strike"
+            ],
+            "atMs": 19000,
+            "damageReceived": [
+              3,
+              6
+            ],
+            "fighters": [
+              {
+                "damage": 73,
+                "health": 17,
+                "stamina": 3
+              },
+              {
+                "damage": 83,
+                "health": 27,
+                "stamina": 3
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 18
+          },
+          "seq": 18,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 20000,
+          "payload": {
+            "actions": [
+              "guard",
+              "guard"
+            ],
+            "atMs": 20000,
+            "damageReceived": [
+              0,
+              0
+            ],
+            "fighters": [
+              {
+                "damage": 73,
+                "health": 17,
+                "stamina": 4
+              },
+              {
+                "damage": 83,
+                "health": 27,
+                "stamina": 4
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 19
+          },
+          "seq": 19,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 21000,
+          "payload": {
+            "actions": [
+              "strike",
+              "guard"
+            ],
+            "atMs": 21000,
+            "damageReceived": [
+              6,
+              3
+            ],
+            "fighters": [
+              {
+                "damage": 76,
+                "health": 11,
+                "stamina": 2
+              },
+              {
+                "damage": 89,
+                "health": 24,
+                "stamina": 5
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 20
+          },
+          "seq": 20,
+          "type": "duel_exchange"
+        },
+        {
+          "atMs": 22000,
+          "payload": {
+            "actions": [
+              "strike",
+              "strike"
+            ],
+            "atMs": 22000,
+            "damageReceived": [
+              11,
+              12
+            ],
+            "fighters": [
+              {
+                "damage": 88,
+                "health": 0,
+                "stamina": 0
+              },
+              {
+                "damage": 100,
+                "health": 12,
+                "stamina": 3
+              }
+            ],
+            "forced": [
+              false,
+              false
+            ],
+            "seq": 21
+          },
+          "seq": 21,
+          "type": "duel_exchange"
+        }
+      ],
+      "gameVersionHash": "0x5c3b2f1f6dd1fe895772a37afac05134bcca1a75f7df91aee35e48ddadf26b53",
+      "initialState": {
+        "fighters": [
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+            "damage": 0,
+            "health": 100,
+            "stamina": 6
+          },
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+            "damage": 0,
+            "health": 100,
+            "stamina": 6
+          }
+        ],
+        "kind": "a3.duel_initial_state.1"
+      },
+      "kind": "played",
+      "manifestHash": "0x359f2750430c468c46ec37391fb3ae63cec41668dc1dc2062107df5c32185da5",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d82",
+      "protocol": "agentborn/2",
+      "rendererVersion": "agentborn/duel-replay/1",
+      "resultHash": "0x65cc4e7ad972713de720ff57bc054dbcc37990a7fcc20206a5eb16236cc1a7c2",
+      "revision": "2.0.0-alpha.1",
+      "visibleRoster": [
+        {
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+          "cosmeticRef": "fixture",
+          "name": "Rook"
+        },
+        {
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+          "cosmeticRef": "fixture",
+          "name": "Nyx"
+        }
+      ]
+    },
+    "receipt": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d82",
+      "manifestHash": "0x359f2750430c468c46ec37391fb3ae63cec41668dc1dc2062107df5c32185da5",
+      "chainId": "4663",
+      "board": "0x0000000000000000000000000000000000000032",
+      "seedCommitment": "0x4199c46fcaa1b4c36360fa43fdc1ed7c89e7a69be2d57df1d5ad1436b159c418",
+      "resultCommitment": "0x9ae6f7b18b7244aacbefa44d8f6cb00f5b28de0bff232c8b6f8e0532204fe6e7",
+      "sealedEnvelopeHash": "0xa30f46ba4b5b34a09a695b4490f314c04683bd1175bd8c4c754e6c063840e2d5",
+      "transactionHash": "0x00000000000000000000000000000000000000000000000000000000000d6ead",
+      "block": {
+        "chainId": "4663",
+        "number": "11",
+        "hash": "0x00000000000000000000000000000000000000000000000000000000000d6f11",
+        "timestamp": "1002",
+        "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+      }
+    },
+    "opening": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d82",
+      "manifestHash": "0x359f2750430c468c46ec37391fb3ae63cec41668dc1dc2062107df5c32185da5",
+      "result": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d82",
+        "manifestHash": "0x359f2750430c468c46ec37391fb3ae63cec41668dc1dc2062107df5c32185da5",
+        "kind": "played",
+        "qualificationHash": "0x7cb63fc17237935ee1bf6d19a5804ccee54782985bfd5744d4cf3f18a9780918",
+        "placements": [
+          "0x0000000000000000000000000000000000000000000000000000000000000065",
+          "0x0000000000000000000000000000000000000000000000000000000000000064"
+        ],
+        "sharesBps": [
+          6250,
+          3750
+        ],
+        "payments": []
+      },
+      "replayHash": "0x295417e451cf60709da877e69b57abfc54b304463e6ae4b2a4d2020f1a9ada11",
+      "seed": "0x00000000000000000000000000000000000000000000000000000000000105b9",
+      "seedCommitment": "0x4199c46fcaa1b4c36360fa43fdc1ed7c89e7a69be2d57df1d5ad1436b159c418",
+      "nonce": "0x00000000000000000000000000000000000000000000000000000000000d6de5",
+      "encryptionKey": "0x00000000000000000000000000000000000000000000000000000000000d6e49",
+      "sealedEnvelopeHash": "0xa30f46ba4b5b34a09a695b4490f314c04683bd1175bd8c4c754e6c063840e2d5"
+    },
+    "status": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d82",
+      "manifestHash": "0x359f2750430c468c46ec37391fb3ae63cec41668dc1dc2062107df5c32185da5",
+      "lifecycle": "complete",
+      "outcome": "played",
+      "revealAt": "1400",
+      "openingAvailable": true,
+      "payment": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d82",
+        "allocation": "allocated",
+        "delivery": "paid",
+        "liabilities": []
+      }
+    }
+  },
+  "walkover": {
+    "version": 1,
+    "kind": "replay",
+    "manifest": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "chainId": "4663",
+      "board": "0x0000000000000000000000000000000000000032",
+      "eventId": "0x00000000000000000000000000000000000000000000000000000000000d6d84",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d83",
+      "identity": {
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "gameVersionHash": "0x5c3b2f1f6dd1fe895772a37afac05134bcca1a75f7df91aee35e48ddadf26b53",
+        "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "seasonId": "0x0000000000000000000000000000000000000000000000000000000000000003",
+        "tierConfigHash": "0xf092af74e8ae6f8956d0bc9d89a0b0f52fab3034faf0ddd9eb237fbdf9739a86",
+        "matchmakingPolicyHash": "0x824621493a4dd62836b3223bb1fef19a869dd24f2fac415cfbf9b95c00d7e895"
+      },
+      "schedule": {
+        "enrollmentClosesAt": "900",
+        "startAt": "1000",
+        "resultCommitDeadline": "1100",
+        "revealAt": "1400",
+        "settlementNotBefore": "1410",
+        "playbackSeconds": 300,
+        "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+      },
+      "format": {
+        "kind": "none"
+      },
+      "exposure": "open",
+      "capacity": 2,
+      "doorFeeWei": "0",
+      "tierId": null,
+      "cancellationPolicyHash": "0xa7e22f4bfffeb37e3ee936cfe6a70e66a920d6dd2350440e87780dde786d9ea1",
+      "assetPolicyHash": "0x1ba7a571abe8ce1bad9994e35cbd530407cc09fa2889aefca723a2523a127745",
+      "quoteRecordHash": null,
+      "settlementFeeBps": 100,
+      "treasury": "0x0000000000000000000000000000000000000033",
+      "roster": [
+        {
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+          "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000c8",
+          "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012c",
+          "payout": "0x0000000000000000000000000000000000000190",
+          "qualifyingWallet": "0x00000000000000000000000000000000000001f4",
+          "vault": "0x0000000000000000000000000000000000000258",
+          "strategyCommitment": "0x94566525aba73c7183a5b679e4a8dc32aef2b3eb84eaba5e958b5d67c1091965",
+          "permissionsHash": "0x6c666428e361c83be6e2d58be3faa0f09594219398cfa4926b99a871e221f29a",
+          "authorizationVersion": "1",
+          "admissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000320",
+          "grossDailyUsedWei": "0",
+          "dayBucket": "1970-01-01"
+        },
+        {
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+          "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000c9",
+          "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012d",
+          "payout": "0x0000000000000000000000000000000000000191",
+          "qualifyingWallet": "0x00000000000000000000000000000000000001f5",
+          "vault": "0x0000000000000000000000000000000000000259",
+          "strategyCommitment": "0xdef89402924ff863694dd77888a10770bba503f4b4c2522f74f4278e76ef0335",
+          "permissionsHash": "0x74034190b55354bd57bfb4a607ea56df3af841f64ba93d805fea21ba68faa4c4",
+          "authorizationVersion": "1",
+          "admissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000321",
+          "grossDailyUsedWei": "0",
+          "dayBucket": "1970-01-01"
+        }
+      ],
+      "sources": []
+    },
+    "registry": {
+      "version": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "rulesArtifactHash": "0x83b27a0aafdcf7ecab56e7cb2203a089e8339f391d717f2a334fb402e11646be",
+        "strategySchemaHash": "0x1f5cc628ec35f1feae25fefce74dd25d3b24f17da8ab4fe06449eae4ff2c3121",
+        "eventSchemaHash": "0x9d81089ffe16492946b41f9f4dfd72e586ed4bffa46fa3aa0fdc4f9de0dee7b7",
+        "scoringPolicyHash": "0x0e99e3573148cfe325f358d75de6eba47cefc1fa2f5557462215fde3699ea297",
+        "runtimeId": "agentborn/duel/1",
+        "runtimeHash": "0x000000000000000000000000000000000000000000000000000000000000fde8",
+        "rngId": "agentborn/keccak256-counter/1",
+        "rngHash": "0x6e7695a46e385485501dcdfb29cfa54cf10cf32a90e6fdc06fe684cd3c62b218",
+        "numericSemantics": "safe integer duel/1; uint32 Keccak counter words; simultaneous capped damage; logical elapsed milliseconds",
+        "supportedRosters": [
+          2
+        ],
+        "reducedRosterPolicyHash": "0x8918ddad892591eedb53de1591e9c4ac74ef3c065b2cd698fc82d92fe4f07fca",
+        "placementRules": [
+          {
+            "qualifiedCount": 2,
+            "sharesBps": [
+              6250,
+              3750
+            ]
+          }
+        ],
+        "limits": {
+          "maxEntrants": 2,
+          "maxTicks": 1000,
+          "maxFuel": "1000000",
+          "maxMemoryBytes": 16777216,
+          "maxEvents": 1000,
+          "maxEventBytes": 4096,
+          "maxReplayBytes": 1048576,
+          "maxSheetBytes": 4096,
+          "maxRendererAssetBytes": 1048576
+        }
+      },
+      "league": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "authorship": "operator",
+        "provenancePolicyHash": "0x0000000000000000000000000000000000000000000000000000000000000014"
+      },
+      "season": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "seasonId": "0x0000000000000000000000000000000000000000000000000000000000000003",
+        "gameVersionHash": "0x5c3b2f1f6dd1fe895772a37afac05134bcca1a75f7df91aee35e48ddadf26b53",
+        "startsAt": "100",
+        "endsAt": "10000"
+      },
+      "tiers": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "version": "1",
+        "inheritance": "explicit_only",
+        "token": {
+          "chainId": "4663",
+          "token": "0x000000000000000000000000000000000000005a"
+        },
+        "tokenDecimals": 18,
+        "tiers": [
+          {
+            "tierId": "0x0000000000000000000000000000000000000000000000000000000000000004",
+            "quantityBaseUnits": "1000000000000000000",
+            "benefits": [
+              {
+                "formats": [
+                  "percentage",
+                  "bounty"
+                ],
+                "rosterSizes": [
+                  4
+                ],
+                "minAvailablePurseWei": "0",
+                "maxAvailablePurseWei": null,
+                "minNetEthPrizeWei": "0",
+                "maxNetEthPrizeWei": null
+              }
+            ]
+          }
+        ]
+      },
+      "finality": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "chainId": "4663",
+        "startCheckpoint": "first_finalized_block_at_or_after_start",
+        "commitmentFinality": "finalized",
+        "finalizationFinality": "finalized",
+        "extraSettlementDelaySeconds": 10,
+        "recoveryDeadlineSeconds": 3600
+      },
+      "cancellation": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "disposition": "refund_all",
+        "enrollmentDeadlineSeconds": 600,
+        "recoveryDeadlineSeconds": 3600
+      },
+      "selection": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "version": "1",
+        "kind": "audited_draw",
+        "provisionalLeaseSeconds": 60,
+        "candidateLimit": 100,
+        "evidencePolicyHash": "0x0000000000000000000000000000000000000000000000000000000000000015"
+      },
+      "assets": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "standardTransfersOnly": true,
+        "assets": [
+          {
+            "chainId": "4663",
+            "token": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": "4663",
+            "token": "0x000000000000000000000000000000000000005b"
+          }
+        ]
+      }
+    },
+    "qualification": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d83",
+      "manifestHash": "0x6ae84a1b98c0ec1f695df72b151bdb086c9273f15adc70acfb511e35ade447ca",
+      "checkpoint": {
+        "chainId": "4663",
+        "number": "10",
+        "hash": "0x000000000000000000000000000000000000000000000000000000000000fde9",
+        "timestamp": "1001",
+        "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+      },
+      "entrants": [
+        {
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+          "status": "qualified",
+          "reason": "qualified",
+          "evidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000514"
+        },
+        {
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+          "status": "no_show",
+          "reason": "explicit_abandonment",
+          "evidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000515"
+        }
+      ]
+    },
+    "envelope": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d83",
+      "manifestHash": "0x6ae84a1b98c0ec1f695df72b151bdb086c9273f15adc70acfb511e35ade447ca",
+      "algorithm": "AES-256-GCM",
+      "iv": "0x000000000000000000000002",
+      "aadHash": "0xbc3531a49df944e1889f4b12c14667be022a0de3c71224936d09bdd29fd4fa3b",
+      "ciphertext": "0x8b437291dad84a3585afd52d3244e20de5f680a0352706b5e759f9b3678bc7481f1b2e46e4fc2a62827dad477491d8dfe27db29b96318573e8d88e62ccf80b62831e4f60cf0190d2df9f3d624954d2273f448f3ec9733bb082d7d477ea0f3a40e84336344797e4d76bdee4d3d598632c5c4beb2e2511a60f1fb6b81401c0ace13e53b0f51552f0c496850ba19810bb37dbaa55c093705ce5ec7a99fd956fc12ac3da5925b5456a9529e3cb8cd08cb86409e2853b64b58f630ca264502080ef1d06f07bcf10c287bfbcaaf37e7be0a1da1aad2f4f838a81726be00a8f06676422415f815e45d1f56d3fcea5acbf6aab5de2d62cbade2e71aefbd4c2d0fe5b9b9e29975207fe774b8f9d60deadc31bdd92dc7c0aa26af369404f94ec5d17ec4d9be6ab033de01148218e0f02df21cc23bc11c7350540efefe1454a31a61e3f71a1bf3364b11bdc5ba911f93d1caba1465586fa99bce9b8b6cf4f821e1be96a676e2d2830e5bb6ae9efcc90360e35f7fbc47a0ad15c16abce4d51d0b76316c8d0c2570baa78537443e6252df1d9dee6dc2672a35849ba5e6f7ca22cfcb0554f097451b368db6a18499702eb23022f38cea38843ced1121fb9202d0f02dc5fc4fd7fc02b9d380538e1078480827437a7d6901011501379e3dc7363b8a2ab000ca87ac383f55cef61c0597509ba727379adc73ef93d98a240de831afd553533ae390f188d9811a325107c8f93dd3e9c62754cfa12b0cb1f0c1950d6b8d1322c8766492d7e69b809b56c818d70527c008d51b23d56db2b411e8e311ba6bb3dca71115a3637c90b7cd9a146ef09522f067c3657755e3c94e7ddc282b21fd9813c3fe8ad1bab42a7bfe9e813c1f67eae28c1ed4b2bdcc5a95ec21f0d046ce7d2fa614cbd1b195eea2cab534a720fee024e97d5251c64d99503bfeae05fed036da75b992e6322477378d59aaa794bdcb34f6545b8b17a02a8bc527dd47b989c2528606b7d5bdfdd12191acef79a92fb15d07fc7573543dcaf5f1a8f761a8b4806c7e862a963a26a52756f4abde913f568e43a85463857d8dec629a20c4be96fe9aea3d36d6be83c3aa03e5329487e2f1d14ce3dafc8e12fcb87032d756f92b7edf5b10f0de02b373745b7a45709f843f3dd86bc3f5a64f5810b0d97ab1cc7261857b36fa5e6a3aa9eef434ef55a12cd4cf8acbfac3db1cd5bb9e68413a0fee9b8b18eae4fa417b1c19d85cd6475a004a4ee651078039a881053cca1973d777b50fe742abc79ed00020ad8a047c6662e8578c12f8dff6da54ae696343096826ca784244319d6afc951912441abb0e3eba58f42ec970310a476dd45bfdfa856b1d489d651361107b2df5ec9a8698189b39b2c41514d314ac86344d3e4e7b2410ee8017b36a6cc1b3a59360d22889caabff975f983f2455b515c59991ec04c0ed7122f2fdac2bb04f213b91e740cab151f8c46acdd84372d862b25e2e3102f8933624671f2c587844c3ae792d7ec5aa70c541bf007f15fae79faf645671693a0b449740e4cc167e606431c5f2f4b2784dbeb1984e1825c188f1ea4fe6f6c23f17ce6f74d2ba00ae2d7243e55acb5e7ff31ea822338b8c299dc6cd7ddea7710d7a7a9780f251b8699bbcfa5368e66e94ecf85d8262d5533e048d20d948c90ba020b5641c74206350780f900478d8a49f6c5e6dcce393186c39aacd5a545048864d976aa456721aab12f8a0735ccd24875a4e693c32fd3b2346b8d86be2d16858ef6b1891c4441dd22f80eb7c1dbba1ff84f9c97fbb492b8395c1dee7ab6cb208c7b1a9576469601a17e081e9c2db640436ee43eb8e1d52dfc28cd5b199bd3a6f70a104c492ee1b2f441bea3e3f207e0521709a0ba260ca468938448ac0a19803edc3026a8a7e6ef3534697acf20d70da55851b63779f99f8a52067ae3ba5d2f4665211b31b35ec642a8c85e8ca2eb033553538aed3cd8cf53ac4fbe5f0d"
+    },
+    "replay": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d83",
+      "manifestHash": "0x6ae84a1b98c0ec1f695df72b151bdb086c9273f15adc70acfb511e35ade447ca",
+      "gameVersionHash": "0x5c3b2f1f6dd1fe895772a37afac05134bcca1a75f7df91aee35e48ddadf26b53",
+      "eventSchemaHash": "0x9d81089ffe16492946b41f9f4dfd72e586ed4bffa46fa3aa0fdc4f9de0dee7b7",
+      "rendererVersion": "agentborn/duel-replay/1",
+      "kind": "walkover",
+      "resultHash": "0x5b3d6af0cff929a7cef80d6b8b83639e4085b84d43e35d8750d08a2b28cee307",
+      "visibleRoster": [
+        {
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+          "name": "Rook",
+          "cosmeticRef": "fixture"
+        }
+      ],
+      "initialState": {
+        "kind": "a3.duel_walkover.1"
+      },
+      "durationMs": 0,
+      "events": []
+    },
+    "receipt": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d83",
+      "manifestHash": "0x6ae84a1b98c0ec1f695df72b151bdb086c9273f15adc70acfb511e35ade447ca",
+      "chainId": "4663",
+      "board": "0x0000000000000000000000000000000000000032",
+      "seedCommitment": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "resultCommitment": "0xc5c8416f7e880ca7645079822014475afcafd27d4120b132a28cda497000d890",
+      "sealedEnvelopeHash": "0xe8f69d5c3b6164e214c4795d330e5e6a2ccfc9dde441d5c7be56c56604acf93b",
+      "transactionHash": "0x00000000000000000000000000000000000000000000000000000000000d6eae",
+      "block": {
+        "chainId": "4663",
+        "number": "11",
+        "hash": "0x00000000000000000000000000000000000000000000000000000000000d6f12",
+        "timestamp": "1002",
+        "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+      }
+    },
+    "opening": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d83",
+      "manifestHash": "0x6ae84a1b98c0ec1f695df72b151bdb086c9273f15adc70acfb511e35ade447ca",
+      "result": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d83",
+        "manifestHash": "0x6ae84a1b98c0ec1f695df72b151bdb086c9273f15adc70acfb511e35ade447ca",
+        "kind": "walkover",
+        "qualificationHash": "0xe8238cc898a9c9580a7b65592c77d8e2d7c62b1fab4eb1437b0c038a4635382b",
+        "placements": [
+          "0x0000000000000000000000000000000000000000000000000000000000000064"
+        ],
+        "sharesBps": [
+          10000
+        ],
+        "payments": []
+      },
+      "replayHash": "0x3384c97eccb8f846b36f35e4669d91530e41f6bae2a4f63bd2b78aeca3fd0b4a",
+      "seed": null,
+      "seedCommitment": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "nonce": "0x00000000000000000000000000000000000000000000000000000000000d6de6",
+      "encryptionKey": "0x00000000000000000000000000000000000000000000000000000000000d6e4a",
+      "sealedEnvelopeHash": "0xe8f69d5c3b6164e214c4795d330e5e6a2ccfc9dde441d5c7be56c56604acf93b"
+    },
+    "status": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d83",
+      "manifestHash": "0x6ae84a1b98c0ec1f695df72b151bdb086c9273f15adc70acfb511e35ade447ca",
+      "lifecycle": "complete",
+      "outcome": "walkover",
+      "revealAt": "1400",
+      "openingAvailable": true,
+      "payment": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d83",
+        "allocation": "allocated",
+        "delivery": "paid",
+        "liabilities": []
+      }
+    }
+  },
+  "cancelled": {
+    "version": 1,
+    "kind": "cancelled",
+    "manifest": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "chainId": "4663",
+      "board": "0x0000000000000000000000000000000000000032",
+      "eventId": "0x00000000000000000000000000000000000000000000000000000000000d6d86",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d85",
+      "identity": {
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "gameVersionHash": "0x5c3b2f1f6dd1fe895772a37afac05134bcca1a75f7df91aee35e48ddadf26b53",
+        "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "seasonId": "0x0000000000000000000000000000000000000000000000000000000000000003",
+        "tierConfigHash": "0xf092af74e8ae6f8956d0bc9d89a0b0f52fab3034faf0ddd9eb237fbdf9739a86",
+        "matchmakingPolicyHash": "0x824621493a4dd62836b3223bb1fef19a869dd24f2fac415cfbf9b95c00d7e895"
+      },
+      "schedule": {
+        "enrollmentClosesAt": "900",
+        "startAt": "1000",
+        "resultCommitDeadline": "1100",
+        "revealAt": "1400",
+        "settlementNotBefore": "1410",
+        "playbackSeconds": 300,
+        "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+      },
+      "format": {
+        "kind": "none"
+      },
+      "exposure": "open",
+      "capacity": 2,
+      "doorFeeWei": "0",
+      "tierId": null,
+      "cancellationPolicyHash": "0xa7e22f4bfffeb37e3ee936cfe6a70e66a920d6dd2350440e87780dde786d9ea1",
+      "assetPolicyHash": "0x1ba7a571abe8ce1bad9994e35cbd530407cc09fa2889aefca723a2523a127745",
+      "quoteRecordHash": null,
+      "settlementFeeBps": 100,
+      "treasury": "0x0000000000000000000000000000000000000033",
+      "roster": [
+        {
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+          "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000c8",
+          "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012c",
+          "payout": "0x0000000000000000000000000000000000000190",
+          "qualifyingWallet": "0x00000000000000000000000000000000000001f4",
+          "vault": "0x0000000000000000000000000000000000000258",
+          "strategyCommitment": "0x94566525aba73c7183a5b679e4a8dc32aef2b3eb84eaba5e958b5d67c1091965",
+          "permissionsHash": "0x6c666428e361c83be6e2d58be3faa0f09594219398cfa4926b99a871e221f29a",
+          "authorizationVersion": "1",
+          "admissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000320",
+          "grossDailyUsedWei": "0",
+          "dayBucket": "1970-01-01"
+        },
+        {
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+          "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000c9",
+          "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012d",
+          "payout": "0x0000000000000000000000000000000000000191",
+          "qualifyingWallet": "0x00000000000000000000000000000000000001f5",
+          "vault": "0x0000000000000000000000000000000000000259",
+          "strategyCommitment": "0xdef89402924ff863694dd77888a10770bba503f4b4c2522f74f4278e76ef0335",
+          "permissionsHash": "0x74034190b55354bd57bfb4a607ea56df3af841f64ba93d805fea21ba68faa4c4",
+          "authorizationVersion": "1",
+          "admissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000321",
+          "grossDailyUsedWei": "0",
+          "dayBucket": "1970-01-01"
+        }
+      ],
+      "sources": []
+    },
+    "registry": {
+      "version": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "rulesArtifactHash": "0x83b27a0aafdcf7ecab56e7cb2203a089e8339f391d717f2a334fb402e11646be",
+        "strategySchemaHash": "0x1f5cc628ec35f1feae25fefce74dd25d3b24f17da8ab4fe06449eae4ff2c3121",
+        "eventSchemaHash": "0x9d81089ffe16492946b41f9f4dfd72e586ed4bffa46fa3aa0fdc4f9de0dee7b7",
+        "scoringPolicyHash": "0x0e99e3573148cfe325f358d75de6eba47cefc1fa2f5557462215fde3699ea297",
+        "runtimeId": "agentborn/duel/1",
+        "runtimeHash": "0x000000000000000000000000000000000000000000000000000000000000fde8",
+        "rngId": "agentborn/keccak256-counter/1",
+        "rngHash": "0x6e7695a46e385485501dcdfb29cfa54cf10cf32a90e6fdc06fe684cd3c62b218",
+        "numericSemantics": "safe integer duel/1; uint32 Keccak counter words; simultaneous capped damage; logical elapsed milliseconds",
+        "supportedRosters": [
+          2
+        ],
+        "reducedRosterPolicyHash": "0x8918ddad892591eedb53de1591e9c4ac74ef3c065b2cd698fc82d92fe4f07fca",
+        "placementRules": [
+          {
+            "qualifiedCount": 2,
+            "sharesBps": [
+              6250,
+              3750
+            ]
+          }
+        ],
+        "limits": {
+          "maxEntrants": 2,
+          "maxTicks": 1000,
+          "maxFuel": "1000000",
+          "maxMemoryBytes": 16777216,
+          "maxEvents": 1000,
+          "maxEventBytes": 4096,
+          "maxReplayBytes": 1048576,
+          "maxSheetBytes": 4096,
+          "maxRendererAssetBytes": 1048576
+        }
+      },
+      "league": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "authorship": "operator",
+        "provenancePolicyHash": "0x0000000000000000000000000000000000000000000000000000000000000014"
+      },
+      "season": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "seasonId": "0x0000000000000000000000000000000000000000000000000000000000000003",
+        "gameVersionHash": "0x5c3b2f1f6dd1fe895772a37afac05134bcca1a75f7df91aee35e48ddadf26b53",
+        "startsAt": "100",
+        "endsAt": "10000"
+      },
+      "tiers": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+        "version": "1",
+        "inheritance": "explicit_only",
+        "token": {
+          "chainId": "4663",
+          "token": "0x000000000000000000000000000000000000005a"
+        },
+        "tokenDecimals": 18,
+        "tiers": [
+          {
+            "tierId": "0x0000000000000000000000000000000000000000000000000000000000000004",
+            "quantityBaseUnits": "1000000000000000000",
+            "benefits": [
+              {
+                "formats": [
+                  "percentage",
+                  "bounty"
+                ],
+                "rosterSizes": [
+                  4
+                ],
+                "minAvailablePurseWei": "0",
+                "maxAvailablePurseWei": null,
+                "minNetEthPrizeWei": "0",
+                "maxNetEthPrizeWei": null
+              }
+            ]
+          }
+        ]
+      },
+      "finality": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "chainId": "4663",
+        "startCheckpoint": "first_finalized_block_at_or_after_start",
+        "commitmentFinality": "finalized",
+        "finalizationFinality": "finalized",
+        "extraSettlementDelaySeconds": 10,
+        "recoveryDeadlineSeconds": 3600
+      },
+      "cancellation": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "disposition": "refund_all",
+        "enrollmentDeadlineSeconds": 600,
+        "recoveryDeadlineSeconds": 3600
+      },
+      "selection": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "version": "1",
+        "kind": "audited_draw",
+        "provisionalLeaseSeconds": 60,
+        "candidateLimit": 100,
+        "evidencePolicyHash": "0x0000000000000000000000000000000000000000000000000000000000000015"
+      },
+      "assets": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "standardTransfersOnly": true,
+        "assets": [
+          {
+            "chainId": "4663",
+            "token": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": "4663",
+            "token": "0x000000000000000000000000000000000000005b"
+          }
+        ]
+      }
+    },
+    "qualification": null,
+    "cancellation": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d85",
+      "manifestHash": "0x25f291d172d16228a0ad82d44a91c9d4c371887878561f2e0c5125b6cb7e3ce0",
+      "phase": "entry_committed",
+      "reason": "commitment_deadline_missed",
+      "evidenceHash": "0x00000000000000000000000000000000000000000000000000000000000d6f74",
+      "qualificationHash": null,
+      "cancelledAt": "1101",
+      "returns": []
+    },
+    "status": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d85",
+      "manifestHash": "0x25f291d172d16228a0ad82d44a91c9d4c371887878561f2e0c5125b6cb7e3ce0",
+      "lifecycle": "cancelled",
+      "outcome": "cancelled",
+      "revealAt": "1400",
+      "openingAvailable": false,
+      "payment": {
+        "protocol": "agentborn/2",
+        "revision": "2.0.0-alpha.1",
+        "matchId": "0x00000000000000000000000000000000000000000000000000000000000d6d85",
+        "allocation": "allocated",
+        "delivery": "paid",
+        "liabilities": []
+      }
+    }
+  }
+}

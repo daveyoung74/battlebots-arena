@@ -1,0 +1,1204 @@
+{
+  "fixtureOnly": true,
+  "assurance": "synthetic_unverified_history",
+  "policy": {
+    "protocol": "agentborn/2",
+    "revision": "a0.training.1",
+    "kind": "training_policy",
+    "scope": "champion_game",
+    "startsAt": "first_validated_played_free_completion",
+    "durationSeconds": "604800",
+    "matchCountAlternative": null,
+    "paidEarlyAccess": false
+  },
+  "policyHash": "0x24ea29f9b7935ce33676feb628512fbd182ec2903a4d9c7bdcb24842cc1a18ba",
+  "ordinaryManifest": {
+    "protocol": "agentborn/2",
+    "revision": "2.0.0-alpha.1",
+    "chainId": "4663",
+    "board": "0x0000000000000000000000000000000000000032",
+    "eventId": "0x0000000000000000000000000000000000000000000000000000000000000bb8",
+    "matchId": "0x0000000000000000000000000000000000000000000000000000000000000bb9",
+    "identity": {
+      "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+      "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+      "seasonId": "0x0000000000000000000000000000000000000000000000000000000000000003",
+      "tierConfigHash": "0xf092af74e8ae6f8956d0bc9d89a0b0f52fab3034faf0ddd9eb237fbdf9739a86",
+      "matchmakingPolicyHash": "0x824621493a4dd62836b3223bb1fef19a869dd24f2fac415cfbf9b95c00d7e895"
+    },
+    "schedule": {
+      "enrollmentClosesAt": "606500",
+      "startAt": "606600",
+      "resultCommitDeadline": "606700",
+      "revealAt": "607000",
+      "settlementNotBefore": "607010",
+      "playbackSeconds": 300,
+      "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+    },
+    "format": {
+      "kind": "percentage",
+      "entryBps": 1000,
+      "minimumWei": "10"
+    },
+    "exposure": "open",
+    "capacity": 4,
+    "doorFeeWei": "25",
+    "tierId": "0x0000000000000000000000000000000000000000000000000000000000000004",
+    "cancellationPolicyHash": "0xa7e22f4bfffeb37e3ee936cfe6a70e66a920d6dd2350440e87780dde786d9ea1",
+    "assetPolicyHash": "0x1ba7a571abe8ce1bad9994e35cbd530407cc09fa2889aefca723a2523a127745",
+    "quoteRecordHash": null,
+    "settlementFeeBps": 100,
+    "treasury": "0x0000000000000000000000000000000000000033",
+    "roster": [
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+        "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000c8",
+        "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012c",
+        "payout": "0x0000000000000000000000000000000000000190",
+        "qualifyingWallet": "0x00000000000000000000000000000000000001f4",
+        "vault": "0x0000000000000000000000000000000000000258",
+        "strategyCommitment": "0x00000000000000000000000000000000000000000000000000000000000002bc",
+        "permissionsHash": "0x79d3633f15891a088cf8608a8e390bc8d88d1336ee2d0e8ec59369418690878e",
+        "authorizationVersion": "1",
+        "admissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000320",
+        "grossDailyUsedWei": "0",
+        "dayBucket": "1970-01-08"
+      },
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+        "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000c9",
+        "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012d",
+        "payout": "0x0000000000000000000000000000000000000191",
+        "qualifyingWallet": "0x00000000000000000000000000000000000001f5",
+        "vault": "0x0000000000000000000000000000000000000259",
+        "strategyCommitment": "0x00000000000000000000000000000000000000000000000000000000000002bd",
+        "permissionsHash": "0x4c60d5cda6056cbce7def89f62dd709ec4302acc72f3ebb00a5f4f3efc6f73f8",
+        "authorizationVersion": "1",
+        "admissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000321",
+        "grossDailyUsedWei": "0",
+        "dayBucket": "1970-01-08"
+      },
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000066",
+        "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000ca",
+        "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012e",
+        "payout": "0x0000000000000000000000000000000000000192",
+        "qualifyingWallet": "0x00000000000000000000000000000000000001f6",
+        "vault": "0x000000000000000000000000000000000000025a",
+        "strategyCommitment": "0x00000000000000000000000000000000000000000000000000000000000002be",
+        "permissionsHash": "0x85d7e33d0ac88f5a08b7bb8c31293b31b6ee21b6266b7941130b47eeb181fdd2",
+        "authorizationVersion": "1",
+        "admissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000322",
+        "grossDailyUsedWei": "0",
+        "dayBucket": "1970-01-08"
+      },
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000067",
+        "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000cb",
+        "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012f",
+        "payout": "0x0000000000000000000000000000000000000193",
+        "qualifyingWallet": "0x00000000000000000000000000000000000001f7",
+        "vault": "0x000000000000000000000000000000000000025b",
+        "strategyCommitment": "0x00000000000000000000000000000000000000000000000000000000000002bf",
+        "permissionsHash": "0x159ec84f08b5866a4996059bfc9f72126119b9da7c0ef925d1fde516a7a31d1e",
+        "authorizationVersion": "1",
+        "admissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000323",
+        "grossDailyUsedWei": "0",
+        "dayBucket": "1970-01-08"
+      }
+    ],
+    "sources": [
+      {
+        "sourceId": "0x0000000000000000000000000000000000000000000000000000000000000384",
+        "contract": "0x0000000000000000000000000000000000000258",
+        "asset": {
+          "chainId": "4663",
+          "token": "0x0000000000000000000000000000000000000000"
+        },
+        "kind": "vault",
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+        "stage": "roster",
+        "reservationRef": "0x00000000000000000000000000000000000000000000000000000000000003e8",
+        "availableAtReservationWei": "1010",
+        "maxSliceBps": 2000,
+        "grossAmount": "101",
+        "feeAmount": "1",
+        "netAmount": "100"
+      },
+      {
+        "sourceId": "0x0000000000000000000000000000000000000000000000000000000000000385",
+        "contract": "0x0000000000000000000000000000000000000259",
+        "asset": {
+          "chainId": "4663",
+          "token": "0x0000000000000000000000000000000000000000"
+        },
+        "kind": "vault",
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+        "stage": "roster",
+        "reservationRef": "0x00000000000000000000000000000000000000000000000000000000000003e9",
+        "availableAtReservationWei": "2030",
+        "maxSliceBps": 2000,
+        "grossAmount": "203",
+        "feeAmount": "2",
+        "netAmount": "201"
+      },
+      {
+        "sourceId": "0x0000000000000000000000000000000000000000000000000000000000000386",
+        "contract": "0x000000000000000000000000000000000000025a",
+        "asset": {
+          "chainId": "4663",
+          "token": "0x0000000000000000000000000000000000000000"
+        },
+        "kind": "vault",
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000066",
+        "stage": "roster",
+        "reservationRef": "0x00000000000000000000000000000000000000000000000000000000000003ea",
+        "availableAtReservationWei": "3070",
+        "maxSliceBps": 2000,
+        "grossAmount": "307",
+        "feeAmount": "3",
+        "netAmount": "304"
+      },
+      {
+        "sourceId": "0x0000000000000000000000000000000000000000000000000000000000000387",
+        "contract": "0x000000000000000000000000000000000000025b",
+        "asset": {
+          "chainId": "4663",
+          "token": "0x0000000000000000000000000000000000000000"
+        },
+        "kind": "vault",
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000067",
+        "stage": "roster",
+        "reservationRef": "0x00000000000000000000000000000000000000000000000000000000000003eb",
+        "availableAtReservationWei": "4090",
+        "maxSliceBps": 2000,
+        "grossAmount": "409",
+        "feeAmount": "4",
+        "netAmount": "405"
+      },
+      {
+        "sourceId": "0x000000000000000000000000000000000000000000000000000000000000038e",
+        "contract": "0x0000000000000000000000000000000000000262",
+        "asset": {
+          "chainId": "4663",
+          "token": "0x0000000000000000000000000000000000000000"
+        },
+        "kind": "entry_pot",
+        "deposits": [
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+            "funder": "0x00000000000000000000000000000000000001f4",
+            "amount": "25"
+          },
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+            "funder": "0x00000000000000000000000000000000000001f5",
+            "amount": "25"
+          },
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000066",
+            "funder": "0x00000000000000000000000000000000000001f6",
+            "amount": "25"
+          },
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000067",
+            "funder": "0x00000000000000000000000000000000000001f7",
+            "amount": "25"
+          }
+        ],
+        "grossAmount": "100",
+        "feeAmount": "1",
+        "netAmount": "99"
+      },
+      {
+        "sourceId": "0x0000000000000000000000000000000000000000000000000000000000000398",
+        "contract": "0x000000000000000000000000000000000000026c",
+        "asset": {
+          "chainId": "4663",
+          "token": "0x0000000000000000000000000000000000000000"
+        },
+        "kind": "sponsor",
+        "award": "placement",
+        "deposits": [
+          {
+            "depositId": "0x000000000000000000000000000000000000000000000000000000000000044c",
+            "funder": "0x000000000000000000000000000000000000028a",
+            "amount": "10005"
+          }
+        ],
+        "grossAmount": "10005",
+        "feeAmount": "0",
+        "netAmount": "10005"
+      },
+      {
+        "sourceId": "0x0000000000000000000000000000000000000000000000000000000000000399",
+        "contract": "0x000000000000000000000000000000000000026d",
+        "asset": {
+          "chainId": "4663",
+          "token": "0x000000000000000000000000000000000000005b"
+        },
+        "kind": "sponsor",
+        "award": "placement",
+        "deposits": [
+          {
+            "depositId": "0x000000000000000000000000000000000000000000000000000000000000044d",
+            "funder": "0x000000000000000000000000000000000000028b",
+            "amount": "5001"
+          }
+        ],
+        "grossAmount": "5001",
+        "feeAmount": "0",
+        "netAmount": "5001"
+      }
+    ]
+  },
+  "registry": {
+    "version": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "rulesArtifactHash": "0x000000000000000000000000000000000000000000000000000000000000000a",
+      "strategySchemaHash": "0x000000000000000000000000000000000000000000000000000000000000000b",
+      "eventSchemaHash": "0x000000000000000000000000000000000000000000000000000000000000000c",
+      "scoringPolicyHash": "0x000000000000000000000000000000000000000000000000000000000000000d",
+      "runtimeId": "fixture-only",
+      "runtimeHash": "0x000000000000000000000000000000000000000000000000000000000000000e",
+      "rngId": "fixture-only",
+      "rngHash": "0x000000000000000000000000000000000000000000000000000000000000000f",
+      "numericSemantics": "integer fixture data; not an admitted simulator",
+      "supportedRosters": [
+        4
+      ],
+      "reducedRosterPolicyHash": "0x0000000000000000000000000000000000000000000000000000000000000010",
+      "placementRules": [
+        {
+          "qualifiedCount": 2,
+          "sharesBps": [
+            6250,
+            3750
+          ]
+        },
+        {
+          "qualifiedCount": 3,
+          "sharesBps": [
+            5000,
+            3000,
+            2000
+          ]
+        },
+        {
+          "qualifiedCount": 4,
+          "sharesBps": [
+            5000,
+            3000,
+            2000
+          ]
+        }
+      ],
+      "limits": {
+        "maxEntrants": 4,
+        "maxTicks": 1000,
+        "maxFuel": "1000000",
+        "maxMemoryBytes": 16777216,
+        "maxEvents": 1000,
+        "maxEventBytes": 4096,
+        "maxReplayBytes": 1048576,
+        "maxSheetBytes": 4096,
+        "maxRendererAssetBytes": 1048576
+      }
+    },
+    "league": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+      "authorship": "operator",
+      "provenancePolicyHash": "0x0000000000000000000000000000000000000000000000000000000000000014"
+    },
+    "season": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+      "seasonId": "0x0000000000000000000000000000000000000000000000000000000000000003",
+      "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+      "startsAt": "100",
+      "endsAt": "900000"
+    },
+    "tiers": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+      "version": "1",
+      "inheritance": "explicit_only",
+      "token": {
+        "chainId": "4663",
+        "token": "0x000000000000000000000000000000000000005a"
+      },
+      "tokenDecimals": 18,
+      "tiers": [
+        {
+          "tierId": "0x0000000000000000000000000000000000000000000000000000000000000004",
+          "quantityBaseUnits": "1000000000000000000",
+          "benefits": [
+            {
+              "formats": [
+                "percentage",
+                "bounty"
+              ],
+              "rosterSizes": [
+                4
+              ],
+              "minAvailablePurseWei": "0",
+              "maxAvailablePurseWei": null,
+              "minNetEthPrizeWei": "0",
+              "maxNetEthPrizeWei": null
+            }
+          ]
+        }
+      ]
+    },
+    "finality": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "chainId": "4663",
+      "startCheckpoint": "first_finalized_block_at_or_after_start",
+      "commitmentFinality": "finalized",
+      "finalizationFinality": "finalized",
+      "extraSettlementDelaySeconds": 10,
+      "recoveryDeadlineSeconds": 3600
+    },
+    "cancellation": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "disposition": "refund_all",
+      "enrollmentDeadlineSeconds": 600,
+      "recoveryDeadlineSeconds": 3600
+    },
+    "selection": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "version": "1",
+      "kind": "audited_draw",
+      "provisionalLeaseSeconds": 60,
+      "candidateLimit": 100,
+      "evidencePolicyHash": "0x0000000000000000000000000000000000000000000000000000000000000015"
+    },
+    "assets": {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "standardTransfersOnly": true,
+      "assets": [
+        {
+          "chainId": "4663",
+          "token": "0x0000000000000000000000000000000000000000"
+        },
+        {
+          "chainId": "4663",
+          "token": "0x000000000000000000000000000000000000005b"
+        }
+      ]
+    }
+  },
+  "permissions": [
+    {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000c8",
+      "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+      "version": "1",
+      "validAfter": "100",
+      "validUntil": "900000",
+      "paused": false,
+      "allowedGames": [
+        "0x0000000000000000000000000000000000000000000000000000000000000001"
+      ],
+      "allowedLeagues": [
+        "0x0000000000000000000000000000000000000000000000000000000000000002"
+      ],
+      "allowedFormats": [
+        "percentage",
+        "bounty",
+        "none"
+      ],
+      "allowOpen": true,
+      "maxSliceBps": 2000,
+      "maxContributionWei": "1000000",
+      "minimumRemainingWei": "0",
+      "grossDailyBudgetWei": "1000000",
+      "maxMatchesPerDay": 10,
+      "minimumMatchIntervalSeconds": 60
+    },
+    {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000c9",
+      "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+      "version": "1",
+      "validAfter": "100",
+      "validUntil": "900000",
+      "paused": false,
+      "allowedGames": [
+        "0x0000000000000000000000000000000000000000000000000000000000000001"
+      ],
+      "allowedLeagues": [
+        "0x0000000000000000000000000000000000000000000000000000000000000002"
+      ],
+      "allowedFormats": [
+        "percentage",
+        "bounty",
+        "none"
+      ],
+      "allowOpen": true,
+      "maxSliceBps": 2000,
+      "maxContributionWei": "1000000",
+      "minimumRemainingWei": "0",
+      "grossDailyBudgetWei": "1000000",
+      "maxMatchesPerDay": 10,
+      "minimumMatchIntervalSeconds": 60
+    },
+    {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000ca",
+      "championId": "0x0000000000000000000000000000000000000000000000000000000000000066",
+      "version": "1",
+      "validAfter": "100",
+      "validUntil": "900000",
+      "paused": false,
+      "allowedGames": [
+        "0x0000000000000000000000000000000000000000000000000000000000000001"
+      ],
+      "allowedLeagues": [
+        "0x0000000000000000000000000000000000000000000000000000000000000002"
+      ],
+      "allowedFormats": [
+        "percentage",
+        "bounty",
+        "none"
+      ],
+      "allowOpen": true,
+      "maxSliceBps": 2000,
+      "maxContributionWei": "1000000",
+      "minimumRemainingWei": "0",
+      "grossDailyBudgetWei": "1000000",
+      "maxMatchesPerDay": 10,
+      "minimumMatchIntervalSeconds": 60
+    },
+    {
+      "protocol": "agentborn/2",
+      "revision": "2.0.0-alpha.1",
+      "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000cb",
+      "championId": "0x0000000000000000000000000000000000000000000000000000000000000067",
+      "version": "1",
+      "validAfter": "100",
+      "validUntil": "900000",
+      "paused": false,
+      "allowedGames": [
+        "0x0000000000000000000000000000000000000000000000000000000000000001"
+      ],
+      "allowedLeagues": [
+        "0x0000000000000000000000000000000000000000000000000000000000000002"
+      ],
+      "allowedFormats": [
+        "percentage",
+        "bounty",
+        "none"
+      ],
+      "allowOpen": true,
+      "maxSliceBps": 2000,
+      "maxContributionWei": "1000000",
+      "minimumRemainingWei": "0",
+      "grossDailyBudgetWei": "1000000",
+      "maxMatchesPerDay": 10,
+      "minimumMatchIntervalSeconds": 60
+    }
+  ],
+  "checkpoint": {
+    "chainId": "4663",
+    "number": "1000",
+    "hash": "0x0000000000000000000000000000000000000000000000000000000000000bba",
+    "timestamp": "606200",
+    "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+  },
+  "completions": [
+    {
+      "protocol": "agentborn/2",
+      "revision": "a0.training.1",
+      "kind": "training_completion",
+      "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+      "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+      "matchId": "0x0000000000000000000000000000000000000000000000000000000000000040",
+      "manifestHash": "0x1474667b3d6dc4243e3c4a22c72ed8b49dbe69b72abb79797030e17ca0b3583c",
+      "qualificationHash": "0xd5879a80aa6438aefcb673cf3ad0dfd2f6e58790502959a435d58e5158c1c4e2",
+      "resultHash": "0x9a3c25ffbb467db7143dff8c7f0c3adef9c08fca37c6c7605aa93dd6fc89b236",
+      "completedAt": "1400",
+      "verificationEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbb"
+    },
+    {
+      "protocol": "agentborn/2",
+      "revision": "a0.training.1",
+      "kind": "training_completion",
+      "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+      "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+      "matchId": "0x0000000000000000000000000000000000000000000000000000000000000040",
+      "manifestHash": "0x1474667b3d6dc4243e3c4a22c72ed8b49dbe69b72abb79797030e17ca0b3583c",
+      "qualificationHash": "0xd5879a80aa6438aefcb673cf3ad0dfd2f6e58790502959a435d58e5158c1c4e2",
+      "resultHash": "0x9a3c25ffbb467db7143dff8c7f0c3adef9c08fca37c6c7605aa93dd6fc89b236",
+      "completedAt": "1400",
+      "verificationEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbb"
+    },
+    {
+      "protocol": "agentborn/2",
+      "revision": "a0.training.1",
+      "kind": "training_completion",
+      "championId": "0x0000000000000000000000000000000000000000000000000000000000000066",
+      "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+      "matchId": "0x0000000000000000000000000000000000000000000000000000000000000040",
+      "manifestHash": "0x1474667b3d6dc4243e3c4a22c72ed8b49dbe69b72abb79797030e17ca0b3583c",
+      "qualificationHash": "0xd5879a80aa6438aefcb673cf3ad0dfd2f6e58790502959a435d58e5158c1c4e2",
+      "resultHash": "0x9a3c25ffbb467db7143dff8c7f0c3adef9c08fca37c6c7605aa93dd6fc89b236",
+      "completedAt": "1400",
+      "verificationEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbb"
+    },
+    {
+      "protocol": "agentborn/2",
+      "revision": "a0.training.1",
+      "kind": "training_completion",
+      "championId": "0x0000000000000000000000000000000000000000000000000000000000000067",
+      "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+      "matchId": "0x0000000000000000000000000000000000000000000000000000000000000040",
+      "manifestHash": "0x1474667b3d6dc4243e3c4a22c72ed8b49dbe69b72abb79797030e17ca0b3583c",
+      "qualificationHash": "0xd5879a80aa6438aefcb673cf3ad0dfd2f6e58790502959a435d58e5158c1c4e2",
+      "resultHash": "0x9a3c25ffbb467db7143dff8c7f0c3adef9c08fca37c6c7605aa93dd6fc89b236",
+      "completedAt": "1400",
+      "verificationEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbb"
+    }
+  ],
+  "manifest": {
+    "protocol": "agentborn/2",
+    "revision": "2.0.0-alpha.1",
+    "chainId": "4663",
+    "board": "0x0000000000000000000000000000000000000032",
+    "eventId": "0x0000000000000000000000000000000000000000000000000000000000000bb8",
+    "matchId": "0x0000000000000000000000000000000000000000000000000000000000000bb9",
+    "identity": {
+      "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+      "leagueId": "0x0000000000000000000000000000000000000000000000000000000000000002",
+      "seasonId": "0x0000000000000000000000000000000000000000000000000000000000000003",
+      "tierConfigHash": "0xf092af74e8ae6f8956d0bc9d89a0b0f52fab3034faf0ddd9eb237fbdf9739a86",
+      "matchmakingPolicyHash": "0x824621493a4dd62836b3223bb1fef19a869dd24f2fac415cfbf9b95c00d7e895"
+    },
+    "schedule": {
+      "enrollmentClosesAt": "606500",
+      "startAt": "606600",
+      "resultCommitDeadline": "606700",
+      "revealAt": "607000",
+      "settlementNotBefore": "607010",
+      "playbackSeconds": 300,
+      "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+    },
+    "format": {
+      "kind": "percentage",
+      "entryBps": 1000,
+      "minimumWei": "10"
+    },
+    "exposure": "open",
+    "capacity": 4,
+    "doorFeeWei": "25",
+    "tierId": "0x0000000000000000000000000000000000000000000000000000000000000004",
+    "cancellationPolicyHash": "0xa7e22f4bfffeb37e3ee936cfe6a70e66a920d6dd2350440e87780dde786d9ea1",
+    "assetPolicyHash": "0x1ba7a571abe8ce1bad9994e35cbd530407cc09fa2889aefca723a2523a127745",
+    "quoteRecordHash": null,
+    "settlementFeeBps": 100,
+    "treasury": "0x0000000000000000000000000000000000000033",
+    "roster": [
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+        "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000c8",
+        "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012c",
+        "payout": "0x0000000000000000000000000000000000000190",
+        "qualifyingWallet": "0x00000000000000000000000000000000000001f4",
+        "vault": "0x0000000000000000000000000000000000000258",
+        "strategyCommitment": "0x00000000000000000000000000000000000000000000000000000000000002bc",
+        "permissionsHash": "0x79d3633f15891a088cf8608a8e390bc8d88d1336ee2d0e8ec59369418690878e",
+        "authorizationVersion": "1",
+        "admissionEvidenceHash": "0xc8d9ce1323de525f420a89bb5c5938d8f0316b7c6a87431190ef9c9080755848",
+        "grossDailyUsedWei": "0",
+        "dayBucket": "1970-01-08"
+      },
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+        "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000c9",
+        "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012d",
+        "payout": "0x0000000000000000000000000000000000000191",
+        "qualifyingWallet": "0x00000000000000000000000000000000000001f5",
+        "vault": "0x0000000000000000000000000000000000000259",
+        "strategyCommitment": "0x00000000000000000000000000000000000000000000000000000000000002bd",
+        "permissionsHash": "0x4c60d5cda6056cbce7def89f62dd709ec4302acc72f3ebb00a5f4f3efc6f73f8",
+        "authorizationVersion": "1",
+        "admissionEvidenceHash": "0x8089a24ca94e7d89a48a15fbe52e8fcc8a6c985273f17826c5b55cb2b676b91d",
+        "grossDailyUsedWei": "0",
+        "dayBucket": "1970-01-08"
+      },
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000066",
+        "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000ca",
+        "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012e",
+        "payout": "0x0000000000000000000000000000000000000192",
+        "qualifyingWallet": "0x00000000000000000000000000000000000001f6",
+        "vault": "0x000000000000000000000000000000000000025a",
+        "strategyCommitment": "0x00000000000000000000000000000000000000000000000000000000000002be",
+        "permissionsHash": "0x85d7e33d0ac88f5a08b7bb8c31293b31b6ee21b6266b7941130b47eeb181fdd2",
+        "authorizationVersion": "1",
+        "admissionEvidenceHash": "0x707fb5d53c5092376182c09350dac34b02f45ff486200804c471e1620bfe0169",
+        "grossDailyUsedWei": "0",
+        "dayBucket": "1970-01-08"
+      },
+      {
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000067",
+        "handlerId": "0x00000000000000000000000000000000000000000000000000000000000000cb",
+        "ownershipSnapshotHash": "0x000000000000000000000000000000000000000000000000000000000000012f",
+        "payout": "0x0000000000000000000000000000000000000193",
+        "qualifyingWallet": "0x00000000000000000000000000000000000001f7",
+        "vault": "0x000000000000000000000000000000000000025b",
+        "strategyCommitment": "0x00000000000000000000000000000000000000000000000000000000000002bf",
+        "permissionsHash": "0x159ec84f08b5866a4996059bfc9f72126119b9da7c0ef925d1fde516a7a31d1e",
+        "authorizationVersion": "1",
+        "admissionEvidenceHash": "0xf5e148d9c78ada025b8014d60726c53d4c7d2e6f443b92d3346053dd6a26f8f8",
+        "grossDailyUsedWei": "0",
+        "dayBucket": "1970-01-08"
+      }
+    ],
+    "sources": [
+      {
+        "sourceId": "0x0000000000000000000000000000000000000000000000000000000000000384",
+        "contract": "0x0000000000000000000000000000000000000258",
+        "asset": {
+          "chainId": "4663",
+          "token": "0x0000000000000000000000000000000000000000"
+        },
+        "grossAmount": "101",
+        "feeAmount": "1",
+        "netAmount": "100",
+        "kind": "vault",
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+        "stage": "roster",
+        "reservationRef": "0x00000000000000000000000000000000000000000000000000000000000003e8",
+        "availableAtReservationWei": "1010",
+        "maxSliceBps": 2000
+      },
+      {
+        "sourceId": "0x0000000000000000000000000000000000000000000000000000000000000385",
+        "contract": "0x0000000000000000000000000000000000000259",
+        "asset": {
+          "chainId": "4663",
+          "token": "0x0000000000000000000000000000000000000000"
+        },
+        "grossAmount": "203",
+        "feeAmount": "2",
+        "netAmount": "201",
+        "kind": "vault",
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+        "stage": "roster",
+        "reservationRef": "0x00000000000000000000000000000000000000000000000000000000000003e9",
+        "availableAtReservationWei": "2030",
+        "maxSliceBps": 2000
+      },
+      {
+        "sourceId": "0x0000000000000000000000000000000000000000000000000000000000000386",
+        "contract": "0x000000000000000000000000000000000000025a",
+        "asset": {
+          "chainId": "4663",
+          "token": "0x0000000000000000000000000000000000000000"
+        },
+        "grossAmount": "307",
+        "feeAmount": "3",
+        "netAmount": "304",
+        "kind": "vault",
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000066",
+        "stage": "roster",
+        "reservationRef": "0x00000000000000000000000000000000000000000000000000000000000003ea",
+        "availableAtReservationWei": "3070",
+        "maxSliceBps": 2000
+      },
+      {
+        "sourceId": "0x0000000000000000000000000000000000000000000000000000000000000387",
+        "contract": "0x000000000000000000000000000000000000025b",
+        "asset": {
+          "chainId": "4663",
+          "token": "0x0000000000000000000000000000000000000000"
+        },
+        "grossAmount": "409",
+        "feeAmount": "4",
+        "netAmount": "405",
+        "kind": "vault",
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000067",
+        "stage": "roster",
+        "reservationRef": "0x00000000000000000000000000000000000000000000000000000000000003eb",
+        "availableAtReservationWei": "4090",
+        "maxSliceBps": 2000
+      },
+      {
+        "sourceId": "0x000000000000000000000000000000000000000000000000000000000000038e",
+        "contract": "0x0000000000000000000000000000000000000262",
+        "asset": {
+          "chainId": "4663",
+          "token": "0x0000000000000000000000000000000000000000"
+        },
+        "grossAmount": "100",
+        "feeAmount": "1",
+        "netAmount": "99",
+        "kind": "entry_pot",
+        "deposits": [
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+            "funder": "0x00000000000000000000000000000000000001f4",
+            "amount": "25"
+          },
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+            "funder": "0x00000000000000000000000000000000000001f5",
+            "amount": "25"
+          },
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000066",
+            "funder": "0x00000000000000000000000000000000000001f6",
+            "amount": "25"
+          },
+          {
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000067",
+            "funder": "0x00000000000000000000000000000000000001f7",
+            "amount": "25"
+          }
+        ]
+      },
+      {
+        "sourceId": "0x0000000000000000000000000000000000000000000000000000000000000398",
+        "contract": "0x000000000000000000000000000000000000026c",
+        "asset": {
+          "chainId": "4663",
+          "token": "0x0000000000000000000000000000000000000000"
+        },
+        "grossAmount": "10005",
+        "feeAmount": "0",
+        "netAmount": "10005",
+        "kind": "sponsor",
+        "award": "placement",
+        "deposits": [
+          {
+            "depositId": "0x000000000000000000000000000000000000000000000000000000000000044c",
+            "funder": "0x000000000000000000000000000000000000028a",
+            "amount": "10005"
+          }
+        ]
+      },
+      {
+        "sourceId": "0x0000000000000000000000000000000000000000000000000000000000000399",
+        "contract": "0x000000000000000000000000000000000000026d",
+        "asset": {
+          "chainId": "4663",
+          "token": "0x000000000000000000000000000000000000005b"
+        },
+        "grossAmount": "5001",
+        "feeAmount": "0",
+        "netAmount": "5001",
+        "kind": "sponsor",
+        "award": "placement",
+        "deposits": [
+          {
+            "depositId": "0x000000000000000000000000000000000000000000000000000000000000044d",
+            "funder": "0x000000000000000000000000000000000000028b",
+            "amount": "5001"
+          }
+        ]
+      }
+    ]
+  },
+  "bundle": {
+    "protocol": "agentborn/2",
+    "revision": "a0.training.1",
+    "kind": "training_admission_bundle",
+    "manifestHash": "0x7c531e23939c0489a18d4e081d684b31eaa5ade54d4f1275d19d4b3297135ca6",
+    "policy": {
+      "protocol": "agentborn/2",
+      "revision": "a0.training.1",
+      "kind": "training_policy",
+      "scope": "champion_game",
+      "startsAt": "first_validated_played_free_completion",
+      "durationSeconds": "604800",
+      "matchCountAlternative": null,
+      "paidEarlyAccess": false
+    },
+    "checkpoint": {
+      "chainId": "4663",
+      "number": "1000",
+      "hash": "0x0000000000000000000000000000000000000000000000000000000000000bba",
+      "timestamp": "606200",
+      "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+    },
+    "entries": [
+      {
+        "admission": {
+          "protocol": "agentborn/2",
+          "revision": "a0.training.1",
+          "kind": "training_admission",
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+          "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "manifestContextHash": "0x6d72468c2b8d83d1738108839211ed60d4bd79793179e3f4afa0bdc5d3f337de",
+          "policyHash": "0x24ea29f9b7935ce33676feb628512fbd182ec2903a4d9c7bdcb24842cc1a18ba",
+          "checkpoint": {
+            "chainId": "4663",
+            "number": "1000",
+            "hash": "0x0000000000000000000000000000000000000000000000000000000000000bba",
+            "timestamp": "606200",
+            "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+          },
+          "ordinaryAdmissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000320",
+          "revalidationEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000320",
+          "progressHash": "0x101c18e85f06e913c39be6896d770c8f06f703da4811c596eb0e45d08172d70c"
+        },
+        "progress": {
+          "protocol": "agentborn/2",
+          "revision": "a0.training.1",
+          "kind": "training_progress",
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+          "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "checkpoint": {
+            "chainId": "4663",
+            "number": "1000",
+            "hash": "0x0000000000000000000000000000000000000000000000000000000000000bba",
+            "timestamp": "606200",
+            "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+          },
+          "validatedMatchCount": "1",
+          "firstCompletion": {
+            "protocol": "agentborn/2",
+            "revision": "a0.training.1",
+            "kind": "training_completion",
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+            "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+            "matchId": "0x0000000000000000000000000000000000000000000000000000000000000040",
+            "manifestHash": "0x1474667b3d6dc4243e3c4a22c72ed8b49dbe69b72abb79797030e17ca0b3583c",
+            "qualificationHash": "0xd5879a80aa6438aefcb673cf3ad0dfd2f6e58790502959a435d58e5158c1c4e2",
+            "resultHash": "0x9a3c25ffbb467db7143dff8c7f0c3adef9c08fca37c6c7605aa93dd6fc89b236",
+            "completedAt": "1400",
+            "verificationEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbb"
+          },
+          "historyEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbc"
+        }
+      },
+      {
+        "admission": {
+          "protocol": "agentborn/2",
+          "revision": "a0.training.1",
+          "kind": "training_admission",
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+          "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "manifestContextHash": "0x6d72468c2b8d83d1738108839211ed60d4bd79793179e3f4afa0bdc5d3f337de",
+          "policyHash": "0x24ea29f9b7935ce33676feb628512fbd182ec2903a4d9c7bdcb24842cc1a18ba",
+          "checkpoint": {
+            "chainId": "4663",
+            "number": "1000",
+            "hash": "0x0000000000000000000000000000000000000000000000000000000000000bba",
+            "timestamp": "606200",
+            "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+          },
+          "ordinaryAdmissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000321",
+          "revalidationEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000321",
+          "progressHash": "0x90fe69587cfb4850a0700f29d6cb5086ec01b67ab9175b509381fa89538398c6"
+        },
+        "progress": {
+          "protocol": "agentborn/2",
+          "revision": "a0.training.1",
+          "kind": "training_progress",
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+          "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "checkpoint": {
+            "chainId": "4663",
+            "number": "1000",
+            "hash": "0x0000000000000000000000000000000000000000000000000000000000000bba",
+            "timestamp": "606200",
+            "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+          },
+          "validatedMatchCount": "1",
+          "firstCompletion": {
+            "protocol": "agentborn/2",
+            "revision": "a0.training.1",
+            "kind": "training_completion",
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000065",
+            "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+            "matchId": "0x0000000000000000000000000000000000000000000000000000000000000040",
+            "manifestHash": "0x1474667b3d6dc4243e3c4a22c72ed8b49dbe69b72abb79797030e17ca0b3583c",
+            "qualificationHash": "0xd5879a80aa6438aefcb673cf3ad0dfd2f6e58790502959a435d58e5158c1c4e2",
+            "resultHash": "0x9a3c25ffbb467db7143dff8c7f0c3adef9c08fca37c6c7605aa93dd6fc89b236",
+            "completedAt": "1400",
+            "verificationEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbb"
+          },
+          "historyEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbc"
+        }
+      },
+      {
+        "admission": {
+          "protocol": "agentborn/2",
+          "revision": "a0.training.1",
+          "kind": "training_admission",
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000066",
+          "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "manifestContextHash": "0x6d72468c2b8d83d1738108839211ed60d4bd79793179e3f4afa0bdc5d3f337de",
+          "policyHash": "0x24ea29f9b7935ce33676feb628512fbd182ec2903a4d9c7bdcb24842cc1a18ba",
+          "checkpoint": {
+            "chainId": "4663",
+            "number": "1000",
+            "hash": "0x0000000000000000000000000000000000000000000000000000000000000bba",
+            "timestamp": "606200",
+            "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+          },
+          "ordinaryAdmissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000322",
+          "revalidationEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000322",
+          "progressHash": "0x56aca0cabf7e783a866dff8f3644bd48d41b9b3d0a7c3b7ce43e68de485b6470"
+        },
+        "progress": {
+          "protocol": "agentborn/2",
+          "revision": "a0.training.1",
+          "kind": "training_progress",
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000066",
+          "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "checkpoint": {
+            "chainId": "4663",
+            "number": "1000",
+            "hash": "0x0000000000000000000000000000000000000000000000000000000000000bba",
+            "timestamp": "606200",
+            "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+          },
+          "validatedMatchCount": "1",
+          "firstCompletion": {
+            "protocol": "agentborn/2",
+            "revision": "a0.training.1",
+            "kind": "training_completion",
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000066",
+            "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+            "matchId": "0x0000000000000000000000000000000000000000000000000000000000000040",
+            "manifestHash": "0x1474667b3d6dc4243e3c4a22c72ed8b49dbe69b72abb79797030e17ca0b3583c",
+            "qualificationHash": "0xd5879a80aa6438aefcb673cf3ad0dfd2f6e58790502959a435d58e5158c1c4e2",
+            "resultHash": "0x9a3c25ffbb467db7143dff8c7f0c3adef9c08fca37c6c7605aa93dd6fc89b236",
+            "completedAt": "1400",
+            "verificationEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbb"
+          },
+          "historyEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbc"
+        }
+      },
+      {
+        "admission": {
+          "protocol": "agentborn/2",
+          "revision": "a0.training.1",
+          "kind": "training_admission",
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000067",
+          "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "manifestContextHash": "0x6d72468c2b8d83d1738108839211ed60d4bd79793179e3f4afa0bdc5d3f337de",
+          "policyHash": "0x24ea29f9b7935ce33676feb628512fbd182ec2903a4d9c7bdcb24842cc1a18ba",
+          "checkpoint": {
+            "chainId": "4663",
+            "number": "1000",
+            "hash": "0x0000000000000000000000000000000000000000000000000000000000000bba",
+            "timestamp": "606200",
+            "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+          },
+          "ordinaryAdmissionEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000323",
+          "revalidationEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000323",
+          "progressHash": "0x31831d67f12f52d81d9c2cf248c120e52e81f2765ed4cab9b29831394836d231"
+        },
+        "progress": {
+          "protocol": "agentborn/2",
+          "revision": "a0.training.1",
+          "kind": "training_progress",
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000067",
+          "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "checkpoint": {
+            "chainId": "4663",
+            "number": "1000",
+            "hash": "0x0000000000000000000000000000000000000000000000000000000000000bba",
+            "timestamp": "606200",
+            "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+          },
+          "validatedMatchCount": "1",
+          "firstCompletion": {
+            "protocol": "agentborn/2",
+            "revision": "a0.training.1",
+            "kind": "training_completion",
+            "championId": "0x0000000000000000000000000000000000000000000000000000000000000067",
+            "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+            "matchId": "0x0000000000000000000000000000000000000000000000000000000000000040",
+            "manifestHash": "0x1474667b3d6dc4243e3c4a22c72ed8b49dbe69b72abb79797030e17ca0b3583c",
+            "qualificationHash": "0xd5879a80aa6438aefcb673cf3ad0dfd2f6e58790502959a435d58e5158c1c4e2",
+            "resultHash": "0x9a3c25ffbb467db7143dff8c7f0c3adef9c08fca37c6c7605aa93dd6fc89b236",
+            "completedAt": "1400",
+            "verificationEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbb"
+          },
+          "historyEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbc"
+        }
+      }
+    ]
+  },
+  "snapshots": [
+    {
+      "progress": {
+        "protocol": "agentborn/2",
+        "revision": "a0.training.1",
+        "kind": "training_progress",
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "checkpoint": {
+          "chainId": "4663",
+          "number": "1000",
+          "hash": "0x0000000000000000000000000000000000000000000000000000000000000bba",
+          "timestamp": "606199",
+          "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+        },
+        "validatedMatchCount": "1",
+        "firstCompletion": {
+          "protocol": "agentborn/2",
+          "revision": "a0.training.1",
+          "kind": "training_completion",
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+          "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+          "matchId": "0x0000000000000000000000000000000000000000000000000000000000000040",
+          "manifestHash": "0x1474667b3d6dc4243e3c4a22c72ed8b49dbe69b72abb79797030e17ca0b3583c",
+          "qualificationHash": "0xd5879a80aa6438aefcb673cf3ad0dfd2f6e58790502959a435d58e5158c1c4e2",
+          "resultHash": "0x9a3c25ffbb467db7143dff8c7f0c3adef9c08fca37c6c7605aa93dd6fc89b236",
+          "completedAt": "1400",
+          "verificationEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbb"
+        },
+        "historyEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbc"
+      },
+      "decision": {
+        "protocol": "agentborn/2",
+        "revision": "a0.training.1",
+        "kind": "training_eligibility",
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "policyHash": "0x24ea29f9b7935ce33676feb628512fbd182ec2903a4d9c7bdcb24842cc1a18ba",
+        "progressHash": "0xf4ca321b1bea07e7510e00f3389f83ac1b7d9b95ae0d43e2372b2741e16c45e5",
+        "evaluatedAt": "606199",
+        "status": "training",
+        "trainingStartedAt": "1400",
+        "purseEligibleAt": "606200",
+        "remainingSeconds": "1"
+      }
+    },
+    {
+      "progress": {
+        "protocol": "agentborn/2",
+        "revision": "a0.training.1",
+        "kind": "training_progress",
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "checkpoint": {
+          "chainId": "4663",
+          "number": "1000",
+          "hash": "0x0000000000000000000000000000000000000000000000000000000000000bba",
+          "timestamp": "606200",
+          "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+        },
+        "validatedMatchCount": "1",
+        "firstCompletion": {
+          "protocol": "agentborn/2",
+          "revision": "a0.training.1",
+          "kind": "training_completion",
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+          "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+          "matchId": "0x0000000000000000000000000000000000000000000000000000000000000040",
+          "manifestHash": "0x1474667b3d6dc4243e3c4a22c72ed8b49dbe69b72abb79797030e17ca0b3583c",
+          "qualificationHash": "0xd5879a80aa6438aefcb673cf3ad0dfd2f6e58790502959a435d58e5158c1c4e2",
+          "resultHash": "0x9a3c25ffbb467db7143dff8c7f0c3adef9c08fca37c6c7605aa93dd6fc89b236",
+          "completedAt": "1400",
+          "verificationEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbb"
+        },
+        "historyEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbc"
+      },
+      "decision": {
+        "protocol": "agentborn/2",
+        "revision": "a0.training.1",
+        "kind": "training_eligibility",
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "policyHash": "0x24ea29f9b7935ce33676feb628512fbd182ec2903a4d9c7bdcb24842cc1a18ba",
+        "progressHash": "0x101c18e85f06e913c39be6896d770c8f06f703da4811c596eb0e45d08172d70c",
+        "evaluatedAt": "606200",
+        "status": "eligible",
+        "trainingStartedAt": "1400",
+        "purseEligibleAt": "606200",
+        "remainingSeconds": "0"
+      }
+    },
+    {
+      "progress": {
+        "protocol": "agentborn/2",
+        "revision": "a0.training.1",
+        "kind": "training_progress",
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "checkpoint": {
+          "chainId": "4663",
+          "number": "1000",
+          "hash": "0x0000000000000000000000000000000000000000000000000000000000000bba",
+          "timestamp": "606201",
+          "finalityPolicyHash": "0x880f862c4939b60e2dbc34a1b5d1d2aca19e82f2fa982a797d1078599d3bab4c"
+        },
+        "validatedMatchCount": "1",
+        "firstCompletion": {
+          "protocol": "agentborn/2",
+          "revision": "a0.training.1",
+          "kind": "training_completion",
+          "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+          "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+          "gameVersionHash": "0xb73ac095a298a8407f52807e3422f7ab0e84e3735eaa9fded5ac6de549ca9b4e",
+          "matchId": "0x0000000000000000000000000000000000000000000000000000000000000040",
+          "manifestHash": "0x1474667b3d6dc4243e3c4a22c72ed8b49dbe69b72abb79797030e17ca0b3583c",
+          "qualificationHash": "0xd5879a80aa6438aefcb673cf3ad0dfd2f6e58790502959a435d58e5158c1c4e2",
+          "resultHash": "0x9a3c25ffbb467db7143dff8c7f0c3adef9c08fca37c6c7605aa93dd6fc89b236",
+          "completedAt": "1400",
+          "verificationEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbb"
+        },
+        "historyEvidenceHash": "0x0000000000000000000000000000000000000000000000000000000000000bbc"
+      },
+      "decision": {
+        "protocol": "agentborn/2",
+        "revision": "a0.training.1",
+        "kind": "training_eligibility",
+        "championId": "0x0000000000000000000000000000000000000000000000000000000000000064",
+        "gameId": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "policyHash": "0x24ea29f9b7935ce33676feb628512fbd182ec2903a4d9c7bdcb24842cc1a18ba",
+        "progressHash": "0x4fa57ecfe978a0129763913972c3fdee8ba933ec26f5f0dda703546f2fb64d5a",
+        "evaluatedAt": "606201",
+        "status": "eligible",
+        "trainingStartedAt": "1400",
+        "purseEligibleAt": "606200",
+        "remainingSeconds": "0"
+      }
+    }
+  ],
+  "hashes": {
+    "manifest": "0x7c531e23939c0489a18d4e081d684b31eaa5ade54d4f1275d19d4b3297135ca6",
+    "bundle": "0xbe1708d2e7c567653e1ea79f8315b8512e10128106492335b4090b653b9691d5",
+    "admissions": [
+      "0xc8d9ce1323de525f420a89bb5c5938d8f0316b7c6a87431190ef9c9080755848",
+      "0x8089a24ca94e7d89a48a15fbe52e8fcc8a6c985273f17826c5b55cb2b676b91d",
+      "0x707fb5d53c5092376182c09350dac34b02f45ff486200804c471e1620bfe0169",
+      "0xf5e148d9c78ada025b8014d60726c53d4c7d2e6f443b92d3346053dd6a26f8f8"
+    ]
+  }
+}

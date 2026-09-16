@@ -1,0 +1,15 @@
+{
+  "protocol": "agentborn/2",
+  "revision": "a3.duel.1",
+  "kind": "duel_rules",
+  "runtimeId": "agentborn/duel/1",
+  "rngId": "agentborn/keccak256-counter/1",
+  "health": 100,
+  "maxRounds": 24,
+  "roundMs": 1000,
+  "recoveryThresholdMax": 4,
+  "attack": { "baseBps": 2500, "aggressionBps": 50 },
+  "stamina": { "max": 6, "strikeCost": 2, "feintCost": 3, "guardGain": 1, "recoverGain": 3 },
+  "damage": { "strike": 12, "guardedStrike": 3, "feint": 6, "guardedFeint": 10, "counter": 6 },
+  "tieBreak": "remaining_health_then_damage_then_seeded_coin"
+}

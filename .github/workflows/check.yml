@@ -1,0 +1,41 @@
+name: Checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_DATABASE: arena_test
+          MYSQL_USER: arena
+          MYSQL_PASSWORD: test_only
+          MYSQL_ROOT_PASSWORD: test_root_only
+        ports: ["3306:3306"]
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost -ptest_root_only"
+          --health-interval=5s --health-timeout=3s --health-retries=20
+    env:
+      DATABASE_URL: mysql://arena:test_only@127.0.0.1:3306/arena_test
+      ARENA_DEMO: "false"
+      ARENA_WORKER: "false"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm test
+      - run: npm run test:protocol
+      - run: npm run test:vendor
+      - run: npm run build
+      - run: npm run db:migrate
+        env:
+          ARENA_MODE: legacy
+      - run: npm run test:integration
+        env:
+          ARENA_MODE: legacy

@@ -1,0 +1,18 @@
+{
+  "name": "@agentborn/protocol-v2",
+  "version": "2.0.0-alpha.4",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "files": ["dist", "schemas", "fixtures", "README.md", "SPEC.md", "TRAINING.md", "DUEL.md", "MULTIASSET.md", "DECISIONS.md", "VALIDATION.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "test": "tsx --test test/*.test.ts",
+    "fixtures": "tsx scripts/generate-fixtures.ts",
+    "fixtures:training": "tsx scripts/generate-training-fixtures.ts"
+  },
+  "dependencies": { "viem": "2.56.3", "zod": "4.6.2" },
+  "devDependencies": { "@types/node": "22.20.1", "tsx": "4.23.13", "typescript": "5.9.3" }
+}

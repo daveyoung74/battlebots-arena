@@ -1,0 +1,210 @@
+{
+  "package": "@agentborn/protocol-v2",
+  "version": "2.0.0-alpha.4",
+  "license": "MIT",
+  "sourceCommit": "f6fe3aa8db827b4758fd5429d2bc5448210d74f8",
+  "sourcePath": "packages/protocol-v2",
+  "note": "Only the independently MIT-licensed public package is vendored. Private application code and generated build/dependency directories are excluded.",
+  "files": [
+    {
+      "path": "VALIDATION.md",
+      "sha256": "1c9e38b8e4da3948e19ab3696f1ce3aac78ba78c603c6df022d39c66ec87c5b6"
+    },
+    {
+      "path": "schemas/training.schema.json",
+      "sha256": "ee36208eb0bee805f1e634d2f6107a2911353009959bc35539ca429dfaa05bb7"
+    },
+    {
+      "path": "schemas/protocol-v2.schema.json",
+      "sha256": "f2fc47989aaf1c776d967455d5b79afde866179410e7b783dae8fd1d81a31a69"
+    },
+    {
+      "path": "schemas/duel.schema.json",
+      "sha256": "2e49c0e70b57ce8f364935ac8c1ac82c9202bbb47206bab1c082a9e3e6797dbf"
+    },
+    {
+      "path": "README.md",
+      "sha256": "0bd468b7d51432ce13369931f38c6ae8b19ea5c59abd194aa9ae4edee0bf6d80"
+    },
+    {
+      "path": "package.json",
+      "sha256": "60b4ddc343b4e77dfb769b649b75be206996a91da32e9c11fd77bfd50da5f761"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "a7aecabd0cb202e9bc313301f55d85ca2ab8578d77e0a106d411aca413b02d49"
+    },
+    {
+      "path": "MULTIASSET.md",
+      "sha256": "80ce9461fe02c3b72b5b101e103577c7f676a533e2feaa5af109a0134e2c8a06"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "20ddb07c0dfe46f5fcd690ab0be114997794f189af51ccc3f66b0cf33efd0e2f"
+    },
+    {
+      "path": "fixtures/walkover.json",
+      "sha256": "b38c271fb7bd85b20f149215286ef9dd3cb09ce0f441b453bc42d91cff5dbf51"
+    },
+    {
+      "path": "fixtures/training.json",
+      "sha256": "c20c092e774bbf996374f06f195cd32aaa6921318a5f2e0798d063a6f1d739a7"
+    },
+    {
+      "path": "fixtures/studio-request.json",
+      "sha256": "0fce238ef81f332faa711eca63264a08d97b677733ed0ddfae1660c792500c4c"
+    },
+    {
+      "path": "fixtures/played.json",
+      "sha256": "674607ef4d17890289279da2e2aa8b76c366e5c7f2ef5b1f5309ffc9f5d3cf85"
+    },
+    {
+      "path": "fixtures/invalid.json",
+      "sha256": "f53cb06d508340bf8aae4c3152a3e3825abb22de50dca9c452ee46395a32ba7a"
+    },
+    {
+      "path": "fixtures/handler-authorization.json",
+      "sha256": "bd72a483956f76e1f0122d2c8f8d483c8b58f4c4b800732e79e1e560692ab432"
+    },
+    {
+      "path": "fixtures/duel.json",
+      "sha256": "3e3c5aca10e78601cb5fb4a75b05f5889efc2e1e3f0a2a70498653dc7bd6d6fa"
+    },
+    {
+      "path": "fixtures/duel-rules.json",
+      "sha256": "736661aff38a9dcb5db4373efd47a2f15c7edb4314aafd88e70b378235ae456d"
+    },
+    {
+      "path": "fixtures/casual.json",
+      "sha256": "e807e6a5cb98d0d53700ed9d65c4d2818eef2bc62bcd7ef345ff5bd7063a25b6"
+    },
+    {
+      "path": "fixtures/canonical.json",
+      "sha256": "8201ff978f5296b3fb2088cd627dd5e241dc6a4c6725b88369ee152c4e821181"
+    },
+    {
+      "path": "fixtures/cancellation.json",
+      "sha256": "627830de61ab751b661f1bc34b122f9972538f9b7ea234cb1873090969529b08"
+    },
+    {
+      "path": "DUEL.md",
+      "sha256": "34233d4eca8477ed580bd94c2764a4e6c6d7c6ff5b32855d409ab8a7d182dd0b"
+    },
+    {
+      "path": "DECISIONS.md",
+      "sha256": "6aee9f38611442fd92e1b5b702510f86e894d693346e5657fecd905368f87c9f"
+    },
+    {
+      "path": "scripts/fixture-data.ts",
+      "sha256": "f84e98ffe60d256fc6ee5e501f79c30466e91921ebab60275983de5b734dd94c"
+    },
+    {
+      "path": "scripts/generate-fixtures.ts",
+      "sha256": "6addc21b088398d6527b10eccc5cbef9224e37ffea9d5dfdc1600027e1305fd7"
+    },
+    {
+      "path": "scripts/generate-training-fixtures.ts",
+      "sha256": "2d295435ffd6503e17eef3ea2de3842a9e12eac6b03482805be13b31f1797d0d"
+    },
+    {
+      "path": "scripts/training-fixture-data.ts",
+      "sha256": "91c1b8d1bfa5a67eadb4cd91ae93715eaf0daa75a336e2b9eb0e6c8ff1ed14ee"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "fcac3943d512cea8628bd0924f2647d6a7aeb943e3f6df921caec5391a8b4768"
+    },
+    {
+      "path": "TRAINING.md",
+      "sha256": "45bc0f18b1a517f520a6486b3ac1e5838393ca14dc31d72fee73d198b4b83d21"
+    },
+    {
+      "path": "test/training.test.ts",
+      "sha256": "33f9ca6d832f59d89a25cce72202114d6dd9065923fb798972d1bcdd0f86a089"
+    },
+    {
+      "path": "test/requirements.txt",
+      "sha256": "8af6d5cfebc5c65614d58aee1d40b734d61d9ce4741ef03bad97749a4aa24145"
+    },
+    {
+      "path": "test/protocol.test.ts",
+      "sha256": "8e818dc27890e77cd212c98773ed1349f63f90dbb8b24c48b108bd5412fa64e5"
+    },
+    {
+      "path": "test/multiasset.test.ts",
+      "sha256": "92fceae0ea33e0152ffce4273b67c965004bea6f9d74e948dc5267bdb3672e91"
+    },
+    {
+      "path": "test/duel.test.ts",
+      "sha256": "41de6a68b312cdb029efdcab45ac29abb8cfa0d39650c12cac3ee87d2b478755"
+    },
+    {
+      "path": "test/duel-conformance.py",
+      "sha256": "169d0270aa36ab57e2bcd68ef02904253bad5d7a508b27724d2b5acf2eb05a93"
+    },
+    {
+      "path": "test/conformance.py",
+      "sha256": "d8f217056d2714170c713a3f28afb719b303bbfc4263214f834577ac74f56c15"
+    },
+    {
+      "path": "src/verifier.ts",
+      "sha256": "3288b55ca1130c54db14751102240be965c79cb07d22eef0bb960c8eae6f6522"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "f75ae93d1d998ff25851ba1bca50e99fd4c0f2f83ba2ca648664ca72b4097187"
+    },
+    {
+      "path": "src/validation.ts",
+      "sha256": "d8a1c0c4d43e31a34a4a316d2443797166e59eee6e499416c37556db8eab8140"
+    },
+    {
+      "path": "src/sealing.ts",
+      "sha256": "d07f5360196fb734b5e08622ce623f8e41dfbefed77a2a3bab6bbece1fa30675"
+    },
+    {
+      "path": "src/schemas.ts",
+      "sha256": "7b8c88571f611c6bcbbf4efc8f945e8d84775d5aa7e43e966e210949239816b4"
+    },
+    {
+      "path": "src/money.ts",
+      "sha256": "dbdb013a85393a66363b5b55bee30f1c93d98616660cbd5bf512306feef7edf2"
+    },
+    {
+      "path": "src/index.ts",
+      "sha256": "e91e37c6f49bb4dc5cbd49f997cf9736609bf5b88a70cd613f204199df01c316"
+    },
+    {
+      "path": "src/duel.ts",
+      "sha256": "8a11cf6ac68032bb1464c9b485971c97f58874c6587f66551c0508216eae3f52"
+    },
+    {
+      "path": "src/commitments.ts",
+      "sha256": "95b793879e22c391b1c65b1163fe01d2a6e58ecf5a05ecad422d44a1e9e3cb9f"
+    },
+    {
+      "path": "src/client.ts",
+      "sha256": "7bf80d19f2794e9c26e5c955fad06db311cc5a79a39d0dca46c4e2f68f329af4"
+    },
+    {
+      "path": "src/canonical.ts",
+      "sha256": "7afa6ecbbdc6304172396e2a5f8d581b5eb504ca4d2eecc9d57e7e67c6cb13a5"
+    },
+    {
+      "path": "src/auth.ts",
+      "sha256": "0a9700081c7d04bdee45ab61fd27bf6995d680d0f0500f315483713c75972b87"
+    },
+    {
+      "path": "SPEC.md",
+      "sha256": "420529e9369ac26c20695a55250f5ba9dca5506cd4341d260c7306a19f8a7afe"
+    },
+    {
+      "path": "src/training.ts",
+      "sha256": "e177526189ce77dcf87a0c2c8de205807821f18753fee1c1b32e7ddd45bd44eb"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9"
+    }
+  ]
+}

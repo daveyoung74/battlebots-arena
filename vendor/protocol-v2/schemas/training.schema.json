@@ -1,0 +1,847 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentborn.example/schemas/a0.training.1/training.schema.json",
+  "description": "Structural evidence extension. TRAINING.md validation and independent authority checks are additionally required; no deployed endpoint.",
+  "$defs": {
+    "policy": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "a0.training.1"
+        },
+        "kind": {
+          "type": "string",
+          "const": "training_policy"
+        },
+        "scope": {
+          "type": "string",
+          "const": "champion_game"
+        },
+        "startsAt": {
+          "type": "string",
+          "const": "first_validated_played_free_completion"
+        },
+        "durationSeconds": {
+          "type": "string",
+          "const": "604800"
+        },
+        "matchCountAlternative": {
+          "type": "null",
+          "const": null
+        },
+        "paidEarlyAccess": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "kind",
+        "scope",
+        "startsAt",
+        "durationSeconds",
+        "matchCountAlternative",
+        "paidEarlyAccess"
+      ],
+      "additionalProperties": false
+    },
+    "completion": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "a0.training.1"
+        },
+        "kind": {
+          "type": "string",
+          "const": "training_completion"
+        },
+        "championId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "gameId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "gameVersionHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "matchId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "manifestHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "qualificationHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "resultHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "completedAt": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,19})$"
+        },
+        "verificationEvidenceHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "kind",
+        "championId",
+        "gameId",
+        "gameVersionHash",
+        "matchId",
+        "manifestHash",
+        "qualificationHash",
+        "resultHash",
+        "completedAt",
+        "verificationEvidenceHash"
+      ],
+      "additionalProperties": false
+    },
+    "progress": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "a0.training.1"
+        },
+        "kind": {
+          "type": "string",
+          "const": "training_progress"
+        },
+        "championId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "gameId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "checkpoint": {
+          "type": "object",
+          "properties": {
+            "chainId": {
+              "type": "string",
+              "const": "4663"
+            },
+            "number": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$"
+            },
+            "hash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "timestamp": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            "finalityPolicyHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "chainId",
+            "number",
+            "hash",
+            "timestamp",
+            "finalityPolicyHash"
+          ],
+          "additionalProperties": false
+        },
+        "validatedMatchCount": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$"
+        },
+        "firstCompletion": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "protocol": {
+                  "type": "string",
+                  "const": "agentborn/2"
+                },
+                "revision": {
+                  "type": "string",
+                  "const": "a0.training.1"
+                },
+                "kind": {
+                  "type": "string",
+                  "const": "training_completion"
+                },
+                "championId": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                },
+                "gameId": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                },
+                "gameVersionHash": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                },
+                "matchId": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                },
+                "manifestHash": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                },
+                "qualificationHash": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                },
+                "resultHash": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                },
+                "completedAt": {
+                  "type": "string",
+                  "pattern": "^(0|[1-9][0-9]{0,19})$"
+                },
+                "verificationEvidenceHash": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "protocol",
+                "revision",
+                "kind",
+                "championId",
+                "gameId",
+                "gameVersionHash",
+                "matchId",
+                "manifestHash",
+                "qualificationHash",
+                "resultHash",
+                "completedAt",
+                "verificationEvidenceHash"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "historyEvidenceHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "kind",
+        "championId",
+        "gameId",
+        "checkpoint",
+        "validatedMatchCount",
+        "firstCompletion",
+        "historyEvidenceHash"
+      ],
+      "additionalProperties": false
+    },
+    "eligibility": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "a0.training.1"
+        },
+        "kind": {
+          "type": "string",
+          "const": "training_eligibility"
+        },
+        "championId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "gameId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "policyHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "progressHash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evaluatedAt": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,19})$"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "unavailable",
+            "not_started",
+            "training",
+            "eligible"
+          ]
+        },
+        "trainingStartedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "purseEligibleAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "remainingSeconds": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "kind",
+        "championId",
+        "gameId",
+        "policyHash",
+        "progressHash",
+        "evaluatedAt",
+        "status",
+        "trainingStartedAt",
+        "purseEligibleAt",
+        "remainingSeconds"
+      ],
+      "additionalProperties": false
+    },
+    "admission": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "a0.training.1"
+        },
+        "kind": {
+          "type": "string",
+          "const": "training_admission"
+        },
+        "championId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "gameId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "manifestContextHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "policyHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "checkpoint": {
+          "type": "object",
+          "properties": {
+            "chainId": {
+              "type": "string",
+              "const": "4663"
+            },
+            "number": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$"
+            },
+            "hash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "timestamp": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            "finalityPolicyHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "chainId",
+            "number",
+            "hash",
+            "timestamp",
+            "finalityPolicyHash"
+          ],
+          "additionalProperties": false
+        },
+        "ordinaryAdmissionEvidenceHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "revalidationEvidenceHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "progressHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "kind",
+        "championId",
+        "gameId",
+        "manifestContextHash",
+        "policyHash",
+        "checkpoint",
+        "ordinaryAdmissionEvidenceHash",
+        "revalidationEvidenceHash",
+        "progressHash"
+      ],
+      "additionalProperties": false
+    },
+    "bundle": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "a0.training.1"
+        },
+        "kind": {
+          "type": "string",
+          "const": "training_admission_bundle"
+        },
+        "manifestHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "policy": {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "type": "string",
+              "const": "agentborn/2"
+            },
+            "revision": {
+              "type": "string",
+              "const": "a0.training.1"
+            },
+            "kind": {
+              "type": "string",
+              "const": "training_policy"
+            },
+            "scope": {
+              "type": "string",
+              "const": "champion_game"
+            },
+            "startsAt": {
+              "type": "string",
+              "const": "first_validated_played_free_completion"
+            },
+            "durationSeconds": {
+              "type": "string",
+              "const": "604800"
+            },
+            "matchCountAlternative": {
+              "type": "null",
+              "const": null
+            },
+            "paidEarlyAccess": {
+              "type": "boolean",
+              "const": false
+            }
+          },
+          "required": [
+            "protocol",
+            "revision",
+            "kind",
+            "scope",
+            "startsAt",
+            "durationSeconds",
+            "matchCountAlternative",
+            "paidEarlyAccess"
+          ],
+          "additionalProperties": false
+        },
+        "checkpoint": {
+          "type": "object",
+          "properties": {
+            "chainId": {
+              "type": "string",
+              "const": "4663"
+            },
+            "number": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$"
+            },
+            "hash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "timestamp": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            "finalityPolicyHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "chainId",
+            "number",
+            "hash",
+            "timestamp",
+            "finalityPolicyHash"
+          ],
+          "additionalProperties": false
+        },
+        "entries": {
+          "minItems": 2,
+          "maxItems": 64,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "admission": {
+                "type": "object",
+                "properties": {
+                  "protocol": {
+                    "type": "string",
+                    "const": "agentborn/2"
+                  },
+                  "revision": {
+                    "type": "string",
+                    "const": "a0.training.1"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "const": "training_admission"
+                  },
+                  "championId": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  "gameId": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  "manifestContextHash": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  "policyHash": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  "checkpoint": {
+                    "type": "object",
+                    "properties": {
+                      "chainId": {
+                        "type": "string",
+                        "const": "4663"
+                      },
+                      "number": {
+                        "type": "string",
+                        "pattern": "^(0|[1-9][0-9]{0,77})$"
+                      },
+                      "hash": {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{64}$"
+                      },
+                      "timestamp": {
+                        "type": "string",
+                        "pattern": "^(0|[1-9][0-9]{0,19})$"
+                      },
+                      "finalityPolicyHash": {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{64}$"
+                      }
+                    },
+                    "required": [
+                      "chainId",
+                      "number",
+                      "hash",
+                      "timestamp",
+                      "finalityPolicyHash"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "ordinaryAdmissionEvidenceHash": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  "revalidationEvidenceHash": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  "progressHash": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "protocol",
+                  "revision",
+                  "kind",
+                  "championId",
+                  "gameId",
+                  "manifestContextHash",
+                  "policyHash",
+                  "checkpoint",
+                  "ordinaryAdmissionEvidenceHash",
+                  "revalidationEvidenceHash",
+                  "progressHash"
+                ],
+                "additionalProperties": false
+              },
+              "progress": {
+                "type": "object",
+                "properties": {
+                  "protocol": {
+                    "type": "string",
+                    "const": "agentborn/2"
+                  },
+                  "revision": {
+                    "type": "string",
+                    "const": "a0.training.1"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "const": "training_progress"
+                  },
+                  "championId": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  "gameId": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  "checkpoint": {
+                    "type": "object",
+                    "properties": {
+                      "chainId": {
+                        "type": "string",
+                        "const": "4663"
+                      },
+                      "number": {
+                        "type": "string",
+                        "pattern": "^(0|[1-9][0-9]{0,77})$"
+                      },
+                      "hash": {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{64}$"
+                      },
+                      "timestamp": {
+                        "type": "string",
+                        "pattern": "^(0|[1-9][0-9]{0,19})$"
+                      },
+                      "finalityPolicyHash": {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{64}$"
+                      }
+                    },
+                    "required": [
+                      "chainId",
+                      "number",
+                      "hash",
+                      "timestamp",
+                      "finalityPolicyHash"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "validatedMatchCount": {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]{0,77})$"
+                  },
+                  "firstCompletion": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "protocol": {
+                            "type": "string",
+                            "const": "agentborn/2"
+                          },
+                          "revision": {
+                            "type": "string",
+                            "const": "a0.training.1"
+                          },
+                          "kind": {
+                            "type": "string",
+                            "const": "training_completion"
+                          },
+                          "championId": {
+                            "type": "string",
+                            "pattern": "^0x[0-9a-f]{64}$"
+                          },
+                          "gameId": {
+                            "type": "string",
+                            "pattern": "^0x[0-9a-f]{64}$"
+                          },
+                          "gameVersionHash": {
+                            "type": "string",
+                            "pattern": "^0x[0-9a-f]{64}$"
+                          },
+                          "matchId": {
+                            "type": "string",
+                            "pattern": "^0x[0-9a-f]{64}$"
+                          },
+                          "manifestHash": {
+                            "type": "string",
+                            "pattern": "^0x[0-9a-f]{64}$"
+                          },
+                          "qualificationHash": {
+                            "type": "string",
+                            "pattern": "^0x[0-9a-f]{64}$"
+                          },
+                          "resultHash": {
+                            "type": "string",
+                            "pattern": "^0x[0-9a-f]{64}$"
+                          },
+                          "completedAt": {
+                            "type": "string",
+                            "pattern": "^(0|[1-9][0-9]{0,19})$"
+                          },
+                          "verificationEvidenceHash": {
+                            "type": "string",
+                            "pattern": "^0x[0-9a-f]{64}$"
+                          }
+                        },
+                        "required": [
+                          "protocol",
+                          "revision",
+                          "kind",
+                          "championId",
+                          "gameId",
+                          "gameVersionHash",
+                          "matchId",
+                          "manifestHash",
+                          "qualificationHash",
+                          "resultHash",
+                          "completedAt",
+                          "verificationEvidenceHash"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "historyEvidenceHash": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "protocol",
+                  "revision",
+                  "kind",
+                  "championId",
+                  "gameId",
+                  "checkpoint",
+                  "validatedMatchCount",
+                  "firstCompletion",
+                  "historyEvidenceHash"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "admission",
+              "progress"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "kind",
+        "manifestHash",
+        "policy",
+        "checkpoint",
+        "entries"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

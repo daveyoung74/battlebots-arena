@@ -1,0 +1,3813 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentborn.example/schemas/2.0.0-alpha.1/protocol-v2.schema.json",
+  "description": "Structural schemas. SPEC.md canonical rules and cross-document validators are additionally normative; example domain is not a deployed endpoint.",
+  "$defs": {
+    "gameVersion": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "gameId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "rulesArtifactHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "strategySchemaHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "eventSchemaHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "scoringPolicyHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "runtimeId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "runtimeHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "rngId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "rngHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "numericSemantics": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "supportedRosters": {
+          "minItems": 1,
+          "maxItems": 64,
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 2,
+            "maximum": 64
+          }
+        },
+        "reducedRosterPolicyHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "placementRules": {
+          "minItems": 1,
+          "maxItems": 64,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "qualifiedCount": {
+                "type": "integer",
+                "minimum": 2,
+                "maximum": 64
+              },
+              "sharesBps": {
+                "minItems": 1,
+                "maxItems": 64,
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 10000
+                }
+              }
+            },
+            "required": [
+              "qualifiedCount",
+              "sharesBps"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "limits": {
+          "type": "object",
+          "properties": {
+            "maxEntrants": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 64
+            },
+            "maxTicks": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "maxFuel": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$"
+            },
+            "maxMemoryBytes": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "maxEvents": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000
+            },
+            "maxEventBytes": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "maxReplayBytes": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16777216
+            },
+            "maxSheetBytes": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "maxRendererAssetBytes": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": [
+            "maxEntrants",
+            "maxTicks",
+            "maxFuel",
+            "maxMemoryBytes",
+            "maxEvents",
+            "maxEventBytes",
+            "maxReplayBytes",
+            "maxSheetBytes",
+            "maxRendererAssetBytes"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "gameId",
+        "rulesArtifactHash",
+        "strategySchemaHash",
+        "eventSchemaHash",
+        "scoringPolicyHash",
+        "runtimeId",
+        "runtimeHash",
+        "rngId",
+        "rngHash",
+        "numericSemantics",
+        "supportedRosters",
+        "reducedRosterPolicyHash",
+        "placementRules",
+        "limits"
+      ],
+      "additionalProperties": false
+    },
+    "league": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "gameId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "leagueId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "authorship": {
+          "type": "string",
+          "enum": [
+            "operator",
+            "grokbot"
+          ]
+        },
+        "provenancePolicyHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "gameId",
+        "leagueId",
+        "authorship",
+        "provenancePolicyHash"
+      ],
+      "additionalProperties": false
+    },
+    "season": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "gameId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "leagueId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "seasonId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "gameVersionHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "startsAt": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,19})$"
+        },
+        "endsAt": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,19})$"
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "gameId",
+        "leagueId",
+        "seasonId",
+        "gameVersionHash",
+        "startsAt",
+        "endsAt"
+      ],
+      "additionalProperties": false
+    },
+    "tierConfig": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "gameId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "leagueId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$"
+        },
+        "inheritance": {
+          "type": "string",
+          "enum": [
+            "explicit_only",
+            "cumulative"
+          ]
+        },
+        "token": {
+          "type": "object",
+          "properties": {
+            "chainId": {
+              "type": "string",
+              "const": "4663"
+            },
+            "token": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{40}$"
+            }
+          },
+          "required": [
+            "chainId",
+            "token"
+          ],
+          "additionalProperties": false
+        },
+        "tokenDecimals": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "tiers": {
+          "minItems": 1,
+          "maxItems": 32,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "tierId": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              },
+              "quantityBaseUnits": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]{0,77})$"
+              },
+              "benefits": {
+                "minItems": 1,
+                "maxItems": 16,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "formats": {
+                      "minItems": 1,
+                      "maxItems": 4,
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "none",
+                          "equal",
+                          "percentage",
+                          "bounty"
+                        ]
+                      }
+                    },
+                    "contributionAsset": {
+                      "type": "object",
+                      "properties": {
+                        "chainId": {
+                          "type": "string",
+                          "const": "4663"
+                        },
+                        "token": {
+                          "type": "string",
+                          "pattern": "^0x[0-9a-f]{40}$"
+                        }
+                      },
+                      "required": [
+                        "chainId",
+                        "token"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "rosterSizes": {
+                      "minItems": 1,
+                      "maxItems": 64,
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "minimum": 2,
+                        "maximum": 64
+                      }
+                    },
+                    "minAvailablePurseWei": {
+                      "type": "string",
+                      "pattern": "^(0|[1-9][0-9]{0,77})$"
+                    },
+                    "maxAvailablePurseWei": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^(0|[1-9][0-9]{0,77})$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "minNetEthPrizeWei": {
+                      "type": "string",
+                      "pattern": "^(0|[1-9][0-9]{0,77})$"
+                    },
+                    "maxNetEthPrizeWei": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^(0|[1-9][0-9]{0,77})$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "formats",
+                    "rosterSizes",
+                    "minAvailablePurseWei",
+                    "maxAvailablePurseWei",
+                    "minNetEthPrizeWei",
+                    "maxNetEthPrizeWei"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "tierId",
+              "quantityBaseUnits",
+              "benefits"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "gameId",
+        "leagueId",
+        "version",
+        "inheritance",
+        "token",
+        "tokenDecimals",
+        "tiers"
+      ],
+      "additionalProperties": false
+    },
+    "finalityPolicy": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "chainId": {
+          "type": "string",
+          "const": "4663"
+        },
+        "startCheckpoint": {
+          "type": "string",
+          "const": "first_finalized_block_at_or_after_start"
+        },
+        "commitmentFinality": {
+          "type": "string",
+          "const": "finalized"
+        },
+        "finalizationFinality": {
+          "type": "string",
+          "const": "finalized"
+        },
+        "extraSettlementDelaySeconds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "recoveryDeadlineSeconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "chainId",
+        "startCheckpoint",
+        "commitmentFinality",
+        "finalizationFinality",
+        "extraSettlementDelaySeconds",
+        "recoveryDeadlineSeconds"
+      ],
+      "additionalProperties": false
+    },
+    "cancellationPolicy": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "disposition": {
+          "type": "string",
+          "enum": [
+            "refund_all",
+            "unresolved"
+          ]
+        },
+        "enrollmentDeadlineSeconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "recoveryDeadlineSeconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "disposition",
+        "enrollmentDeadlineSeconds",
+        "recoveryDeadlineSeconds"
+      ],
+      "additionalProperties": false
+    },
+    "assetPolicy": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "standardTransfersOnly": {
+          "type": "boolean",
+          "const": true
+        },
+        "assets": {
+          "minItems": 1,
+          "maxItems": 64,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "chainId": {
+                "type": "string",
+                "const": "4663"
+              },
+              "token": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{40}$"
+              }
+            },
+            "required": [
+              "chainId",
+              "token"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "standardTransfersOnly",
+        "assets"
+      ],
+      "additionalProperties": false
+    },
+    "selectionPolicy": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "audited_draw",
+            "queue_order",
+            "unresolved"
+          ]
+        },
+        "provisionalLeaseSeconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "candidateLimit": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 9007199254740991
+        },
+        "evidencePolicyHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "version",
+        "kind",
+        "provisionalLeaseSeconds",
+        "candidateLimit",
+        "evidencePolicyHash"
+      ],
+      "additionalProperties": false
+    },
+    "permission": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "handlerId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "championId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$"
+        },
+        "validAfter": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,19})$"
+        },
+        "validUntil": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,19})$"
+        },
+        "paused": {
+          "type": "boolean"
+        },
+        "allowedGames": {
+          "minItems": 1,
+          "maxItems": 128,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^0x[0-9a-f]{64}$"
+          }
+        },
+        "allowedLeagues": {
+          "minItems": 1,
+          "maxItems": 128,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^0x[0-9a-f]{64}$"
+          }
+        },
+        "allowedFormats": {
+          "minItems": 1,
+          "maxItems": 4,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "none",
+              "equal",
+              "percentage",
+              "bounty"
+            ]
+          }
+        },
+        "allowOpen": {
+          "type": "boolean"
+        },
+        "maxSliceBps": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2000
+        },
+        "maxContributionWei": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$"
+        },
+        "minimumRemainingWei": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$"
+        },
+        "grossDailyBudgetWei": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$"
+        },
+        "assetPermissions": {
+          "maxItems": 64,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "asset": {
+                "type": "object",
+                "properties": {
+                  "chainId": {
+                    "type": "string",
+                    "const": "4663"
+                  },
+                  "token": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{40}$"
+                  }
+                },
+                "required": [
+                  "chainId",
+                  "token"
+                ],
+                "additionalProperties": false
+              },
+              "maxContributionBaseUnits": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]{0,77})$"
+              },
+              "minimumRemainingBaseUnits": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]{0,77})$"
+              },
+              "grossDailyBudgetBaseUnits": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]{0,77})$"
+              }
+            },
+            "required": [
+              "asset",
+              "maxContributionBaseUnits",
+              "minimumRemainingBaseUnits",
+              "grossDailyBudgetBaseUnits"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "maxMatchesPerDay": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "minimumMatchIntervalSeconds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "handlerId",
+        "championId",
+        "version",
+        "validAfter",
+        "validUntil",
+        "paused",
+        "allowedGames",
+        "allowedLeagues",
+        "allowedFormats",
+        "allowOpen",
+        "maxSliceBps",
+        "maxContributionWei",
+        "minimumRemainingWei",
+        "grossDailyBudgetWei",
+        "maxMatchesPerDay",
+        "minimumMatchIntervalSeconds"
+      ],
+      "additionalProperties": false
+    },
+    "entryAuthorization": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "handlerId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "championId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "signer": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{40}$"
+        },
+        "board": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{40}$"
+        },
+        "chainId": {
+          "type": "string",
+          "const": "4663"
+        },
+        "permissionsHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$"
+        },
+        "nonce": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$"
+        },
+        "validAfter": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,19})$"
+        },
+        "validUntil": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,19})$"
+        },
+        "signature": {
+          "type": "string",
+          "maxLength": 8194,
+          "pattern": "^0x(?:[0-9a-f]{2})+$"
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "handlerId",
+        "championId",
+        "signer",
+        "board",
+        "chainId",
+        "permissionsHash",
+        "version",
+        "nonce",
+        "validAfter",
+        "validUntil",
+        "signature"
+      ],
+      "additionalProperties": false
+    },
+    "matchManifest": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "chainId": {
+          "type": "string",
+          "const": "4663"
+        },
+        "board": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{40}$"
+        },
+        "eventId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "matchId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "identity": {
+          "type": "object",
+          "properties": {
+            "gameId": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "gameVersionHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "leagueId": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "seasonId": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "tierConfigHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "matchmakingPolicyHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "gameId",
+            "gameVersionHash",
+            "leagueId",
+            "seasonId",
+            "tierConfigHash",
+            "matchmakingPolicyHash"
+          ],
+          "additionalProperties": false
+        },
+        "schedule": {
+          "type": "object",
+          "properties": {
+            "enrollmentClosesAt": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            "startAt": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            "resultCommitDeadline": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            "revealAt": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            "settlementNotBefore": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            "playbackSeconds": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "finalityPolicyHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "enrollmentClosesAt",
+            "startAt",
+            "resultCommitDeadline",
+            "revealAt",
+            "settlementNotBefore",
+            "playbackSeconds",
+            "finalityPolicyHash"
+          ],
+          "additionalProperties": false
+        },
+        "contributionAsset": {
+          "type": "object",
+          "properties": {
+            "chainId": {
+              "type": "string",
+              "const": "4663"
+            },
+            "token": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{40}$"
+            }
+          },
+          "required": [
+            "chainId",
+            "token"
+          ],
+          "additionalProperties": false
+        },
+        "format": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "const": "none"
+                }
+              },
+              "required": [
+                "kind"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "const": "equal"
+                },
+                "amountWei": {
+                  "type": "string",
+                  "pattern": "^(0|[1-9][0-9]{0,77})$"
+                },
+                "minimumWei": {
+                  "type": "string",
+                  "pattern": "^(0|[1-9][0-9]{0,77})$"
+                }
+              },
+              "required": [
+                "kind",
+                "amountWei",
+                "minimumWei"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "const": "percentage"
+                },
+                "entryBps": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 2000
+                },
+                "minimumWei": {
+                  "type": "string",
+                  "pattern": "^(0|[1-9][0-9]{0,77})$"
+                }
+              },
+              "required": [
+                "kind",
+                "entryBps",
+                "minimumWei"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "const": "bounty"
+                },
+                "championId": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                },
+                "contribution": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "kind": {
+                          "type": "string",
+                          "const": "fixed"
+                        },
+                        "amountWei": {
+                          "type": "string",
+                          "pattern": "^(0|[1-9][0-9]{0,77})$"
+                        }
+                      },
+                      "required": [
+                        "kind",
+                        "amountWei"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "kind": {
+                          "type": "string",
+                          "const": "percentage"
+                        },
+                        "entryBps": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 2000
+                        }
+                      },
+                      "required": [
+                        "kind",
+                        "entryBps"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "minimumWei": {
+                  "type": "string",
+                  "pattern": "^(0|[1-9][0-9]{0,77})$"
+                }
+              },
+              "required": [
+                "kind",
+                "championId",
+                "contribution",
+                "minimumWei"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "exposure": {
+          "type": "string",
+          "enum": [
+            "open",
+            "bracketed"
+          ]
+        },
+        "capacity": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 64
+        },
+        "doorFeeWei": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$"
+        },
+        "tierId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cancellationPolicyHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "assetPolicyHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "quoteRecordHash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "settlementFeeBps": {
+          "type": "number",
+          "const": 100
+        },
+        "treasury": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{40}$"
+        },
+        "roster": {
+          "minItems": 2,
+          "maxItems": 64,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "championId": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              },
+              "handlerId": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              },
+              "ownershipSnapshotHash": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              },
+              "payout": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{40}$"
+              },
+              "qualifyingWallet": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{40}$"
+              },
+              "winnings": {
+                "type": "object",
+                "properties": {
+                  "splitter": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{40}$"
+                  },
+                  "vaultBps": {
+                    "type": "integer",
+                    "minimum": 5000,
+                    "maximum": 10000
+                  }
+                },
+                "required": [
+                  "splitter",
+                  "vaultBps"
+                ],
+                "additionalProperties": false
+              },
+              "vault": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{40}$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "strategyCommitment": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              },
+              "permissionsHash": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              },
+              "authorizationVersion": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]{0,77})$"
+              },
+              "admissionEvidenceHash": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              },
+              "grossDailyUsedWei": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]{0,77})$"
+              },
+              "dayBucket": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              }
+            },
+            "required": [
+              "championId",
+              "handlerId",
+              "ownershipSnapshotHash",
+              "payout",
+              "qualifyingWallet",
+              "vault",
+              "strategyCommitment",
+              "permissionsHash",
+              "authorizationVersion",
+              "admissionEvidenceHash",
+              "grossDailyUsedWei",
+              "dayBucket"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "sources": {
+          "maxItems": 192,
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "sourceId": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  "contract": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{40}$"
+                  },
+                  "asset": {
+                    "type": "object",
+                    "properties": {
+                      "chainId": {
+                        "type": "string",
+                        "const": "4663"
+                      },
+                      "token": {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{40}$"
+                      }
+                    },
+                    "required": [
+                      "chainId",
+                      "token"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "grossAmount": {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]{0,77})$"
+                  },
+                  "feeAmount": {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]{0,77})$"
+                  },
+                  "netAmount": {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]{0,77})$"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "const": "vault"
+                  },
+                  "championId": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  "stage": {
+                    "type": "string",
+                    "enum": [
+                      "proposal",
+                      "roster"
+                    ]
+                  },
+                  "reservationRef": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  "availableAtReservationWei": {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]{0,77})$"
+                  },
+                  "maxSliceBps": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2000
+                  }
+                },
+                "required": [
+                  "sourceId",
+                  "contract",
+                  "asset",
+                  "grossAmount",
+                  "feeAmount",
+                  "netAmount",
+                  "kind",
+                  "championId",
+                  "stage",
+                  "reservationRef",
+                  "availableAtReservationWei",
+                  "maxSliceBps"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "sourceId": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  "contract": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{40}$"
+                  },
+                  "asset": {
+                    "type": "object",
+                    "properties": {
+                      "chainId": {
+                        "type": "string",
+                        "const": "4663"
+                      },
+                      "token": {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{40}$"
+                      }
+                    },
+                    "required": [
+                      "chainId",
+                      "token"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "grossAmount": {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]{0,77})$"
+                  },
+                  "feeAmount": {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]{0,77})$"
+                  },
+                  "netAmount": {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]{0,77})$"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "const": "entry_pot"
+                  },
+                  "deposits": {
+                    "minItems": 1,
+                    "maxItems": 64,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "championId": {
+                          "type": "string",
+                          "pattern": "^0x[0-9a-f]{64}$"
+                        },
+                        "funder": {
+                          "type": "string",
+                          "pattern": "^0x[0-9a-f]{40}$"
+                        },
+                        "amount": {
+                          "type": "string",
+                          "pattern": "^(0|[1-9][0-9]{0,77})$"
+                        }
+                      },
+                      "required": [
+                        "championId",
+                        "funder",
+                        "amount"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "sourceId",
+                  "contract",
+                  "asset",
+                  "grossAmount",
+                  "feeAmount",
+                  "netAmount",
+                  "kind",
+                  "deposits"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "sourceId": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  "contract": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{40}$"
+                  },
+                  "asset": {
+                    "type": "object",
+                    "properties": {
+                      "chainId": {
+                        "type": "string",
+                        "const": "4663"
+                      },
+                      "token": {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{40}$"
+                      }
+                    },
+                    "required": [
+                      "chainId",
+                      "token"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "grossAmount": {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]{0,77})$"
+                  },
+                  "feeAmount": {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]{0,77})$"
+                  },
+                  "netAmount": {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]{0,77})$"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "const": "sponsor"
+                  },
+                  "award": {
+                    "type": "string",
+                    "const": "placement"
+                  },
+                  "deposits": {
+                    "minItems": 1,
+                    "maxItems": 128,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "depositId": {
+                          "type": "string",
+                          "pattern": "^0x[0-9a-f]{64}$"
+                        },
+                        "funder": {
+                          "type": "string",
+                          "pattern": "^0x[0-9a-f]{40}$"
+                        },
+                        "amount": {
+                          "type": "string",
+                          "pattern": "^(0|[1-9][0-9]{0,77})$"
+                        }
+                      },
+                      "required": [
+                        "depositId",
+                        "funder",
+                        "amount"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "sourceId",
+                  "contract",
+                  "asset",
+                  "grossAmount",
+                  "feeAmount",
+                  "netAmount",
+                  "kind",
+                  "award",
+                  "deposits"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "chainId",
+        "board",
+        "eventId",
+        "matchId",
+        "identity",
+        "schedule",
+        "format",
+        "exposure",
+        "capacity",
+        "doorFeeWei",
+        "tierId",
+        "cancellationPolicyHash",
+        "assetPolicyHash",
+        "quoteRecordHash",
+        "settlementFeeBps",
+        "treasury",
+        "roster",
+        "sources"
+      ],
+      "additionalProperties": false
+    },
+    "qualification": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "matchId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "manifestHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "checkpoint": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "chainId": {
+                  "type": "string",
+                  "const": "4663"
+                },
+                "number": {
+                  "type": "string",
+                  "pattern": "^(0|[1-9][0-9]{0,77})$"
+                },
+                "hash": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                },
+                "timestamp": {
+                  "type": "string",
+                  "pattern": "^(0|[1-9][0-9]{0,19})$"
+                },
+                "finalityPolicyHash": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "chainId",
+                "number",
+                "hash",
+                "timestamp",
+                "finalityPolicyHash"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "entrants": {
+          "minItems": 2,
+          "maxItems": 64,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "championId": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "qualified",
+                  "no_show",
+                  "unknown"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "enum": [
+                  "qualified",
+                  "token_shortfall",
+                  "explicit_abandonment",
+                  "infrastructure_unavailable"
+                ]
+              },
+              "evidenceHash": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "championId",
+              "status",
+              "reason",
+              "evidenceHash"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "matchId",
+        "manifestHash",
+        "checkpoint",
+        "entrants"
+      ],
+      "additionalProperties": false
+    },
+    "result": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "matchId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "manifestHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "played",
+            "walkover"
+          ]
+        },
+        "qualificationHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "placements": {
+          "minItems": 1,
+          "maxItems": 64,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^0x[0-9a-f]{64}$"
+          }
+        },
+        "sharesBps": {
+          "minItems": 1,
+          "maxItems": 64,
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10000
+          }
+        },
+        "payments": {
+          "maxItems": 12480,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              },
+              "asset": {
+                "type": "object",
+                "properties": {
+                  "chainId": {
+                    "type": "string",
+                    "const": "4663"
+                  },
+                  "token": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{40}$"
+                  }
+                },
+                "required": [
+                  "chainId",
+                  "token"
+                ],
+                "additionalProperties": false
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "treasury",
+                  "prize",
+                  "return",
+                  "reservation_release"
+                ]
+              },
+              "beneficiary": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{40}$"
+              },
+              "championId": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "amount": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]{0,77})$"
+              }
+            },
+            "required": [
+              "sourceId",
+              "asset",
+              "kind",
+              "beneficiary",
+              "championId",
+              "amount"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "matchId",
+        "manifestHash",
+        "kind",
+        "qualificationHash",
+        "placements",
+        "sharesBps",
+        "payments"
+      ],
+      "additionalProperties": false
+    },
+    "cancellation": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "matchId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "manifestHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "phase": {
+          "type": "string",
+          "enum": [
+            "entry_committed",
+            "start_checked",
+            "seeded",
+            "simulated",
+            "result_committed"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "enum": [
+            "zero_qualified",
+            "simulation_unrecoverable",
+            "opening_unrecoverable",
+            "commitment_deadline_missed"
+          ]
+        },
+        "evidenceHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "qualificationHash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cancelledAt": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,19})$"
+        },
+        "returns": {
+          "maxItems": 24576,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              },
+              "asset": {
+                "type": "object",
+                "properties": {
+                  "chainId": {
+                    "type": "string",
+                    "const": "4663"
+                  },
+                  "token": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{40}$"
+                  }
+                },
+                "required": [
+                  "chainId",
+                  "token"
+                ],
+                "additionalProperties": false
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "treasury",
+                  "prize",
+                  "return",
+                  "reservation_release"
+                ]
+              },
+              "beneficiary": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{40}$"
+              },
+              "championId": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "amount": {
+                "type": "string",
+                "pattern": "^(0|[1-9][0-9]{0,77})$"
+              }
+            },
+            "required": [
+              "sourceId",
+              "asset",
+              "kind",
+              "beneficiary",
+              "championId",
+              "amount"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "matchId",
+        "manifestHash",
+        "phase",
+        "reason",
+        "evidenceHash",
+        "qualificationHash",
+        "cancelledAt",
+        "returns"
+      ],
+      "additionalProperties": false
+    },
+    "replay": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "matchId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "manifestHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "gameVersionHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "eventSchemaHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "rendererVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "played",
+            "walkover"
+          ]
+        },
+        "resultHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "visibleRoster": {
+          "minItems": 1,
+          "maxItems": 64,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "championId": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 96
+              },
+              "cosmeticRef": {
+                "type": "string",
+                "maxLength": 512
+              }
+            },
+            "required": [
+              "championId",
+              "name",
+              "cosmeticRef"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "initialState": {
+          "$ref": "#/$defs/__schema0"
+        },
+        "durationMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "events": {
+          "maxItems": 100000,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "seq": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "atMs": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "type": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$"
+              },
+              "payload": {
+                "$ref": "#/$defs/__schema0"
+              }
+            },
+            "required": [
+              "seq",
+              "atMs",
+              "type",
+              "payload"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "matchId",
+        "manifestHash",
+        "gameVersionHash",
+        "eventSchemaHash",
+        "rendererVersion",
+        "kind",
+        "resultHash",
+        "visibleRoster",
+        "initialState",
+        "durationMs",
+        "events"
+      ],
+      "additionalProperties": false,
+      "$defs": {
+        "__schema0": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/__schema0"
+              }
+            },
+            {
+              "type": "object",
+              "propertyNames": {
+                "type": "string"
+              },
+              "additionalProperties": {
+                "$ref": "#/$defs/__schema0"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "sealedEnvelope": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "matchId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "manifestHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "algorithm": {
+          "type": "string",
+          "const": "AES-256-GCM"
+        },
+        "iv": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{24}$"
+        },
+        "aadHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "ciphertext": {
+          "type": "string",
+          "maxLength": 35651584,
+          "pattern": "^0x(?:[0-9a-f]{2}){16,}$"
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "matchId",
+        "manifestHash",
+        "algorithm",
+        "iv",
+        "aadHash",
+        "ciphertext"
+      ],
+      "additionalProperties": false
+    },
+    "opening": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "matchId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "manifestHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "type": "string",
+              "const": "agentborn/2"
+            },
+            "revision": {
+              "type": "string",
+              "const": "2.0.0-alpha.1"
+            },
+            "matchId": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "manifestHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "kind": {
+              "type": "string",
+              "enum": [
+                "played",
+                "walkover"
+              ]
+            },
+            "qualificationHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "placements": {
+              "minItems": 1,
+              "maxItems": 64,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              }
+            },
+            "sharesBps": {
+              "minItems": 1,
+              "maxItems": 64,
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10000
+              }
+            },
+            "payments": {
+              "maxItems": 12480,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "sourceId": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  "asset": {
+                    "type": "object",
+                    "properties": {
+                      "chainId": {
+                        "type": "string",
+                        "const": "4663"
+                      },
+                      "token": {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{40}$"
+                      }
+                    },
+                    "required": [
+                      "chainId",
+                      "token"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "treasury",
+                      "prize",
+                      "return",
+                      "reservation_release"
+                    ]
+                  },
+                  "beneficiary": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{40}$"
+                  },
+                  "championId": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{64}$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "amount": {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]{0,77})$"
+                  }
+                },
+                "required": [
+                  "sourceId",
+                  "asset",
+                  "kind",
+                  "beneficiary",
+                  "championId",
+                  "amount"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "protocol",
+            "revision",
+            "matchId",
+            "manifestHash",
+            "kind",
+            "qualificationHash",
+            "placements",
+            "sharesBps",
+            "payments"
+          ],
+          "additionalProperties": false
+        },
+        "replayHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "seed": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "seedCommitment": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "nonce": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "encryptionKey": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "sealedEnvelopeHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "matchId",
+        "manifestHash",
+        "result",
+        "replayHash",
+        "seed",
+        "seedCommitment",
+        "nonce",
+        "encryptionKey",
+        "sealedEnvelopeHash"
+      ],
+      "additionalProperties": false
+    },
+    "commitmentReceipt": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "matchId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "manifestHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "chainId": {
+          "type": "string",
+          "const": "4663"
+        },
+        "board": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{40}$"
+        },
+        "seedCommitment": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "resultCommitment": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "sealedEnvelopeHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "transactionHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "block": {
+          "type": "object",
+          "properties": {
+            "chainId": {
+              "type": "string",
+              "const": "4663"
+            },
+            "number": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$"
+            },
+            "hash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "timestamp": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            "finalityPolicyHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "chainId",
+            "number",
+            "hash",
+            "timestamp",
+            "finalityPolicyHash"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "matchId",
+        "manifestHash",
+        "chainId",
+        "board",
+        "seedCommitment",
+        "resultCommitment",
+        "sealedEnvelopeHash",
+        "transactionHash",
+        "block"
+      ],
+      "additionalProperties": false
+    },
+    "paymentStatus": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "matchId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "allocation": {
+          "type": "string",
+          "enum": [
+            "not_ready",
+            "pending",
+            "allocated"
+          ]
+        },
+        "delivery": {
+          "type": "string",
+          "enum": [
+            "not_ready",
+            "pending",
+            "partial",
+            "paid"
+          ]
+        },
+        "liabilities": {
+          "maxItems": 12480,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "paymentId": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              },
+              "payment": {
+                "type": "object",
+                "properties": {
+                  "sourceId": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  "asset": {
+                    "type": "object",
+                    "properties": {
+                      "chainId": {
+                        "type": "string",
+                        "const": "4663"
+                      },
+                      "token": {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{40}$"
+                      }
+                    },
+                    "required": [
+                      "chainId",
+                      "token"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "treasury",
+                      "prize",
+                      "return",
+                      "reservation_release"
+                    ]
+                  },
+                  "beneficiary": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{40}$"
+                  },
+                  "championId": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{64}$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "amount": {
+                    "type": "string",
+                    "pattern": "^(0|[1-9][0-9]{0,77})$"
+                  }
+                },
+                "required": [
+                  "sourceId",
+                  "asset",
+                  "kind",
+                  "beneficiary",
+                  "championId",
+                  "amount"
+                ],
+                "additionalProperties": false
+              },
+              "state": {
+                "type": "string",
+                "enum": [
+                  "pending",
+                  "sent",
+                  "confirmed"
+                ]
+              },
+              "transactionHash": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "paymentId",
+              "payment",
+              "state",
+              "transactionHash"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "matchId",
+        "allocation",
+        "delivery",
+        "liabilities"
+      ],
+      "additionalProperties": false
+    },
+    "matchStatus": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "matchId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "manifestHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "lifecycle": {
+          "type": "string",
+          "enum": [
+            "event_funded",
+            "seats_filling",
+            "entry_committed",
+            "start_checked",
+            "seeded",
+            "simulated",
+            "result_committed",
+            "playback",
+            "revealed",
+            "finalized",
+            "settling",
+            "complete",
+            "cancelled"
+          ]
+        },
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "unpublished",
+            "played",
+            "walkover",
+            "cancelled"
+          ]
+        },
+        "revealAt": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,19})$"
+        },
+        "openingAvailable": {
+          "type": "boolean"
+        },
+        "payment": {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "type": "string",
+              "const": "agentborn/2"
+            },
+            "revision": {
+              "type": "string",
+              "const": "2.0.0-alpha.1"
+            },
+            "matchId": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "allocation": {
+              "type": "string",
+              "enum": [
+                "not_ready",
+                "pending",
+                "allocated"
+              ]
+            },
+            "delivery": {
+              "type": "string",
+              "enum": [
+                "not_ready",
+                "pending",
+                "partial",
+                "paid"
+              ]
+            },
+            "liabilities": {
+              "maxItems": 12480,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "paymentId": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{64}$"
+                  },
+                  "payment": {
+                    "type": "object",
+                    "properties": {
+                      "sourceId": {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{64}$"
+                      },
+                      "asset": {
+                        "type": "object",
+                        "properties": {
+                          "chainId": {
+                            "type": "string",
+                            "const": "4663"
+                          },
+                          "token": {
+                            "type": "string",
+                            "pattern": "^0x[0-9a-f]{40}$"
+                          }
+                        },
+                        "required": [
+                          "chainId",
+                          "token"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "kind": {
+                        "type": "string",
+                        "enum": [
+                          "treasury",
+                          "prize",
+                          "return",
+                          "reservation_release"
+                        ]
+                      },
+                      "beneficiary": {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{40}$"
+                      },
+                      "championId": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "pattern": "^0x[0-9a-f]{64}$"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "amount": {
+                        "type": "string",
+                        "pattern": "^(0|[1-9][0-9]{0,77})$"
+                      }
+                    },
+                    "required": [
+                      "sourceId",
+                      "asset",
+                      "kind",
+                      "beneficiary",
+                      "championId",
+                      "amount"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pending",
+                      "sent",
+                      "confirmed"
+                    ]
+                  },
+                  "transactionHash": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^0x[0-9a-f]{64}$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "paymentId",
+                  "payment",
+                  "state",
+                  "transactionHash"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "protocol",
+            "revision",
+            "matchId",
+            "allocation",
+            "delivery",
+            "liabilities"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "matchId",
+        "manifestHash",
+        "lifecycle",
+        "outcome",
+        "revealAt",
+        "openingAvailable",
+        "payment"
+      ],
+      "additionalProperties": false
+    },
+    "opportunity": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "eventId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "identity": {
+          "type": "object",
+          "properties": {
+            "gameId": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "gameVersionHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "leagueId": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "seasonId": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "tierConfigHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "matchmakingPolicyHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "gameId",
+            "gameVersionHash",
+            "leagueId",
+            "seasonId",
+            "tierConfigHash",
+            "matchmakingPolicyHash"
+          ],
+          "additionalProperties": false
+        },
+        "contributionAsset": {
+          "type": "object",
+          "properties": {
+            "chainId": {
+              "type": "string",
+              "const": "4663"
+            },
+            "token": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{40}$"
+            }
+          },
+          "required": [
+            "chainId",
+            "token"
+          ],
+          "additionalProperties": false
+        },
+        "plannedSchedule": {
+          "type": "object",
+          "properties": {
+            "enrollmentClosesAt": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            "startAt": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            "resultCommitDeadline": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            "revealAt": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            "settlementNotBefore": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            "playbackSeconds": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "finalityPolicyHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "enrollmentClosesAt",
+            "startAt",
+            "resultCommitDeadline",
+            "revealAt",
+            "settlementNotBefore",
+            "playbackSeconds",
+            "finalityPolicyHash"
+          ],
+          "additionalProperties": false
+        },
+        "format": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "const": "none"
+                }
+              },
+              "required": [
+                "kind"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "const": "equal"
+                },
+                "amountWei": {
+                  "type": "string",
+                  "pattern": "^(0|[1-9][0-9]{0,77})$"
+                },
+                "minimumWei": {
+                  "type": "string",
+                  "pattern": "^(0|[1-9][0-9]{0,77})$"
+                }
+              },
+              "required": [
+                "kind",
+                "amountWei",
+                "minimumWei"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "const": "percentage"
+                },
+                "entryBps": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 2000
+                },
+                "minimumWei": {
+                  "type": "string",
+                  "pattern": "^(0|[1-9][0-9]{0,77})$"
+                }
+              },
+              "required": [
+                "kind",
+                "entryBps",
+                "minimumWei"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "const": "bounty"
+                },
+                "championId": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                },
+                "contribution": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "kind": {
+                          "type": "string",
+                          "const": "fixed"
+                        },
+                        "amountWei": {
+                          "type": "string",
+                          "pattern": "^(0|[1-9][0-9]{0,77})$"
+                        }
+                      },
+                      "required": [
+                        "kind",
+                        "amountWei"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "kind": {
+                          "type": "string",
+                          "const": "percentage"
+                        },
+                        "entryBps": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 2000
+                        }
+                      },
+                      "required": [
+                        "kind",
+                        "entryBps"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "minimumWei": {
+                  "type": "string",
+                  "pattern": "^(0|[1-9][0-9]{0,77})$"
+                }
+              },
+              "required": [
+                "kind",
+                "championId",
+                "contribution",
+                "minimumWei"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "exposure": {
+          "type": "string",
+          "enum": [
+            "open",
+            "bracketed"
+          ]
+        },
+        "capacity": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 64
+        },
+        "doorFeeWei": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$"
+        },
+        "tierId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cancellationPolicyHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "fundingCommitments": {
+          "maxItems": 192,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^0x[0-9a-f]{64}$"
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "proposed",
+            "funded",
+            "seats_filling",
+            "scheduled",
+            "cancelled"
+          ]
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "eventId",
+        "identity",
+        "plannedSchedule",
+        "format",
+        "exposure",
+        "capacity",
+        "doorFeeWei",
+        "tierId",
+        "cancellationPolicyHash",
+        "fundingCommitments",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "registration": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "gameId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "studioId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "manifest": {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "type": "string",
+              "const": "agentborn/2"
+            },
+            "revision": {
+              "type": "string",
+              "const": "2.0.0-alpha.1"
+            },
+            "gameId": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "rulesArtifactHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "strategySchemaHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "eventSchemaHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "scoringPolicyHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "runtimeId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            "runtimeHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "rngId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            "rngHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "numericSemantics": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            "supportedRosters": {
+              "minItems": 1,
+              "maxItems": 64,
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 2,
+                "maximum": 64
+              }
+            },
+            "reducedRosterPolicyHash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "placementRules": {
+              "minItems": 1,
+              "maxItems": 64,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "qualifiedCount": {
+                    "type": "integer",
+                    "minimum": 2,
+                    "maximum": 64
+                  },
+                  "sharesBps": {
+                    "minItems": 1,
+                    "maxItems": 64,
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 10000
+                    }
+                  }
+                },
+                "required": [
+                  "qualifiedCount",
+                  "sharesBps"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "limits": {
+              "type": "object",
+              "properties": {
+                "maxEntrants": {
+                  "type": "integer",
+                  "minimum": 2,
+                  "maximum": 64
+                },
+                "maxTicks": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
+                },
+                "maxFuel": {
+                  "type": "string",
+                  "pattern": "^(0|[1-9][0-9]{0,77})$"
+                },
+                "maxMemoryBytes": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
+                },
+                "maxEvents": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100000
+                },
+                "maxEventBytes": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
+                },
+                "maxReplayBytes": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 16777216
+                },
+                "maxSheetBytes": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
+                },
+                "maxRendererAssetBytes": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
+                }
+              },
+              "required": [
+                "maxEntrants",
+                "maxTicks",
+                "maxFuel",
+                "maxMemoryBytes",
+                "maxEvents",
+                "maxEventBytes",
+                "maxReplayBytes",
+                "maxSheetBytes",
+                "maxRendererAssetBytes"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "protocol",
+            "revision",
+            "gameId",
+            "rulesArtifactHash",
+            "strategySchemaHash",
+            "eventSchemaHash",
+            "scoringPolicyHash",
+            "runtimeId",
+            "runtimeHash",
+            "rngId",
+            "rngHash",
+            "numericSemantics",
+            "supportedRosters",
+            "reducedRosterPolicyHash",
+            "placementRules",
+            "limits"
+          ],
+          "additionalProperties": false
+        },
+        "rendererVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "rendererArtifactHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "requestedLeagues": {
+          "minItems": 1,
+          "maxItems": 16,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^0x[0-9a-f]{64}$"
+          }
+        },
+        "verificationEvidenceHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "gameId",
+        "studioId",
+        "manifest",
+        "rendererVersion",
+        "rendererArtifactHash",
+        "requestedLeagues",
+        "verificationEvidenceHash"
+      ],
+      "additionalProperties": false
+    },
+    "discovery": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "versions": {
+          "maxItems": 256,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gameId": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              },
+              "gameVersionHash": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              },
+              "leagueId": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              },
+              "seasonId": {
+                "type": "string",
+                "pattern": "^0x[0-9a-f]{64}$"
+              },
+              "state": {
+                "type": "string",
+                "enum": [
+                  "pending_review",
+                  "approved",
+                  "quarantined"
+                ]
+              },
+              "moneyEnabled": {
+                "type": "boolean"
+              },
+              "manifestPath": {
+                "type": "string",
+                "maxLength": 512,
+                "pattern": "^\\/api\\/v2\\/"
+              }
+            },
+            "required": [
+              "gameId",
+              "gameVersionHash",
+              "leagueId",
+              "seasonId",
+              "state",
+              "moneyEnabled",
+              "manifestPath"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "nextCursor": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 256
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "versions",
+        "nextCursor"
+      ],
+      "additionalProperties": false
+    },
+    "scoutOrder": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "orderId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "reportId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "championId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "buyerId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "scopeHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "snapshotHash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "authorization": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "const": "included"
+                },
+                "planId": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                },
+                "periodId": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                },
+                "allowanceUnitId": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "kind",
+                "planId",
+                "periodId",
+                "allowanceUnitId"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "const": "manual_payment"
+                },
+                "priceWei": {
+                  "type": "string",
+                  "pattern": "^(0|[1-9][0-9]{0,77})$"
+                },
+                "surchargeWei": {
+                  "type": "string",
+                  "pattern": "^(0|[1-9][0-9]{0,77})$"
+                },
+                "approvalHash": {
+                  "type": "string",
+                  "pattern": "^0x[0-9a-f]{64}$"
+                },
+                "paymentTransaction": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^0x[0-9a-f]{64}$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "kind",
+                "priceWei",
+                "surchargeWei",
+                "approvalHash",
+                "paymentTransaction"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "awaiting_approval",
+            "awaiting_payment",
+            "entitled",
+            "snapshot_pending",
+            "delivered"
+          ]
+        },
+        "snapshotAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,19})$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "orderId",
+        "reportId",
+        "championId",
+        "buyerId",
+        "scopeHash",
+        "snapshotHash",
+        "authorization",
+        "state",
+        "snapshotAt"
+      ],
+      "additionalProperties": false
+    },
+    "studioRequest": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "kind": {
+          "type": "string",
+          "const": "studio_request"
+        },
+        "keyId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "gameId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "method": {
+          "type": "string",
+          "enum": [
+            "GET",
+            "POST"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "maxLength": 512,
+          "pattern": "^\\/api\\/v2\\/[a-z0-9/-]+$"
+        },
+        "bodySha256": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "issuedAt": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,19})$"
+        },
+        "nonce": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "kind",
+        "keyId",
+        "gameId",
+        "method",
+        "path",
+        "bodySha256",
+        "issuedAt",
+        "nonce"
+      ],
+      "additionalProperties": false
+    },
+    "casualSignal": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "kind": {
+          "type": "string",
+          "const": "casual_result"
+        },
+        "keyId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "matchId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "manifestHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "resultHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "replayHash": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "seedCommitment": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "publishedAt": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,19})$"
+        },
+        "signature": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{128}$"
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "kind",
+        "keyId",
+        "matchId",
+        "manifestHash",
+        "resultHash",
+        "replayHash",
+        "seedCommitment",
+        "publishedAt",
+        "signature"
+      ],
+      "additionalProperties": false
+    },
+    "error": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "type": "string",
+          "const": "agentborn/2"
+        },
+        "revision": {
+          "type": "string",
+          "const": "2.0.0-alpha.1"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{64}$"
+        },
+        "code": {
+          "type": "string",
+          "enum": [
+            "INVALID_DOCUMENT",
+            "UNSUPPORTED_REVISION",
+            "UNAUTHORIZED",
+            "FORBIDDEN",
+            "NOT_FOUND",
+            "NOT_RELEASED",
+            "CONFLICT",
+            "IDEMPOTENCY_CONFLICT",
+            "INELIGIBLE",
+            "ROSTER_INCOMPLETE",
+            "UNRESOLVED_POLICY",
+            "CHAIN_UNAVAILABLE",
+            "RECONCILING",
+            "LIMIT_EXCEEDED"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "maxLength": 512
+        },
+        "retryable": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "protocol",
+        "revision",
+        "requestId",
+        "code",
+        "message",
+        "retryable"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

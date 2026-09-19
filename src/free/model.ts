@@ -83,7 +83,7 @@ const blockSchema = z
   .passthrough();
 const location = { blockHash: P.idSchema, blockNumber: P.timeSchema };
 const hex = z.string().regex(/^0x(?:[0-9a-f]{2})*$/);
-const profileSchema = z
+export const profileSchema = z
   .object({
     revision: z.literal("free.match.1"),
     board: P.recipientSchema,
@@ -205,6 +205,22 @@ export const packetSchema = z.strictObject({
   trainingCredited: z.boolean(),
 });
 export type FreePacket = z.infer<typeof packetSchema>;
+export const observationSchema = z.strictObject({
+  revision: z.literal("free.match.publication-observation.1"),
+  matchId: P.idSchema,
+  profileHash: P.idSchema,
+  manifestHash: P.idSchema,
+  openingHash: P.idSchema,
+  commitment: P.idSchema,
+  chainId: z.number().int().positive().safe(),
+  board: P.recipientSchema,
+  phase: z.union([z.literal(3), z.literal(4), z.literal(5)]),
+  head: z.strictObject({
+    number: P.timeSchema,
+    hash: P.idSchema,
+    timestamp: P.timeSchema,
+  }),
+});
 export const matchPinSchema = z.strictObject({
   id: P.idSchema,
   profileHash: P.idSchema,
@@ -282,6 +298,7 @@ export function verifyFreePacket(raw: unknown, expected: MatchPin): FreePacket {
 export function verifyPacket(
   raw: unknown,
   expected: Pick<MatchPin, "id" | "profileHash">,
+  publication?: unknown,
 ): FreePacket {
   const v = packetSchema.parse(raw),
     m = v.manifest,
@@ -289,7 +306,10 @@ export function verifyPacket(
     t = m.terms,
     p = v.receipts[0].profile;
   check(packageHash(v) === packageHash(raw), "unrecognized fields");
-  check(v.state !== "committed", "archive requires finalized outcome");
+  check(
+    v.state !== "committed" || publication !== undefined,
+    "archive requires finalized outcome",
+  );
   check(
     m.matchId === expected.id &&
       m.profileHash === expected.profileHash &&
@@ -571,6 +591,31 @@ export function verifyPacket(
             BigInt(v.receipts[1].block.timestamp) + BigInt(p.finalitySeconds),
         "terminal finality",
       );
+  }
+  if (publication !== undefined) {
+    const observed = observationSchema.parse(publication);
+    check(
+      observed.matchId === m.matchId &&
+        observed.profileHash === m.profileHash &&
+        observed.manifestHash === hash(m) &&
+        observed.openingHash === hash(o) &&
+        observed.commitment === v.commitment &&
+        observed.chainId === p.setup.identity.chainId &&
+        observed.board === p.board &&
+        observed.phase === stages.length + 2,
+      "publication binding",
+    );
+    check(
+      BigInt(observed.head.timestamp) >= BigInt(t.revealAt) &&
+        v.receipts.every(
+          (proof) =>
+            BigInt(observed.head.number) >= BigInt(proof.head.number) &&
+            BigInt(observed.head.timestamp) >= BigInt(proof.head.timestamp) &&
+            (observed.head.number !== proof.head.number ||
+              observed.head.hash === proof.head.hash),
+        ),
+      "publication checkpoint",
+    );
   }
   const completion = v.completion;
   check(

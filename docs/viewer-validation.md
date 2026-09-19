@@ -1,5 +1,11 @@
 # V2 viewer validation and release boundary
 
+## September 19 public outcomes extension
+
+The explicit outcome configuration adds timed committed openings and cancelled/unsubmitted records. All 40 sample tests pass, with additional checks for observation and manifest binding, checkpoint/phase regression, terminal record immutability, no invented credit, and configuration upgrades. TypeScript/Vite production build, formatting and the unchanged 50-file vendor provenance check pass.
+
+Production-style browser checks at 1440px and 390px used disposable native rehearsal exports: committed played replay, early walkover without combat, cancelled pending-to-recorded refresh, unsubmitted records, failed refresh removing the previous result, and recovery. No horizontal overflow or browser errors were observed. The source received only initial loads, selections and manual refreshes; playback has no background polling. These checks do not establish real-provider freshness or activate a public service. Native application/HTTP conformance is documented in the application's `docs/FREE_MATCH_PUBLIC_OUTCOMES.md`.
+
 ## September 19 approved public delivery extension
 
 The separate [free-live reader](free-live.md) adds reviewed match/profile/commitment pins, a fixed public origin, bounded credential-free fetches and manual result refresh. All 36 sample tests pass, including finalized-to-released-to-recorded progression, evidence/status regressions, source failure without stale fallback, redirects, request coalescing and restarts. The production TypeScript/Vite build, formatting and unchanged 50-file vendor provenance check pass.

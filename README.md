@@ -24,12 +24,12 @@ For a production-style local build, run `npm run build`, set `NODE_ENV=productio
 | `fixture` (default) | Included v2 replay fixtures                                       | Display only; no network upstream or database                     |
 | `protocol`          | Read explicitly configured matches from an AgentBorn test service | Display only; no transaction or result-writing API                |
 | `free`              | Pinned walletless free-match archives and disposable test exports | Display only; loopback, no upstream credentials or live status    |
-| `free-live`         | Approved public walletless replay and manual result refresh       | Display only; loopback, fixed commitments, no handler credentials |
+| `free-live`         | Approved public walletless outcomes and manual refresh            | Display only; loopback, fixed commitments, no handler credentials |
 | `legacy`            | Existing v1 records, local exhibitions and the historical adapter | Separate old engine/database/worker, never a v2 fallback          |
 
 The connected viewer supports the approved **free, two-player duel** profile. Paid matches, other renderers and new game versions require explicit implementation and reviewed configuration; they do not silently inherit compatibility.
 
-Follow the walletless [archive guide](docs/free-matches.md) or [approved public delivery guide](docs/free-live.md) for `free.match.public-package.1`, or [the v2 builder guide](docs/protocol-v2.md) for the older source, verification boundary and renderer. The [legacy guide](docs/legacy.md) preserves the old sample and its database setup. Legacy practice/exhibitions never count toward protocol Training Grounds.
+Follow the walletless [archive guide](docs/free-matches.md) or [approved public delivery guide](docs/free-live.md) for replay packages and explicitly approved timed/terminal outcomes, or [the v2 builder guide](docs/protocol-v2.md) for the older source, verification boundary and renderer. The [legacy guide](docs/legacy.md) preserves the old sample and its database setup. Legacy practice/exhibitions never count toward protocol Training Grounds.
 
 ## Verify
 

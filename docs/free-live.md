@@ -47,8 +47,20 @@ The profile and result commitment remain fixed across finalized → released →
 
 AgentBorn's native service verifies chain ancestry, historical runtime, certified execution and current completion records on each read. The sample relies on that service for freshness and does not independently contact an RPC or verify certificate signatures. A renderer cannot award training credit or initiate, settle or cancel matches. Viewing the replay does not create credit.
 
-Only **finalized/released** packages are accepted. Earlier committed openings still need additional publication evidence. Canceled/unsubmitted matches have no replay and no public terminal-record adapter in this milestone; use the handler's own AgentBorn view for those states. Walkovers display the qualified winner with no fake combat or played-match credit.
+The default configuration above accepts **finalized/released** packages only. Walkovers display the qualified winner with no fake combat or played-match credit.
+
+## Timed openings and terminal outcomes
+
+To opt into the newer delivery boundary, add `"delivery": "outcome"` to `viewer` and `"manifestHash": "<independently approved manifest hash>"` to each match pin. Keep the fixed nonzero result commitment for replay-capable matches. A null commitment permits terminal records only, never an opening. The application must separately approve these exact manifest pins; an existing replay approval does not authorize the new route.
+
+This configuration fetches `GET /api/free-matches/{approvedId}/outcome` with `X-AgentBorn-Revision: free.match.public-outcome.1`. A replay outcome contains the complete package plus the native service's publication observation. A committed opening is accepted only with its scheduled reveal-time checkpoint and exact manifest/opening/commitment/chain/board bindings. The screen says finalization and training credit are pending. Archive mode and the original live configuration still reject committed packages.
+
+Cancelled and unsubmitted outcomes contain a manifest/profile, terminal record, recording status and observed head. They have no replay, winner or played-match credit. Pending recording can become complete. Manual refresh removes an old result on failure and never silently substitutes cached success.
+
+The reader rejects backwards or conflicting checkpoints, state changes at an unchanged checkpoint, changed recorded terminal documents and completed-to-pending regressions. A committed opening can later become a cancellation; a finalized result cannot. These checks continue in the server and browser independently. Fixed pins survive restart, but current status still comes from the approved source.
+
+**Publication and terminal observations are source-verified, not standalone chain proofs.** The native service checks canonical receipts, cancellation/release or absence and the completion ledger. The sample checks identity and internal consistency; it does not verify terminal chain evidence itself or treat a source hash as proof of cancellation. There is still no event stream, background polling or match authority in the renderer.
 
 ## Validation
 
-`npm test` covers live progression, restart pins, regressions, changed evidence, fixed origins, credential/redirect isolation, coalescing, request budgets and source failure without stale fallback. The paired application suite runs its native disposable contracts, database and certified worker through a real HTTP adapter into this reader. Its handoff is `docs/FREE_MATCH_PUBLIC_DELIVERY.md`. Production activation, real-provider staging and the full two-handler browser journey remain separate release requirements.
+`npm test` covers live progression, restart pins, regressions, changed evidence, fixed origins, credential/redirect isolation, coalescing, request budgets and source failure without stale fallback. The paired application suite runs its native disposable contracts, database and certified worker through a real HTTP adapter into this reader. Its handoffs are `docs/FREE_MATCH_PUBLIC_DELIVERY.md` and `docs/FREE_MATCH_PUBLIC_OUTCOMES.md`. The outcome extension also exercises native pre-reveal rejection, committed played/walkover delivery, cancelled pending/recorded outcomes, unsubmitted outcomes and altered-document rejection. Production activation, real-provider staging and the full two-handler browser journey remain separate release requirements.

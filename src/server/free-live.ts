@@ -7,6 +7,12 @@ import {
 import { packetSchema, PACKAGE_BYTES, type FreePacket } from "../free/model.ts";
 import { boundedJson } from "./free-viewer.ts";
 import { read } from "../client/http.ts";
+import {
+  outcomeSchema,
+  verifyOutcome,
+  OUTCOME_REVISION,
+  type PublicOutcome,
+} from "../free/outcome.ts";
 
 const originSchema = z
   .string()
@@ -41,12 +47,13 @@ export function liveService(
   clock = () => Date.now(),
 ) {
   const { viewer: config, origin } = liveSourceSchema.parse(input);
-  const previous = new Map<string, FreePacket>();
-  const pending = new Map<string, Promise<FreePacket>>();
+  const outcomes = "delivery" in config;
+  const previous = new Map<string, FreePacket | PublicOutcome>();
+  const pending = new Map<string, Promise<FreePacket | PublicOutcome>>();
   const attempted = new Map<string, number>();
   return {
     config,
-    async bundle(id: string): Promise<FreePacket> {
+    async bundle(id: string): Promise<FreePacket | PublicOutcome> {
       const pin = config.matches.find((m) => m.id === id);
       if (!pin) throw new Error("Unlisted live match");
       const inFlight = pending.get(id);
@@ -58,14 +65,25 @@ export function liveService(
         throw new Error("Replay read budget");
       attempted.set(id, clock());
       const task = read(
-        `${new URL(origin).origin}/api/free-matches/${id}/replay`,
-        packetSchema,
+        `${new URL(origin).origin}/api/free-matches/${id}/${outcomes ? "outcome" : "replay"}`,
+        z.union([packetSchema, outcomeSchema]),
         PACKAGE_BYTES,
         undefined,
-        { revision: PUBLIC_REVISION, timeoutMs: 35000 },
+        {
+          revision: outcomes ? OUTCOME_REVISION : PUBLIC_REVISION,
+          timeoutMs: 35000,
+        },
       )
         .then((raw) => {
-          const value = verifyLivePacket(raw, pin, previous.get(id));
+          const old = previous.get(id);
+          const value =
+            "manifestHash" in pin
+              ? verifyOutcome(raw, pin, old && "kind" in old ? old : undefined)
+              : verifyLivePacket(
+                  raw,
+                  pin,
+                  old && !("kind" in old) ? old : undefined,
+                );
           previous.set(id, value);
           return value;
         })

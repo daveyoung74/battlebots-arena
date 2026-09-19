@@ -1,0 +1,26 @@
+{
+  "mode": "free",
+  "provenance": "disposable-test",
+  "matches": [
+    {
+      "id": "0x000000000000000000000000000000000000000000000000000000000000e290",
+      "profileHash": "0x0bb7dae30b45f64bd997bf378e3a7ae591406a928b1495833a27a8c1d8332f8a",
+      "packageHash": "0x56d37faf8c4bf50a8f4024bceda47d9a0fd6cd7052d91082d72e089be6ad3b11",
+      "label": "Pilot duel · played",
+      "champions": [
+        "Rook",
+        "Nyx"
+      ]
+    },
+    {
+      "champions": [
+        "Rook",
+        "Nyx"
+      ],
+      "id": "0x0000000000000000000000000000000000000000000000000000000000007535",
+      "label": "Pilot duel · walkover",
+      "packageHash": "0xc5e66cb29b6da9f94b0edc346915a3bdfc88524e854bc58da5dd18a6d6e2ab6a",
+      "profileHash": "0xfcf16096974447fd3422fc5ee093ca1ac2884d8d9bc3be0f8869f3fd53f9bc84"
+    }
+  ]
+}

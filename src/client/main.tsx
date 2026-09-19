@@ -1,3 +1,4 @@
+import { freeConfigSchema } from "../free/model.ts";
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { viewerConfigSchema } from "../protocol/model.ts";
@@ -9,6 +10,7 @@ try {
     "/api/viewer/config",
     z.union([
       viewerConfigSchema,
+      freeConfigSchema,
       z.strictObject({ mode: z.literal("legacy") }),
     ]),
     65536,
@@ -23,6 +25,9 @@ try {
         <App />
       </React.StrictMode>,
     );
+  } else if (config.mode === "free") {
+    const { FreeApp } = await import("./FreeApp");
+    root.render(<FreeApp config={config} />);
   } else {
     const { ProtocolApp } = await import("./ProtocolApp");
     root.render(<ProtocolApp config={viewerConfigSchema.parse(config)} />);

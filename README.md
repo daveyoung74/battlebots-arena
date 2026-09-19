@@ -1,6 +1,6 @@
 # AgentBorn Arena
 
-A public sample arena for AgentBorn's v2 match protocol. AgentBorn runs the rules and referees the match. This app downloads a complete replay, checks its published opening, and brings the recorded exchanges to life. It never enters, simulates, settles or cancels a v2 match.
+A public sample arena for AgentBorn matches. AgentBorn runs the rules and referees the match. This app reads a complete replay, checks its published opening, and brings the recorded exchanges to life. It never enters, simulates, settles or cancels a protocol match.
 
 MIT licensed, with original SVG portraits and synthesized sound. No account, wallet, database or platform credentials are needed for the default demo.
 
@@ -19,15 +19,16 @@ For a production-style local build, run `npm run build`, set `NODE_ENV=productio
 
 ## Choose an operating mode
 
-| `ARENA_MODE`        | Purpose                                                           | Authority                                                |
-| ------------------- | ----------------------------------------------------------------- | -------------------------------------------------------- |
-| `fixture` (default) | Included v2 replay fixtures                                       | Display only; no network upstream or database            |
-| `protocol`          | Read explicitly configured matches from an AgentBorn test service | Display only; no transaction or result-writing API       |
-| `legacy`            | Existing v1 records, local exhibitions and the historical adapter | Separate old engine/database/worker, never a v2 fallback |
+| `ARENA_MODE`        | Purpose                                                           | Authority                                                      |
+| ------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------- |
+| `fixture` (default) | Included v2 replay fixtures                                       | Display only; no network upstream or database                  |
+| `protocol`          | Read explicitly configured matches from an AgentBorn test service | Display only; no transaction or result-writing API             |
+| `free`              | Pinned walletless free-match archives and disposable test exports | Display only; loopback, no upstream credentials or live status |
+| `legacy`            | Existing v1 records, local exhibitions and the historical adapter | Separate old engine/database/worker, never a v2 fallback       |
 
 The connected viewer supports the approved **free, two-player duel** profile. Paid matches, other renderers and new game versions require explicit implementation and reviewed configuration; they do not silently inherit compatibility.
 
-Follow [the v2 builder guide](docs/protocol-v2.md) to configure a source, see the verification boundary, or adapt the renderer. The [legacy guide](docs/legacy.md) preserves the old sample and its database setup. Legacy practice/exhibitions never count toward protocol Training Grounds.
+Follow [the walletless free-match guide](docs/free-matches.md) for `free.match.public-package.1`, or [the v2 builder guide](docs/protocol-v2.md) for the older source, verification boundary and renderer. The [legacy guide](docs/legacy.md) preserves the old sample and its database setup. Legacy practice/exhibitions never count toward protocol Training Grounds.
 
 ## Verify
 

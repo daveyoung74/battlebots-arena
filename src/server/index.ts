@@ -14,12 +14,17 @@ if (config.mode === "legacy") {
     import("node:path"),
   ]);
   const { freeArchive, createFreeViewer } = await import("./free-viewer.ts");
-  const free = config.mode === "free";
-  const archive = free
-    ? await freeArchive(
-        process.env.ARENA_FREE_CONFIG || "fixtures/free/viewer.json",
-      )
-    : null;
+  const free = config.mode === "free" || config.mode === "free-live";
+  const archive =
+    config.mode === "free-live"
+      ? await (
+          await import("./free-live.ts")
+        ).freeLive(process.env.ARENA_FREE_CONFIG || "fixtures/free/live.json")
+      : free
+        ? await freeArchive(
+            process.env.ARENA_FREE_CONFIG || "fixtures/free/viewer.json",
+          )
+        : null;
   const service = !free
     ? await viewerService(config.mode as "fixture" | "protocol")
     : null;

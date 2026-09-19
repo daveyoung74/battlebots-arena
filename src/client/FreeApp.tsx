@@ -1,4 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import {
+  verifyLivePacket,
+  PUBLIC_REVISION,
+  type FreeLiveConfig,
+} from "../free/live.ts";
 import {
   frameAt,
   packetSchema,
@@ -10,7 +15,10 @@ import {
 import { read } from "./http.ts";
 import "./viewer.css";
 
-export function FreeApp({ config }: { config: FreeConfig }) {
+export function FreeApp({ config }: { config: FreeConfig | FreeLiveConfig }) {
+  const live = config.mode === "free-live";
+  const previous = useRef(new Map<string, FreePacket>());
+  const [refreshReady, setRefreshReady] = useState(false);
   const [id, setId] = useState(config.matches[0].id),
     [packet, setPacket] = useState<FreePacket | null>(null);
   const [error, setError] = useState(false),
@@ -21,6 +29,8 @@ export function FreeApp({ config }: { config: FreeConfig }) {
   const pin = config.matches.find((m) => m.id === id)!;
   useEffect(() => {
     const controller = new AbortController();
+    setRefreshReady(false);
+    const cooldown = setTimeout(() => setRefreshReady(true), 5000);
     setPacket(null);
     setError(false);
     setMs(0);
@@ -30,16 +40,26 @@ export function FreeApp({ config }: { config: FreeConfig }) {
       packetSchema,
       PACKAGE_BYTES,
       controller.signal,
+      live ? { revision: PUBLIC_REVISION, timeoutMs: 40000 } : undefined,
     )
       .then((raw) => {
-        const value = verifyFreePacket(raw, pin);
-        if (!controller.signal.aborted) setPacket(value);
+        const value =
+          "commitment" in pin
+            ? verifyLivePacket(raw, pin, previous.current.get(id))
+            : verifyFreePacket(raw, pin);
+        if (!controller.signal.aborted) {
+          previous.current.set(id, value);
+          setPacket(value);
+        }
       })
       .catch(() => {
         if (!controller.signal.aborted) setError(true);
       });
-    return () => controller.abort();
-  }, [id, pin, retry]);
+    return () => {
+      controller.abort();
+      clearTimeout(cooldown);
+    };
+  }, [id, pin, retry, live]);
   const duration = packet?.opening.replay?.durationMs ?? 0;
   useEffect(() => {
     if (!playing) return;
@@ -71,7 +91,9 @@ export function FreeApp({ config }: { config: FreeConfig }) {
         <span className="v-mode">
           {config.provenance === "disposable-test"
             ? "DISPOSABLE TEST"
-            : "PUBLISHED ARCHIVE"}
+            : live
+              ? "APPROVED PUBLIC SOURCE"
+              : "PUBLISHED ARCHIVE"}
         </span>
       </header>
       <main>
@@ -98,14 +120,29 @@ export function FreeApp({ config }: { config: FreeConfig }) {
               ))}
             </select>
           </label>
+          {live && (
+            <button
+              disabled={!refreshReady || (!packet && !error)}
+              onClick={() => setRetry((n) => n + 1)}
+            >
+              Refresh result status
+            </button>
+          )}
         </section>
         {error ? (
           <section role="alert" className="v-status">
             <h2>Replay unavailable</h2>
             <p>
-              The package is unavailable or does not match the reviewed archive.
+              {live
+                ? "The approved replay is not available yet, could not be freshly checked, or does not match its reviewed commitment. Wait a few seconds and retry."
+                : "The package is unavailable or does not match the reviewed archive."}
             </p>
-            <button onClick={() => setRetry((n) => n + 1)}>Retry</button>
+            <button
+              disabled={live && !refreshReady}
+              onClick={() => setRetry((n) => n + 1)}
+            >
+              Retry
+            </button>
           </section>
         ) : !packet ? (
           <p role="status">Checking match package…</p>
@@ -218,7 +255,7 @@ export function FreeApp({ config }: { config: FreeConfig }) {
               )}
             </section>
             <section className="v-status">
-              <h2>Archive record</h2>
+              <h2>{live ? "Result at last refresh" : "Archive record"}</h2>
               <p>
                 Recorded state: {packet.state}.{" "}
                 {packet.trainingCredited
@@ -226,7 +263,9 @@ export function FreeApp({ config }: { config: FreeConfig }) {
                   : "No training credit reported in this snapshot."}
               </p>
               <p>
-                This is a fixed historical export, not a live status feed.
+                {live
+                  ? "Fetched from the approved public source. Refresh to check for release or training credit; playback makes no background requests. "
+                  : "This is a fixed historical export, not a live status feed. "}
                 Replay controls never change the result or award credit.
               </p>
               {config.provenance === "disposable-test" && (
@@ -235,11 +274,14 @@ export function FreeApp({ config }: { config: FreeConfig }) {
               <details>
                 <summary>What the reader checks</summary>
                 <p>
-                  The configured package and profile hashes, match identity,
-                  result commitment, replay progression and supplied
-                  transaction/event/state evidence. The archive does not
-                  independently check the live chain, certification signatures
-                  or current training records.
+                  {live
+                    ? "The configured commitment and profile hashes"
+                    : "The configured package and profile hashes"}
+                  , match identity, result commitment, replay progression and
+                  supplied transaction/event/state evidence.{" "}
+                  {live
+                    ? "The approved service checks the current chain and training records. The viewer relies on that service for freshness and does not independently verify the chain or certification signatures."
+                    : "The archive does not independently check the live chain, certification signatures or current training records."}
                 </p>
                 <p>
                   Match: <code style={{ overflowWrap: "anywhere" }}>{id}</code>

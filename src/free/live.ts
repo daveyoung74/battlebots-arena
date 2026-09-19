@@ -1,0 +1,47 @@
+import { z } from "zod";
+import * as P from "@agentborn/protocol-v2";
+import {
+  matchPinSchema,
+  verifyPacket,
+  packageHash,
+  type FreePacket,
+} from "./model.ts";
+
+export const PUBLIC_REVISION = "free.match.public-read.1";
+export const livePinSchema = matchPinSchema
+  .omit({ packageHash: true })
+  .extend({ commitment: P.idSchema.refine((v) => v !== P.ZERO_HASH) });
+export const freeLiveConfigSchema = z
+  .strictObject({
+    mode: z.literal("free-live"),
+    provenance: z.enum(["disposable-test", "approved-source"]),
+    matches: z.array(livePinSchema).min(1).max(32),
+  })
+  .refine((v) => new Set(v.matches.map((m) => m.id)).size === v.matches.length);
+export type FreeLiveConfig = z.infer<typeof freeLiveConfigSchema>;
+export type LivePin = z.infer<typeof livePinSchema>;
+
+/** The approved HTTPS service verifies the live chain. This reader checks supplied evidence. */
+export function verifyLivePacket(
+  raw: unknown,
+  pin: LivePin,
+  previous?: FreePacket,
+) {
+  const value = verifyPacket(raw, pin);
+  if (value.commitment !== pin.commitment)
+    throw new Error("Live commitment pin");
+  if (previous) {
+    if (
+      (previous.state === "released" && value.state !== "released") ||
+      (previous.completion?.state === "complete" &&
+        value.completion?.state !== "complete") ||
+      previous.receipts.some(
+        (receipt, i) => packageHash(receipt) !== packageHash(value.receipts[i]),
+      ) ||
+      (previous.completion?.state === "complete" &&
+        packageHash(previous.completion) !== packageHash(value.completion))
+    )
+      throw new Error("Live status regression or evidence replacement");
+  }
+  return value;
+}

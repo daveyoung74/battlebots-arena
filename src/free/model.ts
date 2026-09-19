@@ -275,12 +275,20 @@ export function commitments(
  * This is not an RPC verifier, a certification signature verifier or authority to award credit. */
 export function verifyFreePacket(raw: unknown, expected: MatchPin): FreePacket {
   check(packageHash(raw) === expected.packageHash, "package pin");
+  return verifyPacket(raw, expected);
+}
+
+/** Shared evidence checks; live delivery adds an independently approved commitment pin. */
+export function verifyPacket(
+  raw: unknown,
+  expected: Pick<MatchPin, "id" | "profileHash">,
+): FreePacket {
   const v = packetSchema.parse(raw),
     m = v.manifest,
     o = v.opening,
     t = m.terms,
     p = v.receipts[0].profile;
-  check(packageHash(v) === expected.packageHash, "unrecognized fields");
+  check(packageHash(v) === packageHash(raw), "unrecognized fields");
   check(v.state !== "committed", "archive requires finalized outcome");
   check(
     m.matchId === expected.id &&

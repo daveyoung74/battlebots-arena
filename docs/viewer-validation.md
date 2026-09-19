@@ -1,5 +1,11 @@
 # V2 viewer validation and release boundary
 
+## September 19 approved public delivery extension
+
+The separate [free-live reader](free-live.md) adds reviewed match/profile/commitment pins, a fixed public origin, bounded credential-free fetches and manual result refresh. All 36 sample tests pass, including finalized-to-released-to-recorded progression, evidence/status regressions, source failure without stale fallback, redirects, request coalescing and restarts. The production TypeScript/Vite build, formatting and unchanged 50-file vendor provenance check pass.
+
+Production-style browser checks at 1440px and 390px used a clearly labeled disposable fixture source: local playback, manual finalized-to-released refresh with reported credit, walkovers without combat, failure hiding the old replay and successful retry. Source request counts confirmed no per-frame or background status polling. No horizontal overflow was observed. These UI checks are distinct from the paired native-chain rehearsal in the application's `docs/FREE_MATCH_PUBLIC_DELIVERY.md`; neither activates a real service.
+
 ## September 19 walletless archive extension
 
 The separate [free-authority archive](free-matches.md) adds seven tests (33 sample tests total). They cover application-produced played and walkover exports, exact pins, caller/event/state/finality tampering, invalid replay progression, a pending completion retaining its certified time, read-only HTTP, bounded files and replacement rejection across restart. The 57 public-package tests, 50-file provenance check, TypeScript/Vite build and formatting check pass. The archive packaging command was exercised on disposable local files.

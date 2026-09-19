@@ -32,7 +32,7 @@ The optional `scripts/free-archive-config.ts` helper writes new archives without
 npx tsx scripts/free-archive-config.ts ./my-archive disposable-test "Pilot match" "Rook" "Nyx" ./export.json
 ```
 
-Create the output directory first. **Computing a hash does not establish authenticity.** Review the export's origin and profile before trusting its pin. Obtain only already-public material through an approved export process. Do not give the sample a handler cookie, private strategy, worker certificate key or signing key. There is no automatic export endpoint or live studio transport in this milestone.
+Create the output directory first. **Computing a hash does not establish authenticity.** Review the export's origin and profile before trusting its pin. Obtain only already-public material through an approved export process. Do not give the sample a handler cookie, private strategy, worker certificate key or signing key. For separately approved public retrieval, use [the explicit free-live mode](free-live.md); archive mode remains offline.
 
 The server binds to loopback, rejects cross-site/foreign-host requests and writes no protocol state. Only allowlisted IDs have bundle routes. There is no signal/polling endpoint in this mode. Each file is rechecked against the startup config, including after process restart; replacing it with a different outcome, profile or credit snapshot fails closed. To display a later recorded completion, deliberately review a new package/config and restart. A loaded browser keeps the existing snapshot until reload.
 
@@ -48,4 +48,4 @@ These are **archive consistency checks**, not independent chain inclusion or liv
 
 The paired application suite can load this checkout through `FREE_SAMPLE_VIEWER_ROOT`. It runs the real disposable board, database, signing service and approved worker, then presents their published played/walkover packets through this reader and HTTP server. It also covers finalized, released-awaiting-record and completed snapshots, corrupt replacements and restart. See the companion application handoff `docs/FREE_SAMPLE_CONFORMANCE.md` for exact commands and revision evidence. This local evidence is not a production or real-provider rehearsal.
 
-Live studio/public retrieval, current status refresh, cancellation-only signals, real-provider two-handler staging, game admission and production activation remain separate release work.
+Approved finalized/released public retrieval and manual result refresh are implemented in the separate [free-live mode](free-live.md). Early-opening evidence, cancellation-only signals, real-provider two-handler staging, game admission and production activation remain separate release work.

@@ -7,9 +7,12 @@ if (
   mode !== "fixture" &&
   mode !== "protocol" &&
   mode !== "legacy" &&
+  mode !== "free-live" &&
   mode !== "free"
 )
-  throw new Error("ARENA_MODE must be fixture, protocol, free or legacy");
+  throw new Error(
+    "ARENA_MODE must be fixture, protocol, free, free-live or legacy",
+  );
 function number(name: string, fallback: number, min = 1) {
   const n = Number(process.env[name] || fallback);
   if (!Number.isFinite(n) || n < min) throw new Error("Invalid " + name);
@@ -20,7 +23,7 @@ const url = (process.env.ARENA_PUBLIC_URL || "http://localhost:3100").replace(
   "",
 );
 export const config = {
-  mode: mode as "fixture" | "protocol" | "free" | "legacy",
+  mode: mode as "fixture" | "protocol" | "free" | "free-live" | "legacy",
   port: number("PORT", 3100),
   url,
   platform: (process.env.BATTLEBOTS_URL || "http://localhost:3000").replace(

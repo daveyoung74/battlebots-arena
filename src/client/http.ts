@@ -5,12 +5,14 @@ export async function read<S extends z.ZodType>(
   schema: S,
   max: number,
   signal?: AbortSignal,
+  options?: { revision: string; timeoutMs: number },
 ): Promise<z.infer<S>> {
-  const timeout = AbortSignal.timeout(15000);
+  const timeout = AbortSignal.timeout(options?.timeoutMs ?? 15000);
   const response = await fetch(url, {
     credentials: "omit",
     redirect: "error",
     cache: "no-store",
+    headers: options ? { "X-AgentBorn-Revision": options.revision } : undefined,
     signal: signal ? AbortSignal.any([signal, timeout]) : timeout,
   });
   if (!response.ok)

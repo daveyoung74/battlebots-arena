@@ -2,13 +2,19 @@ import { open, realpath } from "node:fs/promises";
 import path from "node:path";
 import express from "express";
 import * as P from "@agentborn/protocol-v2";
+import type { FreeLiveConfig } from "../free/live.ts";
 import {
   freeConfigSchema,
   PACKAGE_BYTES,
   verifyFreePacket,
+  type FreeConfig,
+  type FreePacket,
 } from "../free/model.ts";
 
-async function boundedJson(file: string, limit: number): Promise<unknown> {
+export async function boundedJson(
+  file: string,
+  limit: number,
+): Promise<unknown> {
   const handle = await open(file, "r");
   try {
     const stat = await handle.stat();
@@ -55,9 +61,10 @@ export async function freeArchive(configFile: string) {
   };
 }
 
-export function createFreeViewer(
-  service: Awaited<ReturnType<typeof freeArchive>>,
-) {
+export function createFreeViewer(service: {
+  config: FreeConfig | FreeLiveConfig;
+  bundle(id: string): Promise<FreePacket>;
+}) {
   const app = express();
   app.disable("x-powered-by");
   app.use((req, res, next) => {
@@ -87,7 +94,14 @@ export function createFreeViewer(
   const send = (res: express.Response, value: unknown, limit = 65536) =>
     res.type("application/json").send(P.canonicalJson(value, limit));
   app.get("/api/health", (_req, res) =>
-    send(res, { ok: true, mode: "free", authority: "archive-viewer" }),
+    send(res, {
+      ok: true,
+      mode: service.config.mode,
+      authority:
+        service.config.mode === "free"
+          ? "archive-viewer"
+          : "public-replay-reader",
+    }),
   );
   app.get("/api/viewer/config", (_req, res) => send(res, service.config));
   app.get("/api/viewer/matches/:id/bundle", async (req, res) => {
@@ -106,7 +120,7 @@ export function createFreeViewer(
       _next: express.NextFunction,
     ) =>
       res.status(503).json({
-        error: "Archive unavailable or does not match its reviewed pin",
+        error: "Replay unavailable or does not match its reviewed pin",
       }),
   );
   return app;

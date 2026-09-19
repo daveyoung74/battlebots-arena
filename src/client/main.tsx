@@ -1,4 +1,5 @@
 import { freeConfigSchema } from "../free/model.ts";
+import { freeLiveConfigSchema } from "../free/live.ts";
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { viewerConfigSchema } from "../protocol/model.ts";
@@ -11,6 +12,7 @@ try {
     z.union([
       viewerConfigSchema,
       freeConfigSchema,
+      freeLiveConfigSchema,
       z.strictObject({ mode: z.literal("legacy") }),
     ]),
     65536,
@@ -25,7 +27,7 @@ try {
         <App />
       </React.StrictMode>,
     );
-  } else if (config.mode === "free") {
+  } else if (config.mode === "free" || config.mode === "free-live") {
     const { FreeApp } = await import("./FreeApp");
     root.render(<FreeApp config={config} />);
   } else {

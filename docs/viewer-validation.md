@@ -1,5 +1,13 @@
 # V2 viewer validation and release boundary
 
+## September 19 walletless archive extension
+
+The separate [free-authority archive](free-matches.md) adds seven tests (33 sample tests total). They cover application-produced played and walkover exports, exact pins, caller/event/state/finality tampering, invalid replay progression, a pending completion retaining its certified time, read-only HTTP, bounded files and replacement rejection across restart. The 57 public-package tests, 50-file provenance check, TypeScript/Vite build and formatting check pass. The archive packaging command was exercised on disposable local files.
+
+Browser checks covered development and production-style startup, desktop and 390px layouts, playback, restart, keyboard seeking, speed selection and walkovers without combat controls. No horizontal overflow or browser console errors were observed. The sample displays fixed source-reported completion snapshots; live status transport and staging remain open. The paired application's current report is `docs/FREE_SAMPLE_CONFORMANCE.md` in the companion branch. No deployment was performed.
+
+## Original v2 milestone
+
 The default demo contains only synthetic public vectors. `fixtures/viewer.json` uses real AgentBorn duel-interpreter output for played events, with artificial receipts and identities. Its walkover and cancellation are synthetic public-schema examples. It contains no private strategy, real champion, live credential or application database export.
 
 The checks below passed locally on 2026-09-16 UTC. Both development and production-style fixture startup were exercised. The paired application contract/SQL/HTTP handoff passed all four nested tests after fixing its seeded-cancellation qualification read route. Docker configuration is supplied but a container build/deployment was not run.

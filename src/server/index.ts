@@ -13,8 +13,17 @@ if (config.mode === "legacy") {
     import("express"),
     import("node:path"),
   ]);
-  const service = await viewerService(config.mode),
-    app = createViewer(service);
+  const { freeArchive, createFreeViewer } = await import("./free-viewer.ts");
+  const free = config.mode === "free";
+  const archive = free
+    ? await freeArchive(
+        process.env.ARENA_FREE_CONFIG || "fixtures/free/viewer.json",
+      )
+    : null;
+  const service = !free
+    ? await viewerService(config.mode as "fixture" | "protocol")
+    : null;
+  const app = archive ? createFreeViewer(archive) : createViewer(service!);
   let closeFrontend = async () => {};
   if (process.env.NODE_ENV === "production") {
     app.use(express.static("dist"));
@@ -31,6 +40,7 @@ if (config.mode === "legacy") {
           allow: [
             path.resolve("src/client"),
             path.resolve("src/protocol"),
+            path.resolve("src/free"),
             path.resolve("node_modules"),
             path.resolve("vendor/protocol-v2/dist"),
             path.resolve("index.html"),
@@ -42,9 +52,10 @@ if (config.mode === "legacy") {
     app.use(vite.middlewares);
     closeFrontend = () => vite.close();
   }
-  const host = service.config.studioPreview
-    ? "127.0.0.1"
-    : process.env.ARENA_BIND_HOST || "127.0.0.1";
+  const host =
+    free || service?.config.studioPreview
+      ? "127.0.0.1"
+      : process.env.ARENA_BIND_HOST || "127.0.0.1";
   const server = app.listen(config.port, host, () =>
     console.log(`Arena ${config.mode} viewer: http://${host}:${config.port}`),
   );

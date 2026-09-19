@@ -3,8 +3,13 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 dotenv({ path: process.env.ARENA_ENV_FILE || ".env", quiet: true });
 const mode = process.env.ARENA_MODE || "fixture";
-if (mode !== "fixture" && mode !== "protocol" && mode !== "legacy")
-  throw new Error("ARENA_MODE must be fixture, protocol or legacy");
+if (
+  mode !== "fixture" &&
+  mode !== "protocol" &&
+  mode !== "legacy" &&
+  mode !== "free"
+)
+  throw new Error("ARENA_MODE must be fixture, protocol, free or legacy");
 function number(name: string, fallback: number, min = 1) {
   const n = Number(process.env[name] || fallback);
   if (!Number.isFinite(n) || n < min) throw new Error("Invalid " + name);
@@ -15,7 +20,7 @@ const url = (process.env.ARENA_PUBLIC_URL || "http://localhost:3100").replace(
   "",
 );
 export const config = {
-  mode: mode as "fixture" | "protocol" | "legacy",
+  mode: mode as "fixture" | "protocol" | "free" | "legacy",
   port: number("PORT", 3100),
   url,
   platform: (process.env.BATTLEBOTS_URL || "http://localhost:3000").replace(

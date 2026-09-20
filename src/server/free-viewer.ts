@@ -3,6 +3,7 @@ import path from "node:path";
 import express from "express";
 import * as P from "@agentborn/protocol-v2";
 import type { FreeLiveConfig } from "../free/live.ts";
+import type { PublicOutcome } from "../free/outcome.ts";
 import {
   freeConfigSchema,
   PACKAGE_BYTES,
@@ -63,7 +64,7 @@ export async function freeArchive(configFile: string) {
 
 export function createFreeViewer(service: {
   config: FreeConfig | FreeLiveConfig;
-  bundle(id: string): Promise<FreePacket>;
+  bundle(id: string): Promise<FreePacket | PublicOutcome>;
 }) {
   const app = express();
   app.disable("x-powered-by");

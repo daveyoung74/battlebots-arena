@@ -1,4 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import { z } from "zod";
+import {
+  outcomeSchema,
+  verifyOutcome,
+  type PublicOutcome,
+} from "../free/outcome.ts";
 import {
   verifyLivePacket,
   PUBLIC_REVISION,
@@ -17,10 +23,19 @@ import "./viewer.css";
 
 export function FreeApp({ config }: { config: FreeConfig | FreeLiveConfig }) {
   const live = config.mode === "free-live";
-  const previous = useRef(new Map<string, FreePacket>());
+  const outcomes = "delivery" in config;
+  const previous = useRef(new Map<string, FreePacket | PublicOutcome>());
   const [refreshReady, setRefreshReady] = useState(false);
   const [id, setId] = useState(config.matches[0].id),
-    [packet, setPacket] = useState<FreePacket | null>(null);
+    [data, setData] = useState<FreePacket | PublicOutcome | null>(null);
+  const outcome = data && "kind" in data ? data : null;
+  const terminal = outcome?.kind === "terminal" ? outcome : null;
+  const packet =
+    data && "kind" in data
+      ? data.kind === "replay"
+        ? data.packet
+        : null
+      : data;
   const [error, setError] = useState(false),
     [retry, setRetry] = useState(0),
     [ms, setMs] = useState(0),
@@ -31,25 +46,32 @@ export function FreeApp({ config }: { config: FreeConfig | FreeLiveConfig }) {
     const controller = new AbortController();
     setRefreshReady(false);
     const cooldown = setTimeout(() => setRefreshReady(true), 5000);
-    setPacket(null);
+    setData(null);
     setError(false);
     setMs(0);
     setPlaying(false);
     void read(
       `/api/viewer/matches/${id}/bundle`,
-      packetSchema,
+      z.union([packetSchema, outcomeSchema]),
       PACKAGE_BYTES,
       controller.signal,
       live ? { revision: PUBLIC_REVISION, timeoutMs: 40000 } : undefined,
     )
       .then((raw) => {
+        const old = previous.current.get(id);
         const value =
-          "commitment" in pin
-            ? verifyLivePacket(raw, pin, previous.current.get(id))
-            : verifyFreePacket(raw, pin);
+          "manifestHash" in pin
+            ? verifyOutcome(raw, pin, old && "kind" in old ? old : undefined)
+            : "commitment" in pin
+              ? verifyLivePacket(
+                  raw,
+                  pin,
+                  old && !("kind" in old) ? old : undefined,
+                )
+              : verifyFreePacket(raw, pin);
         if (!controller.signal.aborted) {
           previous.current.set(id, value);
-          setPacket(value);
+          setData(value);
         }
       })
       .catch(() => {
@@ -99,10 +121,15 @@ export function FreeApp({ config }: { config: FreeConfig | FreeLiveConfig }) {
       <main>
         <section className="v-intro">
           <p className="v-kicker">WALLETLESS FREE MATCHES</p>
-          <h1>The whole match. Ready to replay.</h1>
+          <h1>
+            {outcomes
+              ? "The match. The outcome."
+              : "The whole match. Ready to replay."}
+          </h1>
           <p>
-            A complete match package, played locally. No wallet or event stream
-            needed.
+            {outcomes
+              ? "Watch the full replay or check why a match did not take place. No wallet needed."
+              : "A complete match package, played locally. No wallet or event stream needed."}
           </p>
         </section>
         <section className="v-program">
@@ -122,7 +149,7 @@ export function FreeApp({ config }: { config: FreeConfig | FreeLiveConfig }) {
           </label>
           {live && (
             <button
-              disabled={!refreshReady || (!packet && !error)}
+              disabled={!refreshReady || (!data && !error)}
               onClick={() => setRetry((n) => n + 1)}
             >
               Refresh result status
@@ -131,11 +158,13 @@ export function FreeApp({ config }: { config: FreeConfig | FreeLiveConfig }) {
         </section>
         {error ? (
           <section role="alert" className="v-status">
-            <h2>Replay unavailable</h2>
+            <h2>{outcomes ? "Result unavailable" : "Replay unavailable"}</h2>
             <p>
-              {live
-                ? "The approved replay is not available yet, could not be freshly checked, or does not match its reviewed commitment. Wait a few seconds and retry."
-                : "The package is unavailable or does not match the reviewed archive."}
+              {outcomes
+                ? "The approved outcome is not available yet or could not be verified. Wait a few seconds and retry."
+                : live
+                  ? "The approved replay is not available yet, could not be freshly checked, or does not match its reviewed commitment. Wait a few seconds and retry."
+                  : "The package is unavailable or does not match the reviewed archive."}
             </p>
             <button
               disabled={live && !refreshReady}
@@ -144,9 +173,36 @@ export function FreeApp({ config }: { config: FreeConfig | FreeLiveConfig }) {
               Retry
             </button>
           </section>
-        ) : !packet ? (
+        ) : !data ? (
           <p role="status">Checking match package…</p>
-        ) : (
+        ) : terminal ? (
+          <section className="v-status" aria-label="Match outcome">
+            <h2>
+              {terminal.record.disposition === "cancelled"
+                ? "Match cancelled"
+                : "Match did not start"}
+            </h2>
+            <p>
+              {terminal.record.disposition === "cancelled"
+                ? "The protocol cancelled this match and released its seats."
+                : "The match was not committed before its start window closed."}
+            </p>
+            <p>No winner, replay or played-match training credit is awarded.</p>
+            <p>
+              {terminal.completion.state === "complete"
+                ? "The terminal record is complete."
+                : "The terminal outcome is verified; recording is pending."}
+            </p>
+            <p>
+              Result at last refresh. The approved service verifies the chain
+              and completion records; this viewer checks their identity and
+              consistency.
+            </p>
+            {config.provenance === "disposable-test" && (
+              <p>Disposable local-chain test data. Not a production match.</p>
+            )}
+          </section>
+        ) : packet ? (
           <>
             <section className="v-stage" aria-label="Match replay">
               <div className="v-stage-top">
@@ -256,6 +312,12 @@ export function FreeApp({ config }: { config: FreeConfig | FreeLiveConfig }) {
             </section>
             <section className="v-status">
               <h2>{live ? "Result at last refresh" : "Archive record"}</h2>
+              {packet.state === "committed" && (
+                <p>
+                  The opening is published. On-chain finalization and training
+                  credit are still pending.
+                </p>
+              )}
               <p>
                 Recorded state: {packet.state}.{" "}
                 {packet.trainingCredited
@@ -289,7 +351,7 @@ export function FreeApp({ config }: { config: FreeConfig | FreeLiveConfig }) {
               </details>
             </section>
           </>
-        )}
+        ) : null}
       </main>
     </div>
   );
